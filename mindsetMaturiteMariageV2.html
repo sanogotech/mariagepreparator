@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist – Maturité pour le Mariage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-bottom: 20px;
+      border-left: 5px solid #0d6efd;
+    }
+    .result-box {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="text-center text-primary mb-4">✅ Ai-je le bon mindset et la maturité pour le mariage ?</h1>
+    <form id="checklistForm">
+      
+      <!-- Dynamically generated cards -->
+      <div id="questionsContainer"></div>
+
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-success btn-lg" onclick="calculateScore()">Voir le score</button>
+      </div>
+
+      <div id="result" class="result-box text-center mt-4"></div>
+    </form>
+  </div>
+
+  <script>
+    const categories = {
+      "Responsabilité émotionnelle": [
+        "Je reconnais mes torts sans difficulté.",
+        "Je peux gérer la frustration sans exploser.",
+        "Je prends soin de ma santé mentale.",
+        "Je n’attends pas que l’autre me complète émotionnellement.",
+        "Je ne fuis pas les émotions désagréables."
+      ],
+      "Capacité à résoudre les conflits": [
+        "Je sais désamorcer les tensions avec calme.",
+        "Je n’utilise pas le silence pour punir.",
+        "Je privilégie le dialogue au conflit.",
+        "Je cherche des solutions, pas à avoir raison.",
+        "Je sais m’excuser sincèrement."
+      ],
+      "Indépendance personnelle": [
+        "Je suis bien seul(e) et ne cherche pas à combler un vide.",
+        "J’ai des projets personnels indépendants du couple.",
+        "Je n’ai pas besoin d’une présence constante.",
+        "Je suis capable de prendre des décisions seul(e).",
+        "Je ne me définis pas uniquement à travers mon/ma partenaire."
+      ],
+      "Vision réaliste du mariage": [
+        "Je sais que le mariage comporte des hauts et des bas.",
+        "Je ne m’attends pas à un conte de fée permanent.",
+        "Je comprends que l’amour demande un effort quotidien.",
+        "Je suis prêt(e) à affronter les moments difficiles à deux.",
+        "Je sais qu’il n’existe pas de partenaire parfait."
+      ],
+      "Communication saine": [
+        "Je m’exprime sans agressivité.",
+        "Je suis capable d’écouter sans interrompre.",
+        "Je communique mes besoins clairement.",
+        "Je sais poser des limites sans culpabilité.",
+        "Je ne recours pas au chantage émotionnel."
+      ],
+      "Engagement et fidélité": [
+        "Je suis fidèle dans mes relations.",
+        "Je ne fuis pas l'engagement.",
+        "Je prends les promesses au sérieux.",
+        "Je sais ce que signifie être loyal(e).",
+        "Je m’investis à long terme dans mes engagements."
+      ],
+      "Gestion des attentes": [
+        "Je n’idéalise pas le mariage ou mon partenaire.",
+        "Je distingue mes désirs de la réalité.",
+        "Je suis flexible face aux imprévus.",
+        "Je ne m’attends pas à ce que tout soit parfait.",
+        "Je comprends que le bonheur dépend aussi de moi."
+      ],
+      "Spiritualité / Valeurs": [
+        "Je connais mes valeurs et les respecte.",
+        "Je cherche une compatibilité spirituelle ou morale.",
+        "Je base mes décisions sur des principes solides.",
+        "Je suis aligné(e) avec mes convictions profondes.",
+        "Je respecte les valeurs de l’autre, même différentes."
+      ],
+      "Maturité financière": [
+        "Je sais gérer un budget.",
+        "Je suis transparent(e) sur mes finances.",
+        "Je ne dépends pas complètement d’autrui.",
+        "Je planifie les dépenses importantes.",
+        "Je suis prêt(e) à gérer les finances à deux."
+      ],
+      "Écoute et empathie": [
+        "Je prends en compte les émotions de l’autre.",
+        "Je sais reconnaître quand l’autre souffre.",
+        "Je ne minimise pas les sentiments d’autrui.",
+        "Je suis attentif(ve) aux besoins de mon/ma partenaire.",
+        "Je pratique l’écoute active sans juger."
+      ]
+    };
+
+    function generateChecklist() {
+      const container = document.getElementById("questionsContainer");
+      let questionIndex = 1;
+
+      for (let [category, questions] of Object.entries(categories)) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card-header fw-bold">${category}</div>
+          <div class="card-body"></div>
+        `;
+        const body = card.querySelector(".card-body");
+
+        questions.forEach((q, i) => {
+          const id = `q${questionIndex++}`;
+          const div = document.createElement("div");
+          div.className = "form-check mb-2";
+          div.innerHTML = `
+            <input class="form-check-input" type="checkbox" id="${id}" name="${id}">
+            <label class="form-check-label" for="${id}">${q}</label>
+          `;
+          body.appendChild(div);
+        });
+
+        container.appendChild(card);
+      }
+    }
+
+    function calculateScore() {
+      const checkboxes = document.querySelectorAll("input[type='checkbox']");
+      let score = 0;
+      checkboxes.forEach(cb => {
+        if (cb.checked) score++;
+      });
+
+      let level = '';
+      if (score >= 45) {
+        level = "💍 Excellent niveau de maturité pour le mariage !";
+      } else if (score >= 35) {
+        level = "✅ Bon niveau, quelques points à travailler.";
+      } else if (score >= 25) {
+        level = "⚠️ Maturité moyenne, plusieurs points à approfondir.";
+      } else {
+        level = "❌ Maturité insuffisante pour un engagement durable.";
+      }
+
+      document.getElementById("result").innerText = `Score : ${score}/50 — ${level}`;
+    }
+
+    // Génère le formulaire au chargement
+    window.onload = generateChecklist;
+  </script>
+</body>
+</html>
