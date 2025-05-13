@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Checklist Compatibilité de Couple – Analyse complète</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-bottom: 20px;
+      border-left: 5px solid #0d6efd;
+    }
+    .result-box {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="text-center text-primary mb-4">✅ Compatibilité de Couple – Analyse Complète</h1>
+    <form id="compatibilityForm">
+      <div id="questionsContainer"></div>
+
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-success btn-lg" onclick="calculateCompatibility()">Voir le score & analyse</button>
+      </div>
+
+      <div id="result" class="result-box text-center mt-4"></div>
+      <div id="strongPoints" class="result-box mt-4"></div>
+      <div id="weakPoints" class="result-box mt-4"></div>
+      <div id="recommendations" class="result-box mt-4"></div>
+    </form>
+  </div>
+
+  <script>
+    const categories = {
+      "Vision de la vie à deux": [
+        "Nous partageons une vision similaire du mariage.",
+        "Nous avons discuté de nos objectifs de vie à long terme.",
+        "Nous sommes alignés sur le style de vie que nous souhaitons.",
+        "Nous avons une idée claire du rôle de chacun dans le couple.",
+        "Nous avons abordé le sujet de la parentalité (ou non)."
+      ],
+      "Valeurs et croyances": [
+        "Nos croyances fondamentales sont compatibles.",
+        "Nous respectons les différences de convictions.",
+        "Nous avons discuté de nos valeurs éthiques et spirituelles.",
+        "Nous voulons transmettre des valeurs similaires à nos enfants.",
+        "Nos priorités (famille, foi, carrière) sont alignées."
+      ],
+      "Communication": [
+        "Nous parlons librement de nos émotions.",
+        "Nous savons gérer les désaccords calmement.",
+        "Nous avons un langage affectif compatible.",
+        "Nous écoutons activement l’un l’autre.",
+        "Nous sommes transparents sur les sujets sensibles."
+      ],
+      "Gestion financière": [
+        "Nous avons discuté de notre approche de l’argent.",
+        "Nous connaissons les dettes et revenus de chacun.",
+        "Nous avons des attentes similaires sur les dépenses.",
+        "Nous avons une stratégie commune pour économiser.",
+        "Nous sommes à l’aise pour parler d’argent ensemble."
+      ],
+      "Famille et entourage": [
+        "Nous avons abordé nos relations avec les familles respectives.",
+        "Nous connaissons les attentes de nos familles.",
+        "Nous avons défini notre niveau d’indépendance familiale.",
+        "Nous savons comment gérer les conflits familiaux.",
+        "Nous sommes sur la même longueur d’onde concernant les fêtes et traditions."
+      ],
+      "Intimité et sexualité": [
+        "Nous avons discuté de nos besoins et attentes sexuelles.",
+        "Nous partageons des limites et des désirs compatibles.",
+        "Nous abordons le sujet avec respect et honnêteté.",
+        "Nous avons une bonne compréhension de l’intimité affective.",
+        "Nous avons parlé de fidélité et d’engagement physique."
+      ],
+      "Projets de vie": [
+        "Nous voulons évoluer dans des directions compatibles.",
+        "Nos ambitions professionnelles sont conciliables.",
+        "Nous voulons vivre dans un lieu géographique commun.",
+        "Nous avons une vision alignée du rythme de vie.",
+        "Nous avons parlé de nos projets individuels et de couple."
+      ],
+      "Temps et priorités": [
+        "Nous savons gérer notre temps ensemble et séparément.",
+        "Nous avons des attentes réalistes sur la disponibilité de l’autre.",
+        "Nous valorisons les mêmes activités de couple.",
+        "Nous respectons les temps personnels de chacun.",
+        "Nous savons accorder du temps de qualité au couple."
+      ],
+      "Épreuves et résilience": [
+        "Nous avons traversé des moments difficiles ensemble.",
+        "Nous savons nous soutenir mutuellement.",
+        "Nous avons vu comment chacun réagit au stress.",
+        "Nous avons confiance en notre capacité à affronter les épreuves.",
+        "Nous croyons en notre engagement même dans les moments de doute."
+      ],
+      "Compatibilité émotionnelle": [
+        "Nous savons reconnaître les émotions de l’autre.",
+        "Nous sommes sensibles aux besoins affectifs réciproques.",
+        "Nous ne cherchons pas à changer l’autre.",
+        "Nous ressentons une sécurité émotionnelle mutuelle.",
+        "Nous nous sentons pleinement nous-mêmes ensemble."
+      ]
+    };
+
+    function generateChecklist() {
+      const container = document.getElementById("questionsContainer");
+      let questionIndex = 1;
+
+      for (let [category, questions] of Object.entries(categories)) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<div class="card-header fw-bold">${category}</div><div class="card-body"></div>`;
+        const body = card.querySelector(".card-body");
+
+        questions.forEach(q => {
+          const id = `q${questionIndex++}`;
+          const div = document.createElement("div");
+          div.className = "form-check mb-2";
+          div.innerHTML = `
+            <input class="form-check-input" type="checkbox" id="${id}" name="${id}">
+            <label class="form-check-label" for="${id}">${q}</label>
+          `;
+          body.appendChild(div);
+        });
+
+        container.appendChild(card);
+      }
+    }
+
+    function calculateCompatibility() {
+      const checkboxes = document.querySelectorAll("input[type='checkbox']");
+      const allQuestions = [];
+      const checkedQuestions = [];
+
+      let i = 0;
+      for (const category in categories) {
+        for (const q of categories[category]) {
+          const id = `q${++i}`;
+          const checkbox = document.getElementById(id);
+          allQuestions.push(q);
+          if (checkbox.checked) checkedQuestions.push(q);
+        }
+      }
+
+      const total = allQuestions.length;
+      const score = checkedQuestions.length;
+
+      // Niveau
+      let level = '';
+      if (score >= 45) {
+        level = "💑 Très forte compatibilité !";
+      } else if (score >= 35) {
+        level = "🟢 Bonne compatibilité, quelques points à améliorer.";
+      } else if (score >= 25) {
+        level = "🟠 Compatibilité moyenne, dialogue indispensable.";
+      } else {
+        level = "🔴 Faible compatibilité. Revoir les fondations du couple.";
+      }
+
+      document.getElementById("result").innerHTML = `<strong>Score :</strong> ${score}/50<br><strong>Niveau :</strong> ${level}`;
+
+      // Points forts et faibles
+      const strongPoints = checkedQuestions.slice(0, 10);
+      const weakPoints = allQuestions.filter(q => !checkedQuestions.includes(q)).slice(0, 10);
+
+      document.getElementById("strongPoints").innerHTML = `
+        <h5 class="text-success">✅ Top 10 des forces du couple :</h5>
+        <ul>${strongPoints.map(q => `<li>${q}</li>`).join('')}</ul>
+      `;
+
+      document.getElementById("weakPoints").innerHTML = `
+        <h5 class="text-danger">⚠️ Top 10 des fragilités à explorer :</h5>
+        <ul>${weakPoints.map(q => `<li>${q}</li>`).join('')}</ul>
+      `;
+
+      // Recommandations
+      let recText = `
+        <h5 class="text-primary">💡 Recommandations & Bonnes Pratiques :</h5>
+        <ul>
+          <li>Planifiez des discussions sincères sur les points faibles identifiés.</li>
+          <li>Consultez un conseiller conjugal ou faites un atelier de préparation au mariage.</li>
+          <li>Renforcez vos forces par des actions concrètes (ex : rituels, rendez-vous, projets communs).</li>
+          <li>Revenez à cette checklist dans 1 à 3 mois pour observer les évolutions.</li>
+          <li>Pratiquez l’écoute active, la gratitude et le pardon mutuel.</li>
+        </ul>
+      `;
+      document.getElementById("recommendations").innerHTML = recText;
+    }
+
+    window.onload = generateChecklist;
+  </script>
+</body>
+</html>
