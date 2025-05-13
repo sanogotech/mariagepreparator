@@ -2,33 +2,23 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Checklist – Maturité pour le Mariage</title>
+  <title>Test de Maturité pour le Mariage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .card {
-      margin-bottom: 20px;
-      border-left: 5px solid #0d6efd;
-    }
-    .result-box {
-      background-color: #e9ecef;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
+    body { background-color: #f8f9fa; }
+    .card { margin-bottom: 20px; border-left: 5px solid #0d6efd; }
+    .result-box { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-top: 20px; font-weight: bold; font-size: 1.1em; }
+    .result-box ul { padding-left: 20px; }
+    .reco-box { background-color: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; border-radius: 5px; margin-top: 20px; }
+    .reco-box h5 { color: #856404; }
   </style>
 </head>
 <body>
   <div class="container py-4">
-    <h1 class="text-center text-primary mb-4">✅ Ai-je le bon mindset et la maturité pour le mariage ?</h1>
+    <h1 class="text-center text-primary mb-4">✅ Ai-je la maturité pour le mariage ?</h1>
+
     <form id="checklistForm">
-      
-      <!-- Dynamically generated cards -->
       <div id="questionsContainer"></div>
 
       <div class="text-center mt-4">
@@ -36,6 +26,26 @@
       </div>
 
       <div id="result" class="result-box text-center mt-4"></div>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="result-box">
+            <h5 class="text-success">💪 Top 10 Points forts</h5>
+            <ul id="topStrengths" class="list-unstyled"></ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="result-box">
+            <h5 class="text-danger">❗Top 10 Points faibles</h5>
+            <ul id="topWeaknesses" class="list-unstyled"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="reco-box" id="recommendationsBox" style="display: none;">
+        <h5>🧭 Recommandations personnalisées</h5>
+        <ul id="recommendations" class="mb-0"></ul>
+      </div>
     </form>
   </div>
 
@@ -113,6 +123,33 @@
       ]
     };
 
+    const recommendations = {
+      "Je reconnais mes torts sans difficulté.": "Travaillez l'humilité en acceptant les critiques constructives.",
+      "Je peux gérer la frustration sans exploser.": "Pratiquez des techniques de respiration ou de méditation.",
+      "Je prends soin de ma santé mentale.": "Prenez du temps pour vous et consultez si nécessaire un professionnel.",
+      "Je n’attends pas que l’autre me complète émotionnellement.": "Développez votre autonomie émotionnelle.",
+      "Je ne fuis pas les émotions désagréables.": "Affrontez-les avec bienveillance et introspection.",
+      "Je sais désamorcer les tensions avec calme.": "Prenez du recul avant de répondre à chaud.",
+      "Je n’utilise pas le silence pour punir.": "Préférez l'expression claire de vos besoins.",
+      "Je privilégie le dialogue au conflit.": "Planifiez des moments de discussion calmes.",
+      "Je cherche des solutions, pas à avoir raison.": "Concentrez-vous sur le compromis et l’écoute.",
+      "Je sais m’excuser sincèrement.": "Apprenez à dire 'je suis désolé' sans justification.",
+      "Je suis bien seul(e) et ne cherche pas à combler un vide.": "Explorez vos passions personnelles.",
+      "Je n’ai pas besoin d’une présence constante.": "Cultivez votre indépendance affective.",
+      "Je suis capable de prendre des décisions seul(e).": "Entraînez-vous à faire des choix quotidiens en autonomie.",
+      "Je sais que le mariage comporte des hauts et des bas.": "Informez-vous auprès de couples expérimentés.",
+      "Je ne m’attends pas à un conte de fée permanent.": "Restez lucide face aux réalités du quotidien.",
+      "Je comprends que l’amour demande un effort quotidien.": "Planifiez régulièrement des gestes d’amour concrets.",
+      "Je m’exprime sans agressivité.": "Utilisez la communication non-violente (CNV).",
+      "Je suis capable d’écouter sans interrompre.": "Pratiquez l'écoute active, reformulez ce que dit l’autre.",
+      "Je suis fidèle dans mes relations.": "Définissez vos limites claires avec les tiers.",
+      "Je ne fuis pas l'engagement.": "Identifiez vos peurs et confrontez-les une à une.",
+      "Je suis transparent(e) sur mes finances.": "Partagez vos revenus et dépenses avec clarté.",
+      "Je planifie les dépenses importantes.": "Tenez un budget prévisionnel commun.",
+      "Je prends en compte les émotions de l’autre.": "Posez des questions et validez les ressentis de votre partenaire.",
+      "Je ne minimise pas les sentiments d’autrui.": "Accueillez la sensibilité de l'autre avec respect."
+    };
+
     function generateChecklist() {
       const container = document.getElementById("questionsContainer");
       let questionIndex = 1;
@@ -120,20 +157,15 @@
       for (let [category, questions] of Object.entries(categories)) {
         const card = document.createElement("div");
         card.className = "card";
-        card.innerHTML = `
-          <div class="card-header fw-bold">${category}</div>
-          <div class="card-body"></div>
-        `;
+        card.innerHTML = `<div class="card-header fw-bold">${category}</div><div class="card-body"></div>`;
         const body = card.querySelector(".card-body");
 
-        questions.forEach((q, i) => {
+        questions.forEach((q) => {
           const id = `q${questionIndex++}`;
           const div = document.createElement("div");
           div.className = "form-check mb-2";
-          div.innerHTML = `
-            <input class="form-check-input" type="checkbox" id="${id}" name="${id}">
-            <label class="form-check-label" for="${id}">${q}</label>
-          `;
+          div.innerHTML = `<input class="form-check-input" type="checkbox" id="${id}" name="${id}">
+                           <label class="form-check-label" for="${id}">${q}</label>`;
           body.appendChild(div);
         });
 
@@ -144,10 +176,24 @@
     function calculateScore() {
       const checkboxes = document.querySelectorAll("input[type='checkbox']");
       let score = 0;
+      const strengths = [];
+      const weaknesses = [];
+      const recos = [];
+
       checkboxes.forEach(cb => {
-        if (cb.checked) score++;
+        const label = document.querySelector(`label[for="${cb.id}"]`);
+        if (cb.checked) {
+          score++;
+          strengths.push(label.innerText);
+        } else {
+          weaknesses.push(label.innerText);
+          if (recommendations[label.innerText]) {
+            recos.push(`❗ <strong>${label.innerText}</strong><br>💡 ${recommendations[label.innerText]}`);
+          }
+        }
       });
 
+      // Score affiché
       let level = '';
       if (score >= 45) {
         level = "💍 Excellent niveau de maturité pour le mariage !";
@@ -158,11 +204,19 @@
       } else {
         level = "❌ Maturité insuffisante pour un engagement durable.";
       }
-
       document.getElementById("result").innerText = `Score : ${score}/50 — ${level}`;
+
+      // Top 10
+      document.getElementById("topStrengths").innerHTML = strengths.slice(0, 10).map(s => `<li>✅ ${s}</li>`).join('');
+      document.getElementById("topWeaknesses").innerHTML = weaknesses.slice(0, 10).map(w => `<li>❌ ${w}</li>`).join('');
+
+      // Recommandations
+      const recosBox = document.getElementById("recommendationsBox");
+      const recosList = document.getElementById("recommendations");
+      recosBox.style.display = recos.length ? "block" : "none";
+      recosList.innerHTML = recos.map(r => `<li class="mb-2">${r}</li>`).join('');
     }
 
-    // Génère le formulaire au chargement
     window.onload = generateChecklist;
   </script>
 </body>

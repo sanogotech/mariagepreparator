@@ -10,8 +10,7 @@
     .card-category { margin-bottom: 30px; }
     .result-section { margin-top: 40px; }
     .section-title { margin-top: 30px; font-weight: bold; font-size: 1.2rem; }
-    .text-success { font-weight: bold; }
-    .text-danger { font-weight: bold; }
+    .text-success, .text-danger, .text-warning { font-weight: bold; }
   </style>
 </head>
 <body>
@@ -22,6 +21,7 @@
     <form id="quizForm">
       <div class="row">
         <script>
+          const jokerIndexes = [4, 5, 11, 13, 15, 18,19, 23, 28, 32,36,37, 39];
           const categories = [
             {title: "1. Confiance & Respect", color: "primary"},
             {title: "2. Communication & Langage", color: "info"},
@@ -83,8 +83,9 @@
               <div class="card-body">`);
             for (let j = 0; j < 5; j++) {
               const q = questions[questionIndex];
+              const joker = jokerIndexes.includes(questionIndex) ? " 🚨" : "";
               document.write(`
-                <label>${questionIndex + 1}. ${q}</label>
+                <label>${questionIndex + 1}. ${q}${joker}</label>
                 <select name="q${questionIndex + 1}" class="form-control mb-2">
                   <option value="">--Choisir--</option>
                   <option value="Oui">Oui</option>
@@ -115,11 +116,13 @@
 
       let totalOui = 0;
       let totalReponses = 0;
+      let jokerNon = 0;
 
       for (let i = 1; i <= 40; i++) {
         const value = formData.get("q" + i);
         if (value !== "") totalReponses++;
         if (value === "Oui") totalOui++;
+        if (value === "Non" && jokerIndexes.includes(i - 1)) jokerNon++;
         responses.push({ index: i, text: questions[i - 1], value });
       }
 
@@ -128,16 +131,27 @@
         return;
       }
 
-      // Tri pour Top 10 et Faiblesse
+      let dureeBase = totalOui;
+      let dureeBasse = dureeBase - (jokerNon * 3) -5;
+      let dureeHaute = dureeBase + 2;
+
+
       const positives = responses.filter(r => r.value === "Oui").slice(0, 10);
       const negatives = responses.filter(r => r.value === "Non").slice(0, 10);
+      const jokerWarnings = responses.filter(r => r.value === "Non" && jokerIndexes.includes(r.index - 1));
 
-      // Génération HTML résultat
       let html = `
         <div class="text-center mb-4">
-          📅 <strong>Durée estimée du mariage : ${totalOui} ans</strong>
+          🗓️ <strong>Durée estimée : entre ${dureeBasse} et ${dureeHaute} ans</strong>
         </div>
-        <div class="section-title text-success">✅ Top 10 Forces</div>
+        <div class="section-title text-warning">⚠️ Questions Joker Crétiques</div>
+        <ul class="list-group mb-3">`;
+      jokerWarnings.forEach(j => {
+        html += `<li class="list-group-item list-group-item-warning">${j.index}. ${j.text}</li>`;
+      });
+      html += `</ul>`;
+
+      html += `<div class="section-title text-success">✅ Top 10 Forces</div>
         <ul class="list-group mb-3">`;
       positives.forEach(p => {
         html += `<li class="list-group-item list-group-item-success">${p.index}. ${p.text}</li>`;
@@ -153,23 +167,16 @@
 
       html += `<div class="section-title">💡 Recommandations Générales</div>
         <ul class="list-group mb-3">
-          <li class="list-group-item">Planifiez une soirée couple chaque semaine pour nourrir la connexion.</li>
-          <li class="list-group-item">Exprimez votre gratitude quotidiennement, même pour de petites choses.</li>
-          <li class="list-group-item">Mettez en place une routine de dialogue calme une fois par semaine.</li>
+          <li class="list-group-item">Planifiez une soirée couple chaque semaine.</li>
+          <li class="list-group-item">Exprimez votre gratitude quotidiennement.</li>
+          <li class="list-group-item">Installez un rituel de dialogue calme chaque semaine.</li>
         </ul>`;
 
-      html += `<div class="section-title text-danger">🚨 Urgences à traiter</div>
-        <ul class="list-group mb-3">`;
-      negatives.slice(0, 3).forEach(n => {
-        html += `<li class="list-group-item list-group-item-warning">${n.text}</li>`;
-      });
-      html += `</ul>`;
-
-      html += `<div class="section-title text-info">🔁 Routines recommandées</div>
+      html += `<div class="section-title text-info">🔁 Routines Recommandées</div>
         <ul class="list-group mb-5">
-          <li class="list-group-item">Prière ou invocation commune au moins 1 fois par semaine.</li>
-          <li class="list-group-item">Temps d’intimité émotionnelle (sans écran) au moins 30 min par jour.</li>
-          <li class="list-group-item">Faire le point ensemble une fois par mois (bilan de vie).</li>
+          <li class="list-group-item">Prier ensemble au moins une fois par semaine.</li>
+          <li class="list-group-item">Temps d’intimité sans écran chaque jour.</li>
+          <li class="list-group-item">Faire un bilan de couple chaque mois.</li>
         </ul>`;
 
       document.getElementById("result").innerHTML = html;
