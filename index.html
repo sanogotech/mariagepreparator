@@ -2,142 +2,160 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prédicteur de Durée de Mariage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portail Mariage & Maturité</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f6f9;
+      background: linear-gradient(to right, #f8f9fa, #e8f0fe);
+      font-family: 'Segoe UI', sans-serif;
     }
-    .card-category {
-      margin-bottom: 30px;
+
+    .navbar {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-    .fibonacci-result {
-      font-size: 1.5rem;
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background-color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
       font-weight: bold;
       color: #0d6efd;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    footer {
+      background: #f8f9fa;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .fade-in {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
-    <h1 class="text-center mb-4">🔮 Prédicteur de Durée de Vie du Mariage</h1>
-    <p class="text-center text-muted">Basé sur les 15 piliers du Mariage Africain, les valeurs religieuses, les enseignements de Gary Chapman et les REX des tribunaux modernes</p>
 
-    <form id="quizForm">
-      <div class="row">
-        <!-- Génération automatique des 8 catégories de 5 questions chacune -->
-        <script>
-          const categories = [
-            {title: "1. Confiance & Respect", color: "primary"},
-            {title: "2. Communication & Langage", color: "info"},
-            {title: "3. Tolérance & Pardon", color: "warning"},
-            {title: "4. Discrétion & Patience", color: "secondary"},
-            {title: "5. Amour & Intimité", color: "danger"},
-            {title: "6. Soutien & Solidarité", color: "success"},
-            {title: "7. Spiritualité & Bénédictions", color: "dark"},
-            {title: "8. Vision Commune & Projets", color: "primary"}
-          ];
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">
+        <i class="fas fa-ring me-2"></i>Portail Mariage
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="checkMaturiteMindset.html">Maturité</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="checkCompatibilite.html">Compatibilité</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="preparationFormationMariage.html">Formation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="predicteurDureeMariage.html">Prédicteur</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-          const questions = [
-            "Faites-vous confiance à votre partenaire même en son absence ?",
-            "Respectez-vous ses opinions même lorsqu'elles diffèrent des vôtres ?",
-            "Votre partenaire respecte-t-il vos proches ?",
-            "Vous sentez-vous en sécurité émotionnelle dans la relation ?",
-            "Vous sentez-vous libre d'exprimer votre vulnérabilité ?",
-            "Communiquez-vous vos besoins émotionnels ?",
-            "Connaissez-vous le langage de l’amour préféré de votre conjoint ?",
-            "Écoutez-vous activement lorsqu’il/elle parle ?",
-            "Réglez-vous les malentendus calmement ?",
-            "Avez-vous des moments de dialogue sincère chaque semaine ?",
-            "Êtes-vous capable de pardonner rapidement ?",
-            "Tolérez-vous les défauts de votre partenaire ?",
-            "Avez-vous déjà demandé pardon sincèrement ?",
-            "Vous disputez-vous de façon non violente ?",
-            "Donnez-vous une deuxième chance quand l’autre le mérite ?",
-            "Évitez-vous de divulguer les problèmes du couple à autrui ?",
-            "Avez-vous la patience de dialoguer plutôt que de réagir à chaud ?",
-            "Protégez-vous votre vie privée de couple ?",
-            "Attendez-vous le bon moment pour aborder les sujets sensibles ?",
-            "Gardez-vous le calme même quand vous êtes frustré(e) ?",
-            "Dites-vous régulièrement “je t’aime” ?",
-            "Prenez-vous du temps pour l’intimité (affection, tendresse, rapports) ?",
-            "Avez-vous des moments de complicité (humour, jeux, souvenirs) ?",
-            "Avez-vous l’impression d’être aimé(e) pour qui vous êtes ?",
-            "Offrez-vous des gestes d’attention sans occasion particulière ?",
-            "Soutenez-vous votre partenaire dans ses projets ?",
-            "Partagez-vous équitablement les responsabilités familiales ?",
-            "Avez-vous traversé des épreuves ensemble sans abandonner ?",
-            "Avez-vous le sentiment d’être une “équipe” ?",
-            "Faites-vous preuve d’entraide et de bienveillance mutuelle ?",
-            "Priez-vous ensemble ou chacun de votre côté ?",
-            "Cherchez-vous la bénédiction de vos parents et aînés ?",
-            "Évoquez-vous Dieu ou la foi dans vos décisions ?",
-            "Faites-vous des invocations (dou'a) pour votre couple ?",
-            "Considérez-vous votre union comme une adoration ?",
-            "Avez-vous une vision commune de l’avenir ?",
-            "Planifiez-vous ensemble les finances et objectifs ?",
-            "Faites-vous des bilans réguliers de votre couple ?",
-            "Vous soutenez-vous dans vos évolutions personnelles ?",
-            "Avez-vous des projets communs à long terme ?"
-          ];
+  <!-- HEADER -->
+  <header>
+    <h1>💍 Portail Mariage & Maturité</h1>
+    <p class="mb-0">Évalue ta maturité, ta compatibilité et prépare-toi à un mariage durable et épanoui.</p>
+  </header>
 
-          let questionIndex = 0;
-          categories.forEach((cat, i) => {
-            document.write(`<div class="card mb-3">
-              <div class="card-header bg-${cat.color} text-white">${cat.title}</div>
-              <div class="card-body">`);
+  <!-- MAIN CONTENT -->
+  <main class="container py-5 fade-in">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-            for (let j = 0; j < 5; j++) {
-              const q = questions[questionIndex];
-              document.write(`
-                <label>${questionIndex + 1}. ${q}</label>
-                <select name="q${questionIndex + 1}" class="form-control mb-2">
-                  <option value="">--Choisir--</option>
-                  <option value="Oui">Oui</option>
-                  <option value="Non">Non</option>
-                </select>
-              `);
-              questionIndex++;
-            }
-
-            document.write(`</div></div>`);
-          });
-        </script>
+      <!-- Carte 1 -->
+      <div class="col">
+        <div class="card h-100 border-primary text-center">
+          <div class="card-body">
+            <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+            <h5 class="card-title">Test Maturité & Mindset</h5>
+            <p class="card-text">Découvre si tu es prêt(e) mentalement et émotionnellement pour le mariage.</p>
+            <a href="checkMaturiteMindset.html" class="btn btn-primary">Faire le test</a>
+          </div>
+        </div>
       </div>
 
-      <div class="text-center mt-4">
-        <button type="submit" class="btn btn-lg btn-success">📊 Calculer la Durée Estimée</button>
+      <!-- Carte 2 -->
+      <div class="col">
+        <div class="card h-100 border-success text-center">
+          <div class="card-body">
+            <i class="fas fa-heart fa-3x text-success mb-3"></i>
+            <h5 class="card-title">Test Compatibilité</h5>
+            <p class="card-text">Évalue ta compatibilité avec ton partenaire sur les points essentiels.</p>
+            <a href="checkCompatibilite.html" class="btn btn-success">Commencer</a>
+          </div>
+        </div>
       </div>
-    </form>
 
-    <div id="result" class="text-center mt-5 fibonacci-result"></div>
-  </div>
+      <!-- Carte 3 -->
+      <div class="col">
+        <div class="card h-100 border-warning text-center">
+          <div class="card-body">
+            <i class="fas fa-book-open fa-3x text-warning mb-3"></i>
+            <h5 class="card-title">Préparation & Formation</h5>
+            <p class="card-text">Accède à des modules de formation sur les valeurs, la communication, le pardon, etc.</p>
+            <a href="preparationFormationMariage.html" class="btn btn-warning text-white">Voir les modules</a>
+          </div>
+        </div>
+      </div>
 
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+      <!-- Carte 4 -->
+      <div class="col">
+        <div class="card h-100 border-danger text-center">
+          <div class="card-body">
+            <i class="fas fa-clock fa-3x text-danger mb-3"></i>
+            <h5 class="card-title">Prédicteur de Durée</h5>
+            <p class="card-text">Estime la solidité et la longévité potentielle de votre union avec un test interactif.</p>
+            <a href="predicteurDureeMariage.html" class="btn btn-danger">Lancer le test</a>
+          </div>
+        </div>
+      </div>
 
-      const form = e.target;
-      const formData = new FormData(form);
-      let totalOui = 0;
-      let totalReponses = 0;
+    </div>
+  </main>
 
-      for (let [key, value] of formData.entries()) {
-        if (value === "Oui") totalOui++;
-        if (value !== "") totalReponses++;
-      }
+  <!-- FOOTER -->
+  <footer class="text-center py-4 text-muted">
+    &copy; 2025 Portail Mariage | Pour un engagement réfléchi et durable 💕
+  </footer>
 
-      if (totalReponses < 40) {
-        document.getElementById("result").innerHTML = "❗ Veuillez répondre à toutes les questions.";
-        return;
-      }
-
-      // Exemple simple : 1 "Oui" = 1 an de plus
-      const estimation = totalOui;
-
-      document.getElementById("result").innerHTML = `📅 Durée Estimée du Mariage : <strong>${estimation} ans (approx.)</strong>`;
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prédicteur de Durée de Mariage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .card-category { margin-bottom: 30px; }
+    .result-section { margin-top: 40px; }
+    .section-title { margin-top: 30px; font-weight: bold; font-size: 1.2rem; }
+    .text-success, .text-danger, .text-warning { font-weight: bold; }
+	
+	 .hero-section {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero-section h1 {
+      font-weight: bold;
+      font-size: 2.8rem;
+    }
+    .card:hover {
+      transform: scale(1.02);
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  
+  <div class="container py-5">
+  
+    <!-- Hero / Header -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>🎓 Prédicteur de Durée : Un test interactif pour estimer la solidité et la longévité possible de votre union.</h1>
+      <p class="lead mt-3"> Mariage = Maturité + Mindset positif + Caractère + Engagement.</p>
+    </div>
+  </section>
+<h2 class="text-center text-muted fw-normal mb-4">Découvre si ton cœur, ton esprit et ton comportement sont prêts pour l’aventure du mariage</h2>
+
+	
+	<div class="section-title text-primary">📜 Citations Inspirantes sur le Mariage</div>
+<ul class="list-group mb-5">
+  <li class="list-group-item">"Le mariage ne révèle pas seulement l'amour d'une personne, mais la maturité de son engagement." – Anonyme</li>
+  <li class="list-group-item">"Un mariage solide repose moins sur la perfection que sur deux personnes prêtes à se pardonner encore et encore." – Dave Willis</li>
+  <li class="list-group-item">"Le respect mutuel, c’est aimer l’autre pour ce qu’il est, pas pour ce qu’on voudrait qu’il soit." – Jacques Salomé</li>
+  <li class="list-group-item">"La loyauté, ce n’est pas l’absence de tentation, mais la force de choisir l’autre chaque jour." – Anonyme</li>
+  <li class="list-group-item">"Le mariage, ce n’est pas se regarder l’un l’autre, c’est regarder ensemble dans la même direction, avec le même état d’esprit." – Antoine de Saint-Exupéry</li>
+</ul>
+
+
+    <form id="quizForm">
+      <div class="row">
+        <script>
+          const jokerIndexes = [4, 5, 11, 13, 15, 18,19, 23, 28, 32,36,37, 39];
+          const categories = [
+            {title: "1. Confiance & Respect", color: "primary"},
+            {title: "2. Communication & Langage", color: "info"},
+            {title: "3. Tolérance & Pardon", color: "warning"},
+            {title: "4. Discrétion & Patience", color: "secondary"},
+            {title: "5. Amour & Intimité", color: "danger"},
+            {title: "6. Soutien & Solidarité", color: "success"},
+            {title: "7. Spiritualité & Bénédictions", color: "dark"},
+            {title: "8. Vision Commune & Projets", color: "primary"}
+          ];
+
+          const questions = [
+            "Faites-vous confiance à votre partenaire même en son absence ?",
+            "Respectez-vous ses opinions même lorsqu'elles diffèrent des vôtres ?",
+            "Votre partenaire respecte-t-il vos proches ?",
+            "Vous sentez-vous en sécurité émotionnelle dans la relation ?",
+            "Vous sentez-vous libre d'exprimer votre vulnérabilité ?",
+            "Communiquez-vous vos besoins émotionnels ?",
+            "Connaissez-vous le langage de l’amour préféré de votre conjoint ?",
+            "Écoutez-vous activement lorsqu’il/elle parle ?",
+            "Réglez-vous les malentendus calmement ?",
+            "Avez-vous des moments de dialogue sincère chaque semaine ?",
+            "Êtes-vous capable de pardonner rapidement ?",
+            "Tolérez-vous les défauts de votre partenaire ?",
+            "Avez-vous déjà demandé pardon sincèrement ?",
+            "Vous disputez-vous de façon non violente ?",
+            "Donnez-vous une deuxième chance quand l’autre le mérite ?",
+            "Évitez-vous de divulguer les problèmes du couple à autrui ?",
+            "Avez-vous la patience de dialoguer plutôt que de réagir à chaud ?",
+            "Protégez-vous votre vie privée de couple ?",
+            "Attendez-vous le bon moment pour aborder les sujets sensibles ?",
+            "Gardez-vous le calme même quand vous êtes frustré(e) ?",
+            "Dites-vous régulièrement “je t’aime” ?",
+            "Prenez-vous du temps pour l’intimité (affection, tendresse, rapports) ?",
+            "Avez-vous des moments de complicité (humour, jeux, souvenirs) ?",
+            "Avez-vous l’impression d’être aimé(e) pour qui vous êtes ?",
+            "Offrez-vous des gestes d’attention sans occasion particulière ?",
+            "Soutenez-vous votre partenaire dans ses projets ?",
+            "Partagez-vous équitablement les responsabilités familiales ?",
+            "Avez-vous traversé des épreuves ensemble sans abandonner ?",
+            "Avez-vous le sentiment d’être une “équipe” ?",
+            "Faites-vous preuve d’entraide et de bienveillance mutuelle ?",
+            "Priez-vous ensemble ou chacun de votre côté ?",
+            "Cherchez-vous la bénédiction de vos parents et aînés ?",
+            "Évoquez-vous Dieu ou la foi dans vos décisions ?",
+            "Faites-vous des invocations (dou'a) pour votre couple ?",
+            "Considérez-vous votre union comme une adoration ?",
+            "Avez-vous une vision commune de l’avenir ?",
+            "Planifiez-vous ensemble les finances et objectifs ?",
+            "Faites-vous des bilans réguliers de votre couple ?",
+            "Vous soutenez-vous dans vos évolutions personnelles ?",
+            "Avez-vous des projets communs à long terme ?"
+          ];
+
+          let questionIndex = 0;
+          categories.forEach((cat, i) => {
+            document.write(`<div class="card mb-3">
+              <div class="card-header bg-${cat.color} text-white">${cat.title}</div>
+              <div class="card-body">`);
+            for (let j = 0; j < 5; j++) {
+              const q = questions[questionIndex];
+              const joker = jokerIndexes.includes(questionIndex) ? " 🚨" : "";
+              document.write(`
+                <label>${questionIndex + 1}. ${q}${joker}</label>
+                <select name="q${questionIndex + 1}" class="form-control mb-2">
+                  <option value="">--Choisir--</option>
+                  <option value="Oui">Oui</option>
+                  <option value="Non">Non</option>
+                </select>
+              `);
+              questionIndex++;
+            }
+            document.write(`</div></div>`);
+          });
+        </script>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-lg btn-success">📊 Calculer</button>
+      </div>
+    </form>
+
+    <div id="result" class="result-section"></div>
+  </div>
+
+<script>
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const responses = [];
+
+    let totalOui = 0;
+    let totalReponses = 0;
+    let jokerNon = 0;
+
+    for (let i = 1; i <= 40; i++) {
+      const value = formData.get("q" + i);
+      if (value !== "") totalReponses++;
+      if (value === "Oui") totalOui++;
+      if (value === "Non" && jokerIndexes.includes(i - 1)) jokerNon++;
+      responses.push({ index: i, text: questions[i - 1], value });
+    }
+
+    if (totalReponses < 40) {
+      document.getElementById("result").innerHTML = "<div class='text-danger'>❗ Veuillez répondre à toutes les questions.</div>";
+      return;
+    }
+
+    // 🔢 Calcul du score ajusté
+    let scoreBrut = totalOui;
+    let scoreFinal = scoreBrut - (jokerNon * 3) - 5;
+
+    // 🎯 Catégorisation
+    let dureeEstimee = "";
+    if (scoreFinal < 3) {
+      dureeEstimee = "entre 1 et 3 ans";
+    } else if (scoreFinal < 5) {
+      dureeEstimee = "entre 3 et 5 ans";
+    } else if (scoreFinal < 8) {
+      dureeEstimee = "entre 5 et 8 ans";
+    } else if (scoreFinal < 13) {
+      dureeEstimee = "entre 8 et 13 ans";
+    } else if (scoreFinal < 21) {
+      dureeEstimee = "entre 13 et 21 ans";
+    } else {
+      dureeEstimee = "plus de 30 ans";
+    }
+
+    const positives = responses.filter(r => r.value === "Oui").slice(0, 10);
+    const negatives = responses.filter(r => r.value === "Non").slice(0, 10);
+    const jokerWarnings = responses.filter(r => r.value === "Non" && jokerIndexes.includes(r.index - 1));
+
+    let html = `
+      <div class="text-center mb-4">
+        🗓️ <strong>Durée estimée : ${dureeEstimee}</strong>
+      </div>
+      <div class="section-title text-warning">⚠️ Questions Joker Critiques</div>
+      <ul class="list-group mb-3">`;
+    jokerWarnings.forEach(j => {
+      html += `<li class="list-group-item list-group-item-warning">${j.index}. ${j.text}</li>`;
+    });
+    html += `</ul>`;
+
+    html += `<div class="section-title text-success">✅ Top 10 Forces</div>
+      <ul class="list-group mb-3">`;
+    positives.forEach(p => {
+      html += `<li class="list-group-item list-group-item-success">${p.index}. ${p.text}</li>`;
+    });
+    html += `</ul>`;
+
+    html += `<div class="section-title text-danger">❌ Top 10 Faiblesses</div>
+      <ul class="list-group mb-3">`;
+    negatives.forEach(n => {
+      html += `<li class="list-group-item list-group-item-danger">${n.index}. ${n.text}</li>`;
+    });
+    html += `</ul>`;
+
+    html += `<div class="section-title">💡 Recommandations Générales</div>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">Planifiez une soirée couple chaque semaine.</li>
+        <li class="list-group-item">Exprimez votre gratitude quotidiennement.</li>
+        <li class="list-group-item">Installez un rituel de dialogue calme chaque semaine.</li>
+      </ul>`;
+
+    html += `<div class="section-title text-info">🔁 Routines Recommandées</div>
+      <ul class="list-group mb-5">
+        <li class="list-group-item">Prier ensemble au moins une fois par semaine.</li>
+        <li class="list-group-item">Temps d’intimité sans écran chaque jour.</li>
+        <li class="list-group-item">Faire un bilan de couple chaque mois.</li>
+      </ul>`;
+
+    document.getElementById("result").innerHTML = html;
+  });
+</script>
+
+</body>
+</html>
