@@ -167,5 +167,211 @@ Ce guide n’est pas une formule magique, mais une **boussole** : il vous aide �
 
 > 💡 L’amour durable, c’est **apprendre chaque jour à mieux aimer**, à se transformer mutuellement avec patience et vérité.
 
+
 ---
+
+### 🔹 **Annexe 6 : Attirance, Béguin, Attachement, Passion, Amour – Ne pas confondre !**
+
+| **État Émotionnel** | **Définition**                                                                        | **Durée typique**                         | **Effets / Signes**                                 | **Limites**                                              |
+| ------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
+| **Attirance**       | Réaction instinctive et physique à un physique, une énergie ou un charisme.           | Très court terme (secondes à jours)       | Désir, envie de proximité, stimulation sensorielle. | Ne dit rien sur la compatibilité ni la profondeur.       |
+| **Béguin (Crush)**  | Idéalisation temporaire, souvent liée à un fantasme ou à la nouveauté.                | Quelques jours à mois                     | Pensées constantes, excitation, projection.         | Basé souvent sur l’illusion ou l’imagination.            |
+| **Attachement**     | Lien émotionnel développé par la proximité, l’habitude ou le besoin affectif.         | Moyen à long terme                        | Dépendance, peur de perdre, besoin de sécurité.     | Peut être confondu avec de l’amour.                      |
+| **Passion**         | Amour intense et émotionnel, souvent dramatique ou excessif.                          | Intense mais instable (semaines à années) | Fusion, jalousie, idéalisation, dépendance.         | Peut être toxique si non équilibrée par la raison.       |
+| **Amour Véritable** | Engagement conscient, nourri par respect, confiance, compatibilité et vision commune. | Long terme et évolutif                    | Paix, soutien mutuel, liberté, croissance.          | Demande du temps, de la maturité et de la communication. |
+
+---
+
+### 💡 Rappel Important :
+
+* **Attirance n’est pas amour**
+* **Béguin n’est pas engagement**
+* **Attachement n’est pas toujours sain**
+* **Passion n’est pas stabilité**
+* **Amour véritable = choix + constance + profondeur + respect mutuel**
+
+---
+
+Avec plaisir ! Voici une version enrichie de votre document, incluant **4 nouvelles annexes importantes** pour la réussite du couple et du mariage, ainsi qu’une **sagesse africaine illustrée** symboliquement.
+
+---
+
+## ✅ **Annexes complémentaires pour la réussite du couple et du mariage**
+
+### 🔹 **Annexe 7 : Les 4 piliers fondamentaux d’un couple solide**
+
+| Pilier               | Description                                                                      |
+| -------------------- | -------------------------------------------------------------------------------- |
+| **Communication**    | Clé de l’harmonie. Parler avec sincérité, écouter avec attention, sans jugement. |
+| **Respect**          | Accepter l’autre tel qu’il est, sans chercher à le changer ou à le dominer.      |
+| **Temps de qualité** | Partager des moments authentiques pour nourrir la complicité.                    |
+| **Vision commune**   | Construire un projet de vie aligné : valeurs, famille, ambitions.                |
+
+---
+
+### 🔹 **Annexe 8 : Les cycles du couple (basé sur la psychologie conjugale)**
+
+| Étape               | Description                                           | Danger potentiel                           |
+| ------------------- | ----------------------------------------------------- | ------------------------------------------ |
+| **Fusion**          | Début intense, passion, idéalisation                  | Perte d’identité                           |
+| **Différenciation** | Conflits émergent, personnalités réelles apparaissent | Risque de rupture si mal géré              |
+| **Stabilisation**   | Acceptation de l’autre, équilibre relationnel         | Routine, perte de spontanéité              |
+| **Croissance**      | Projets, entraide, maturité affective                 | Éloignement si absence d’entretien du lien |
+
+---
+
+### 🔹 **Annexe 9 : Savoir gérer les langages de l’amour (d’après Gary Chapman)**
+
+| Langage                  | Description                                   | Risque si négligé                 |
+| ------------------------ | --------------------------------------------- | --------------------------------- |
+| **Paroles valorisantes** | Compliments, reconnaissance verbale           | Sentiment d’invisibilité          |
+| **Moments de qualité**   | Temps partagé sans distraction                | Sentiment de négligence           |
+| **Cadeaux**              | Symboles d’amour et d’attention               | Sentiment d’être peu important    |
+| **Services rendus**      | Aider concrètement l’autre dans son quotidien | Fatigue émotionnelle              |
+| **Toucher physique**     | Câlins, gestes tendres, proximité physique    | Frustration, isolement émotionnel |
+
+---
+
+### 🔹 **Annexe 10 : Facteurs extérieurs à protéger pour un couple durable**
+
+| Facteur             | Exemples / Menaces possibles                        | Protection recommandée                   |
+| ------------------- | --------------------------------------------------- | ---------------------------------------- |
+| **Famille**         | Jugements, intrusions                               | Fixer des limites claires                |
+| **Amis toxiques**   | Encouragement à l’infidélité, négativité            | Choisir des amis qui soutiennent l’union |
+| **Travail**         | Stress, horaires déséquilibrés                      | Communiquer et planifier du temps à deux |
+| **Réseaux sociaux** | Comparaisons, tentations, manque de présence réelle | Fixer des règles d’utilisation saine     |
+
+---
+
+## 🌍 **Sagesse africaine sur le couple : L’art de la retenue**
+
+> **Image symbolique (à visualiser ou illustrer) :**
+>
+> 🧔🏽‍♂️ **L’homme ferme ses oreilles** = Il ne réagit pas à toutes les paroles blessantes ou impulsives.
+> 👩🏽 **La femme ferme sa bouche** = Elle choisit de ne pas toujours répondre dans la colère ou la frustration.
+>
+> ✨ **Interprétation :**
+> Dans un couple, apprendre à **se taire quand l’autre est emporté**, et à **écouter avec sagesse**, est une force.
+> L’équilibre vient souvent de la maîtrise de soi plus que du besoin d’avoir raison.
+
+---
+
+
+## 🌍 **6 Sagesses Africaines pour les Hommes**
+
+1. **"Un homme qui crie plus fort que sa femme n’est pas plus fort, seulement plus vide."**
+   → La vraie force réside dans le calme et la maîtrise de soi.
+
+2. **"Celui qui ne sait pas écouter sa femme entendra ses silences trop tard."**
+   → L’écoute est un acte d’amour et de prévention des conflits.
+
+3. **"Le chef du foyer est celui qui allume la paix, pas celui qui brandit son autorité."**
+   → Diriger, c’est protéger, non dominer.
+
+4. **"Un homme qui insulte sa femme insulte ses propres enfants."**
+   → Le respect de la mère est le respect de la famille.
+
+5. **"Celui qui court après toutes les femmes finit par perdre la sienne."**
+   → La fidélité est une richesse, l’infidélité une dette.
+
+6. **"Le mari sage sait que son silence peut parfois éteindre le feu de la dispute."**
+   → Parfois, se taire est plus viril que parler.
+
+---
+
+## 🌺 **6 Sagesses Africaines pour les Femmes**
+
+1. **"La femme qui parle avec douceur construit sa maison avec ses mots."**
+   → Le ton utilisé change le fond du message.
+
+2. **"Une femme qui critique son mari en public arrache les briques de son foyer."**
+   → La dignité du couple se protège dans l’intimité.
+
+3. **"La femme qui veut tout diriger finit par vivre seule."**
+   → L’amour ne veut pas dire contrôle, mais confiance.
+
+4. **"Celle qui respecte son mari lui apprend à l’aimer plus."**
+   → Le respect nourrit l’amour chez l’homme.
+
+5. **"La patience d’une femme est une semence, elle finit toujours par porter ses fruits."**
+   → L’endurance est une force, pas une faiblesse.
+
+6. **"La femme sage connaît le moment de parler, et celui de prier en silence."**
+   → Tout ne se règle pas dans le bruit : certains combats sont spirituels.
+
+---
+
+
+# Des Livres avant de se Marier
+
+
+## 📎 ** Livres complémentaires pour renforcer l'intelligence relationnelle dans le couple**
+
+### 📖 1. *Comment se faire des amis* – **Dale Carnegie**
+
+> 🔄 **Version appliquée à la relation de couple**
+
+Bien que ce livre ait été conçu pour améliorer les relations sociales et professionnelles, ses **principes sont puissamment applicables à la vie amoureuse**. Il s’agit d’un véritable **manuel d’intelligence relationnelle**.
+
+**Principes clés adaptés au couple :**
+
+| 🎯 Principe Carnegie                                     | ❤️ Application dans le couple                                              |
+| -------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Ne critiquez pas, ne condamnez pas, ne vous plaignez pas | Dans les conflits, privilégier l’empathie plutôt que la réprimande         |
+| Montrez de l’appréciation honnête et sincère             | Dire à l’autre ce qu’on admire chez lui/elle, même pour les petites choses |
+| Intéressez-vous sincèrement à l’autre                    | Posez des questions sur ses rêves, ses émotions, ses besoins               |
+| Souriez                                                  | Un sourire peut désamorcer une tension et créer une atmosphère positive    |
+| Parlez en termes des intérêts de l’autre                 | Adaptez votre discours à son monde intérieur plutôt qu’au vôtre            |
+| Faites sentir à l’autre son importance – sincèrement     | Valorisez-le/la dans ses efforts et ses réussites, même discrètes          |
+
+> 💡 *“Le plus profond besoin humain est celui d’être apprécié.”* — Dale Carnegie
+> ✔️ En amour aussi, c’est une vérité incontournable.
+
+---
+
+### 📖 2. *Les hommes viennent de Mars, les femmes viennent de Vénus* – **John Gray**
+
+Ce best-seller explique comment hommes et femmes ont souvent **des modes de fonctionnement émotionnel radicalement différents**, sans que cela signifie une incompatibilité.
+
+**Enseignements clés :**
+
+* L’homme a besoin de se retirer pour mieux revenir (la “caverne” masculine)
+* La femme a besoin d’exprimer ses émotions pour se libérer (effet “vague”)
+* Les intentions sont souvent bonnes, mais **les moyens d’expression sont mal interprétés**
+* Savoir **traduire le langage affectif de l’autre** évite bien des conflits
+
+> 💬 *Ce livre a sauvé de nombreux couples qui pensaient être en guerre, alors qu’ils parlaient juste des langues différentes.*
+
+---
+
+### 📖 3. *Le pouvoir du moment présent* – **Eckhart Tolle**
+
+Même si ce n’est pas un livre de couple à proprement parler, il est essentiel pour **transformer la qualité de présence dans la relation**.
+
+**Principes utiles au couple :**
+
+* L’ego crée des conflits en cherchant à avoir raison, à contrôler ou à se protéger
+* La **présence à l’instant**, sans jugement ni attente, désamorce les tensions
+* Aimer véritablement, c’est **être avec l’autre sans vouloir le changer**
+* La douleur relationnelle vient souvent de blessures anciennes non guéries
+
+> 🔔 En lisant ce livre ensemble, les couples **apprennent à s’aimer dans la paix**, non dans la projection.
+
+---
+
+### 📖 4. *S’aimer même si c’est difficile* – **Christophe André**
+
+Ce livre thérapeutique aborde **l’estime de soi** comme un pilier pour aimer sainement. Car **on ne peut pas bien aimer l’autre si on ne s’aime pas soi-même**.
+
+**Clés relationnelles tirées du livre :**
+
+* Travailler sa **valeur personnelle** pour ne pas chercher dans le couple une réparation permanente
+* Savoir dire “non” sans peur d’être abandonné(e)
+* Développer un amour **libre de dépendance affective**
+* Apprendre à reconnaître ses schémas répétitifs
+
+> 💡 Un livre pour **grandir émotionnellement**, en solo ou à deux.
+
+---
+
 
