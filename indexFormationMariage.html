@@ -183,6 +183,65 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
         }
+		
+		/* Couleur thématique */
+    .bg-gradient-teal {
+        background: linear-gradient(135deg, #20c997, #099268);
+    }
+    
+    .bg-teal {
+        background-color: #099268;
+    }
+    
+    .text-teal {
+        color: #099268;
+    }
+    
+    /* Styles des étapes */
+    .step-card {
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .step-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-badge {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    
+    .step-content {
+        border-left: 2px dashed #dee2e6;
+        padding-left: 1.5rem;
+    }
+    
+    /* Animation des étapes de réparation */
+    .repair-step {
+        transition: all 0.5s ease;
+    }
+    
+    .repair-step:hover {
+        transform: scale(1.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .step-content {
+            padding-left: 1rem;
+            border-left: none;
+            border-top: 2px dashed #dee2e6;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+    }
         
         .floating-btn {
             position: fixed;
@@ -241,6 +300,73 @@
                 padding: 1rem;
             }
         }
+		
+		
+		
+    /* Styles pour les nouveaux onglets */
+    .bg-gradient-purple {
+        background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    }
+    
+    .bg-gradient-orange {
+        background: linear-gradient(135deg, #e67e22, #d35400);
+    }
+    
+    .bg-gradient-red {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+    }
+    
+    .testimonial-card {
+        transition: all 0.3s;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .challenge-card {
+        transition: all 0.3s;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .challenge-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .red-flag-card {
+        transition: all 0.3s;
+    }
+    
+    .red-flag-card:hover {
+        background-color: rgba(231, 76, 60, 0.05);
+    }
+    
+    .crisis-section {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    
+    /* Animation pour les boutons "Lire la suite" */
+    .btn[data-bs-toggle="collapse"] .more,
+    .btn[data-bs-toggle="collapse"] .less {
+        transition: all 0.3s;
+    }
+    
+    .btn[data-bs-toggle="collapse"].collapsed .less {
+        display: none !important;
+    }
+    
+    .btn[data-bs-toggle="collapse"]:not(.collapsed) .more {
+        display: none;
+    }
+    
+    .btn[data-bs-toggle="collapse"]:not(.collapsed) .less {
+        display: inline-block !important;
+    }
+
     </style>
 </head>
 <body>
@@ -278,6 +404,22 @@
 			  </button>
 			</li>
 			
+			  <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-testimonials-tab" data-bs-toggle="pill" data-bs-target="#pills-testimonials" type="button" role="tab" aria-controls="pills-testimonials" aria-selected="false">
+            <i class="fas fa-heart-circle-check me-2"></i>Témoignages
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-exercises-tab" data-bs-toggle="pill" data-bs-target="#pills-exercises" type="button" role="tab" aria-controls="pills-exercises" aria-selected="false">
+            <i class="fas fa-dumbbell me-2"></i>Exercices
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-crisis-tab" data-bs-toggle="pill" data-bs-target="#pills-crisis" type="button" role="tab" aria-controls="pills-crisis" aria-selected="false">
+            <i class="fas fa-life-ring me-2"></i>Resolution de Crise
+        </button>
+    </li>
+			
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-annexes-tab" data-bs-toggle="pill" data-bs-target="#pills-annexes" type="button" role="tab" aria-controls="pills-annexes" aria-selected="false">
                     <i class="fas fa-file-alt me-2"></i>Annexes
@@ -298,6 +440,619 @@
 
         <!-- Tab Content -->
         <div class="tab-content" id="pills-tabContent">
+		
+
+			<!-- Contenu des nouveaux onglets -->
+			<div class="tab-content" id="pills-tabContent">
+				<!-- Onglet Témoignages -->
+				<div class="tab-pane fade" id="pills-testimonials" role="tabpanel" aria-labelledby="pills-testimonials-tab">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card mb-4">
+								<div class="card-header bg-gradient-purple text-white">
+									<i class="fas fa-heart-circle-check me-2"></i>Histoires Inspirantes
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<!-- Témoignage 1 -->
+										<div class="col-md-6 mb-4">
+											<div class="testimonial-card p-4 border rounded h-100">
+												<div class="d-flex align-items-center mb-3">
+													<img src="https://randomuser.me/api/portraits/women/43.jpg" class="rounded-circle me-3" width="60" alt="Sophie">
+													<div>
+														<h5 class="mb-0">Sophie & Marc</h5>
+														<span class="text-muted">Mariés depuis 12 ans</span>
+													</div>
+												</div>
+												<div class="mb-3">
+													<div class="rating">
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+													</div>
+												</div>
+												<p class="mb-3">"Après 7 ans de mariage, nous étions sur le point de divorcer. La lecture des '5 langages de l'amour' nous a ouvert les yeux. Nous avions simplement des façons différentes d'exprimer notre amour."</p>
+												<div class="collapse" id="testimonial1">
+													<p>Marc avait besoin de paroles valorisantes alors que moi, j'avais besoin de moments de qualité. Aujourd'hui, nous prenons chaque semaine un vrai rendez-vous en amoureux, sans téléphone, et je fais l'effort de le complimenter sur ses petites attentions.</p>
+													<p class="fw-bold">Le déclic : Identifier nos langages d'amour respectifs.</p>
+												</div>
+												<a class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" href="#testimonial1" role="button">
+													<span class="more">Lire la suite <i class="fas fa-chevron-down"></i></span>
+													<span class="less" style="display:none">Réduire <i class="fas fa-chevron-up"></i></span>
+												</a>
+											</div>
+										</div>
+
+										<!-- Témoignage 2 -->
+										<div class="col-md-6 mb-4">
+											<div class="testimonial-card p-4 border rounded h-100">
+												<div class="d-flex align-items-center mb-3">
+													<img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Thomas">
+													<div>
+														<h5 class="mb-0">Thomas & Léa</h5>
+														<span class="text-muted">Mariés depuis 5 ans</span>
+													</div>
+												</div>
+												<div class="mb-3">
+													<div class="rating">
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star-half-alt text-warning"></i>
+													</div>
+												</div>
+												<p class="mb-3">"La thérapie de couple nous a sauvés. Nous avions des schémas de communication toxiques hérités de nos familles. Aujourd'hui, nous savons nous écouter vraiment."</p>
+												<div class="collapse" id="testimonial2">
+													<p>Nous utilisons maintenant la technique du "paraphraser" : je répète ce que j'ai compris de ce que dit Léa avant de répondre. Cela a éliminé 80% de nos malentendus.</p>
+													<p class="fw-bold">Le déclic : Comprendre que nos disputes venaient de blessures d'enfance.</p>
+												</div>
+												<a class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" href="#testimonial2" role="button">
+													<span class="more">Lire la suite <i class="fas fa-chevron-down"></i></span>
+													<span class="less" style="display:none">Réduire <i class="fas fa-chevron-up"></i></span>
+												</a>
+											</div>
+										</div>
+									</div>
+
+									<!-- Vidéo témoignage -->
+									<div class="card mt-4">
+										<div class="card-header">
+											<i class="fas fa-video me-2"></i>Témoignage en vidéo
+										</div>
+										<div class="card-body text-center">
+											<div class="ratio ratio-16x9">
+												<iframe src="https://www.youtube.com/embed/example" allowfullscreen></iframe>
+											</div>
+											<h5 class="mt-3">Amélie & Karim : Reconstruire après une infidélité</h5>
+											<p>"Cela nous a pris 2 ans de travail intense, mais notre relation est aujourd'hui plus forte qu'avant."</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Onglet Exercices Pratiques -->
+				<div class="tab-pane fade" id="pills-exercises" role="tabpanel" aria-labelledby="pills-exercises-tab">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card mb-4">
+								<div class="card-header bg-gradient-orange text-white">
+									<i class="fas fa-dumbbell me-2"></i>Défis Couple
+								</div>
+								<div class="card-body">
+									<div class="alert alert-info">
+										<i class="fas fa-info-circle me-2"></i> Ces exercices sont conçus pour renforcer votre connexion. Faites-les dans un esprit d'ouverture et de bienveillance.
+									</div>
+
+									<!-- Défi 1 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #1 : Les 7 jours de gratitude</h4>
+											<span class="badge bg-success">Facile</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Cultiver la reconnaissance mutuelle.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li>Pendant 7 jours, notez chaque soir 1 chose que vous appréciez chez votre partenaire.</li>
+													<li>Partagez vos notes chaque jour à un moment calme.</li>
+													<li>Le 7ème jour, offrez-vous un moment spécial pour célébrer.</li>
+												</ol>
+												<div class="mt-3">
+													<button class="btn btn-sm btn-outline-primary">
+														<i class="fas fa-download me-2"></i>Télécharger le journal
+													</button>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+													<p class="mb-0 fw-bold">Durée : 7 jours</p>
+													<p class="mb-0">Temps/jour : 5 min</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Défi 2 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #2 : L'écoute active en 3 étapes</h4>
+											<span class="badge bg-warning text-dark">Intermédiaire</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Améliorer la qualité de votre communication.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li><strong>Écouter</strong> sans interrompre (même si vous n'êtes pas d'accord).</li>
+													<li><strong>Résumer</strong> ce que vous avez entendu ("Si je comprends bien, tu te sens...").</li>
+													<li><strong>Valider</strong> les émotions ("Je comprends que tu puisses te sentir ainsi").</li>
+												</ol>
+												<div class="mt-3">
+													<button class="btn btn-sm btn-outline-primary me-2">
+														<i class="fas fa-play-circle me-2"></i>Vidéo démo
+													</button>
+													<button class="btn btn-sm btn-outline-success">
+														<i class="fas fa-check-circle me-2"></i>Marquer comme fait
+													</button>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-comments fa-3x mb-3 text-primary"></i>
+													<p class="mb-0 fw-bold">Durée : 1 semaine</p>
+													<p class="mb-0">3x par jour</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Défi 3 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #3 : Le rendez-vous surprise</h4>
+											<span class="badge bg-info">Créativité</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Raviver la flamme par la surprise.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li>Chacun planifie secrètement une activité surprise pour l'autre.</li>
+													<li>Le jour J, laissez-vous guider sans poser de questions.</li>
+													<li>Partagez ensuite ce que vous avez préféré.</li>
+												</ol>
+												<div class="mt-3">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" id="challenge3">
+														<label class="form-check-label" for="challenge3">
+															J'ai relevé ce défi !
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-gift fa-3x mb-3 text-success"></i>
+													<p class="mb-0 fw-bold">Durée : 1 journée</p>
+													<p class="mb-0">Budget libre</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Onglet Ressources pour Couples en Crise -->
+				<div class="tab-pane fade" id="pills-crisis" role="tabpanel" aria-labelledby="pills-crisis-tab">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header bg-gradient-teal text-white">
+                    <i class="fas fa-handshake me-2"></i>Résolution de Crise en 8 Étapes
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> Cette méthode progressive vous guide pas à pas pour surmonter les crises conjugales. Suivez les étapes dans l'ordre.
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-primary rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-primary text-white rounded-circle me-3">1</span>
+                            <h4 class="mb-0">Identifier la Source de la Crise</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Comprendre la nature exacte du problème.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-check-circle text-success me-2"></i>Bonnes Pratiques :</h5>
+                                        <ul>
+                                            <li>Listez les faits objectifs (sans interprétation)</li>
+                                            <li>Notez les déclencheurs récurrents</li>
+                                            <li>Distinguer les problèmes conjoncturels des structurels</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-times-circle text-danger me-2"></i>À Éviter :</h5>
+                                        <ul>
+                                            <li>Faire des suppositions sans preuve</li>
+                                            <li>Confondre symptômes et causes profondes</li>
+                                            <li>Nier l'existence du problème</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#step1Details">
+                                    <i class="fas fa-eye me-2"></i>Outils complémentaires
+                                </button>
+                                <div class="collapse mt-2" id="step1Details">
+                                    <div class="card card-body">
+                                        <h5>Journal de crise :</h5>
+                                        <p>Notez pendant une semaine :</p>
+                                        <ol>
+                                            <li>Les moments de tension</li>
+                                            <li>Ce qui les a précédés</li>
+                                            <li>Vos réactions physiques (ex: cœur qui bat vite)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-info rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-info text-white rounded-circle me-3">2</span>
+                            <h4 class="mb-0">Instaurer un Dialogue Sécurisé</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Créer un espace de communication sans jugement.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-check-circle text-success me-2"></i>Techniques :</h5>
+                                        <ul>
+                                            <li>Utilisez des "messages Je" ("Je me sens...")</li>
+                                            <li>Fixez un créneau horaire dédié</li>
+                                            <li>Établissez des règles de base (pas d'interruption)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-times-circle text-danger me-2"></i>Pièges :</h5>
+                                        <ul>
+                                            <li>Parler en pleine crise émotionnelle</li>
+                                            <li>Utiliser des généralisations ("Tu toujours...")</li>
+                                            <li>Faire des comparaisons blessantes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-secondary">
+                                    <i class="fas fa-lightbulb me-2"></i> <strong>Script type :</strong> "J'aimerais qu'on parle de [sujet]. Est-ce que [horaire] te conviendrait ? Je m'engage à t'écouter sans t'interrompre."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-warning rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-warning text-dark rounded-circle me-3">3</span>
+                            <h4 class="mb-0">Gérer les Émotions Intenses</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Prévenir l'escalade conflictuelle.</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-heartbeat fa-2x text-danger mb-3"></i>
+                                        <h5>Technique 3-3-3</h5>
+                                        <p>Nommez :<br>3 choses que vous voyez<br>3 sons que vous entendez<br>3 parties de votre corps</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-hourglass-half fa-2x text-primary mb-3"></i>
+                                        <h5>Pause Temporisée</h5>
+                                        <p>"J'ai besoin de 20 minutes pour me calmer avant d'en reparler sereinement."</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-pen-fancy fa-2x text-success mb-3"></i>
+                                        <h5>Écriture Express</h5>
+                                        <p>Écrivez votre colère puis déchirez la feuille (sans la garder)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-warning">
+                                    <i class="fas fa-exclamation-triangle me-2"></i> Si les crises sont violentes, consultez un professionnel sans tarder.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-secondary rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-secondary text-white rounded-circle me-3">4</span>
+                            <h4 class="mb-0">Identifier les Besoins Non Satisfaits</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Décoder les attentes sous-jacentes.</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Conflit apparent</th>
+                                            <th>Besoin caché possible</th>
+                                            <th>Solution alternative</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>"Tu ne m'écoutes jamais"</td>
+                                            <td>Besoin de reconnaissance/attention</td>
+                                            <td>Moments de qualité sans distraction</td>
+                                        </tr>
+                                        <tr>
+                                            <td>"Tu es toujours sur ton téléphone"</td>
+                                            <td>Besoin de connexion émotionnelle</td>
+                                            <td>Rituel quotidien de discussion</td>
+                                        </tr>
+                                        <tr>
+                                            <td>"Tu ne m'aides pas assez"</td>
+                                            <td>Besoin de soutien/équipe</td>
+                                            <td>Redistribution claire des tâches</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#needsWorksheet">
+                                    <i class="fas fa-download me-2"></i>Télécharger la fiche d'analyse
+                                </button>
+                                <div class="collapse mt-2" id="needsWorksheet">
+                                    <div class="card card-body">
+                                        <h5>Grille d'analyse des besoins :</h5>
+                                        <ol>
+                                            <li>Quel est le déclencheur apparent ?</li>
+                                            <li>Quelle émotion je ressens ? (colère, tristesse...)</li>
+                                            <li>Quel besoin non satisfait se cache derrière ?</li>
+                                            <li>Comment pourrions-nous y répondre autrement ?</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 5 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-success rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-success text-white rounded-circle me-3">5</span>
+                            <h4 class="mb-0">Co-Construire des Solutions</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Trouver des compromis satisfaisants pour les deux parties.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded mb-3">
+                                        <h5><i class="fas fa-brain me-2 text-primary"></i>Méthode Gagnant-Gagnant</h5>
+                                        <ol>
+                                            <li>Listez toutes les idées (même farfelues)</li>
+                                            <li>Évaluez ensemble chaque proposition</li>
+                                            <li>Choisissez 1 solution à tester pour 15 jours</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-handshake me-2 text-success"></i>Exemples de Pactes</h5>
+                                        <ul>
+                                            <li>"Si je dis X, tu peux me répondre Y au lieu de Z"</li>
+                                            <li>"Quand je fais [geste], c'est que j'ai besoin d'une pause"</li>
+                                            <li>"On se donne 24h avant de reprendre ce sujet délicat"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-success">
+                                    <i class="fas fa-lightbulb me-2"></i> <strong>Astuce :</strong> Formulez les solutions sous forme d'expérimentation ("Testons ceci pendant 15 jours et on réévalue").
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 6 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-danger rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-danger text-white rounded-circle me-3">6</span>
+                            <h4 class="mb-0">Réparer les Blessures</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Guérir les conséquences émotionnelles de la crise.</p>
+                            <div class="row">
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-danger bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-heart-crack fa-3x text-danger"></i>
+                                        </div>
+                                        <h5>Reconnaître</h5>
+                                        <p>"Je vois que mes paroles t'ont blessé"</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-primary bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-hand-holding-heart fa-3x text-primary"></i>
+                                        </div>
+                                        <h5>Réparer</h5>
+                                        <p>"Que puis-je faire pour te soulager ?"</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-success bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-seedling fa-3x text-success"></i>
+                                        </div>
+                                        <h5>Rebâtir</h5>
+                                        <p>Créer un nouveau souvenir positif ensemble</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-clock me-2"></i> <strong>Important :</strong> La réparation demande du temps. Soyez patients avec le processus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 7 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-info rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-info text-white rounded-circle me-3">7</span>
+                            <h4 class="mb-0">Établir des Garde-Fous</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Prévenir la répétition des crises.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded h-100">
+                                        <h5><i class="fas fa-shield-alt me-2 text-info"></i>Système d'Alertes</h5>
+                                        <ul>
+                                            <li>Mots-clés pour stopper l'escalade ("Temps mort")</li>
+                                            <li>Signaux non verbaux (ex: main sur le cœur)</li>
+                                            <li>Journal des déclencheurs à éviter</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded h-100">
+                                        <h5><i class="fas fa-calendar-check me-2 text-info"></i>Rituels Protecteurs</h5>
+                                        <ul>
+                                            <li>Bilan relationnel hebdomadaire</li>
+                                            <li>Week-end "reset" tous les 3 mois</li>
+                                            <li>Code de conduite écrit et affiché</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-file-contract me-2"></i>Exemple de Pacte Relationnel
+                                    </div>
+                                    <div class="card-body">
+                                        <ol>
+                                            <li>Nous ne nous critiquerons pas en public</li>
+                                            <li>Nous ferons une pause dès qu'un des deux dit "Stop"</li>
+                                            <li>Nous chercherons de l'aide si une crise dure plus de 3 jours</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 8 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-dark rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-dark text-white rounded-circle me-3">8</span>
+                            <h4 class="mb-0">Consolider la Relation</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Transformer la crise en opportunité de croissance.</p>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-book-open fa-2x mb-3 text-primary"></i>
+                                        <h5>Apprentissage</h5>
+                                        <p>Identifier les leçons de cette crise</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-heart fa-2x mb-3 text-danger"></i>
+                                        <h5>Réconciliation</h5>
+                                        <p>Cérémonie symbolique de renouveau</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-road fa-2x mb-3 text-success"></i>
+                                        <h5>Projet Commun</h5>
+                                        <p>Lancer une nouvelle activité ensemble</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-success">
+                                    <i class="fas fa-star me-2"></i> <strong>Idée :</strong> Créez un "livret de résilience" où vous notez vos progrès et souvenirs positifs post-crise.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Ressources -->
+                    <div class="resources-section mt-5">
+                        <div class="card">
+                            <div class="card-header bg-teal text-white">
+                                <i class="fas fa-tools me-2"></i>Boîte à Outils Complémentaire
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5><i class="fas fa-book me-2 text-teal"></i>Livres Recommandés</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">"Les Crises Conjugales" - Dr. John Gottman</li>
+                                            <li class="list-group-item">"Réparer les Blessures Amoureuses" - Harville Hendrix</li>
+                                            <li class="list-group-item">"La Communication Non Violente" - Marshall Rosenberg</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5><i class="fas fa-globe me-2 text-teal"></i>Ressources en Ligne</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Test d'évaluation des conflits (lien)</li>
+                                            <li class="list-group-item">Forum de soutien entre couples</li>
+                                            <li class="list-group-item">Annuaire des thérapeutes spécialisés</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+				
+				
+			</div>
+		
             <!-- Besoins Affectifs Tab -->
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row mb-4">
@@ -1944,6 +2699,38 @@ La paix naît de la patience, de la compréhension mutuelle et d’une communica
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
+</script>
+
+<script>
+// Gestion des boutons "Lire la suite"
+document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
+    button.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        if (this.classList.contains('collapsed')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        }
+    });
+});
+
+// Suivi des défis complétés
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            this.parentElement.classList.add('text-success', 'fw-bold');
+        } else {
+            this.parentElement.classList.remove('text-success', 'fw-bold');
+        }
+    });
+});
+
+// Recherche de thérapeutes (simulation)
+document.querySelector('.btn-primary').addEventListener('click', function() {
+    alert('Fonctionnalité de recherche en développement. Pour l\'instant, consultez l\'annuaire des psychologues sur le site de l\'ARS.');
+});
 </script>
 
 </body>
