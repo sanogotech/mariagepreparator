@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Complète sur le Mariage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark-color);
+            border-radius: 10px;
+            margin: 0.2rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
+        }
+        
+        .nav-pills .nav-link:hover:not(.active) {
+            background-color: rgba(142, 68, 173, 0.1);
+        }
+        
+        .tab-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 1.5rem;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .table-responsive {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .table thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .table th {
+            border: none;
+        }
+        
+        .table td {
+            vertical-align: middle;
+        }
+        
+        .quote-card {
+            border-left: 4px solid var(--primary-color);
+            background-color: rgba(142, 68, 173, 0.05);
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .badge-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5em 0.8em;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(142, 68, 173, 0.3);
+        }
+		
+		/* Couleur thématique */
+    .bg-gradient-teal {
+        background: linear-gradient(135deg, #20c997, #099268);
+    }
+    
+    .bg-teal {
+        background-color: #099268;
+    }
+    
+    .text-teal {
+        color: #099268;
+    }
+    
+    /* Styles des étapes */
+    .step-card {
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .step-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-badge {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    
+    .step-content {
+        border-left: 2px dashed #dee2e6;
+        padding-left: 1.5rem;
+    }
+    
+    /* Animation des étapes de réparation */
+    .repair-step {
+        transition: all 0.5s ease;
+    }
+    
+    .repair-step:hover {
+        transform: scale(1.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .step-content {
+            padding-left: 1rem;
+            border-left: none;
+            border-top: 2px dashed #dee2e6;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+    }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+        }
+        
+        .wisdom-card {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wisdom-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .wisdom-card h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 2rem;
+            }
+            
+            .tab-content {
+                padding: 1rem;
+            }
+        }
+		
+		
+		
+    /* Styles pour les nouveaux onglets */
+    .bg-gradient-purple {
+        background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    }
+    
+    .bg-gradient-orange {
+        background: linear-gradient(135deg, #e67e22, #d35400);
+    }
+    
+    .bg-gradient-red {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+    }
+    
+    .testimonial-card {
+        transition: all 0.3s;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .challenge-card {
+        transition: all 0.3s;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .challenge-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .red-flag-card {
+        transition: all 0.3s;
+    }
+    
+    .red-flag-card:hover {
+        background-color: rgba(231, 76, 60, 0.05);
+    }
+    
+    .crisis-section {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    
+    /* Animation pour les boutons "Lire la suite" */
+    .btn[data-bs-toggle="collapse"] .more,
+    .btn[data-bs-toggle="collapse"] .less {
+        transition: all 0.3s;
+    }
+    
+    .btn[data-bs-toggle="collapse"].collapsed .less {
+        display: none !important;
+    }
+    
+    .btn[data-bs-toggle="collapse"]:not(.collapsed) .more {
+        display: none;
+    }
+    
+    .btn[data-bs-toggle="collapse"]:not(.collapsed) .less {
+        display: inline-block !important;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header text-center">
+        <div class="container">
+            <h1 class="dashboard-title">💞 Mieux S'aimer</h1>
+            <p class="dashboard-subtitle">Guide complet pour un couple équilibré, profond et durable</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                    <i class="fas fa-heart me-2"></i>Besoins Affectifs
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-books-tab" data-bs-toggle="pill" data-bs-target="#pills-books" type="button" role="tab" aria-controls="pills-books" aria-selected="false">
+                    <i class="fas fa-book me-2"></i>Livres Clés
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-practices-tab" data-bs-toggle="pill" data-bs-target="#pills-practices" type="button" role="tab" aria-controls="pills-practices" aria-selected="false">
+                    <i class="fas fa-tasks me-2"></i>Bonnes Pratiques
+                </button>
+            </li>
+			
+			<li class="nav-item" role="presentation">
+			  <button class="nav-link" id="pills-redflags-tab" data-bs-toggle="pill" data-bs-target="#pills-redflags" type="button" role="tab" aria-controls="pills-redflags" aria-selected="false">
+				<i class="fas fa-exclamation-triangle me-2 text-danger"></i>Red Flags et Épreuves
+			  </button>
+			</li>
+			
+			  <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-testimonials-tab" data-bs-toggle="pill" data-bs-target="#pills-testimonials" type="button" role="tab" aria-controls="pills-testimonials" aria-selected="false">
+            <i class="fas fa-heart-circle-check me-2"></i>Témoignages
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-exercises-tab" data-bs-toggle="pill" data-bs-target="#pills-exercises" type="button" role="tab" aria-controls="pills-exercises" aria-selected="false">
+            <i class="fas fa-dumbbell me-2"></i>Exercices
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-crisis-tab" data-bs-toggle="pill" data-bs-target="#pills-crisis" type="button" role="tab" aria-controls="pills-crisis" aria-selected="false">
+            <i class="fas fa-life-ring me-2"></i>Resolution de Crise
+        </button>
+    </li>
+			
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-annexes-tab" data-bs-toggle="pill" data-bs-target="#pills-annexes" type="button" role="tab" aria-controls="pills-annexes" aria-selected="false">
+                    <i class="fas fa-file-alt me-2"></i>Annexes
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-roadmap-tab" data-bs-toggle="pill" data-bs-target="#pills-roadmap" type="button" role="tab" aria-controls="pills-roadmap" aria-selected="false">
+                    <i class="fas fa-map me-2"></i>Feuille de Route
+                </button>
+            </li>
+			
+			<li class="nav-item" role="presentation">
+			<button class="nav-link" id="pills-quiz-tab" data-bs-toggle="pill" data-bs-target="#pills-quiz" type="button" role="tab" aria-controls="pills-quiz" aria-selected="false">
+				<i class="fas fa-question-circle me-2"></i>Quiz
+			</button>
+</li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="pills-tabContent">
+		
+
+			<!-- Contenu des nouveaux onglets -->
+			<div class="tab-content" id="pills-tabContent">
+				<!-- Onglet Témoignages -->
+				<div class="tab-pane fade" id="pills-testimonials" role="tabpanel" aria-labelledby="pills-testimonials-tab">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card mb-4">
+								<div class="card-header bg-gradient-purple text-white">
+									<i class="fas fa-heart-circle-check me-2"></i>Histoires Inspirantes
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<!-- Témoignage 1 -->
+										<div class="col-md-6 mb-4">
+											<div class="testimonial-card p-4 border rounded h-100">
+												<div class="d-flex align-items-center mb-3">
+													<img src="https://randomuser.me/api/portraits/women/43.jpg" class="rounded-circle me-3" width="60" alt="Sophie">
+													<div>
+														<h5 class="mb-0">Sophie & Marc</h5>
+														<span class="text-muted">Mariés depuis 12 ans</span>
+													</div>
+												</div>
+												<div class="mb-3">
+													<div class="rating">
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+													</div>
+												</div>
+												<p class="mb-3">"Après 7 ans de mariage, nous étions sur le point de divorcer. La lecture des '5 langages de l'amour' nous a ouvert les yeux. Nous avions simplement des façons différentes d'exprimer notre amour."</p>
+												<div class="collapse" id="testimonial1">
+													<p>Marc avait besoin de paroles valorisantes alors que moi, j'avais besoin de moments de qualité. Aujourd'hui, nous prenons chaque semaine un vrai rendez-vous en amoureux, sans téléphone, et je fais l'effort de le complimenter sur ses petites attentions.</p>
+													<p class="fw-bold">Le déclic : Identifier nos langages d'amour respectifs.</p>
+												</div>
+												<a class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" href="#testimonial1" role="button">
+													<span class="more">Lire la suite <i class="fas fa-chevron-down"></i></span>
+													<span class="less" style="display:none">Réduire <i class="fas fa-chevron-up"></i></span>
+												</a>
+											</div>
+										</div>
+
+										<!-- Témoignage 2 -->
+										<div class="col-md-6 mb-4">
+											<div class="testimonial-card p-4 border rounded h-100">
+												<div class="d-flex align-items-center mb-3">
+													<img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Thomas">
+													<div>
+														<h5 class="mb-0">Thomas & Léa</h5>
+														<span class="text-muted">Mariés depuis 5 ans</span>
+													</div>
+												</div>
+												<div class="mb-3">
+													<div class="rating">
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star text-warning"></i>
+														<i class="fas fa-star-half-alt text-warning"></i>
+													</div>
+												</div>
+												<p class="mb-3">"La thérapie de couple nous a sauvés. Nous avions des schémas de communication toxiques hérités de nos familles. Aujourd'hui, nous savons nous écouter vraiment."</p>
+												<div class="collapse" id="testimonial2">
+													<p>Nous utilisons maintenant la technique du "paraphraser" : je répète ce que j'ai compris de ce que dit Léa avant de répondre. Cela a éliminé 80% de nos malentendus.</p>
+													<p class="fw-bold">Le déclic : Comprendre que nos disputes venaient de blessures d'enfance.</p>
+												</div>
+												<a class="btn btn-sm btn-outline-primary" data-bs-toggle="collapse" href="#testimonial2" role="button">
+													<span class="more">Lire la suite <i class="fas fa-chevron-down"></i></span>
+													<span class="less" style="display:none">Réduire <i class="fas fa-chevron-up"></i></span>
+												</a>
+											</div>
+										</div>
+									</div>
+
+									<!-- Vidéo témoignage -->
+									<div class="card mt-4">
+										<div class="card-header">
+											<i class="fas fa-video me-2"></i>Témoignage en vidéo
+										</div>
+										<div class="card-body text-center">
+											<div class="ratio ratio-16x9">
+												<iframe src="https://www.youtube.com/embed/example" allowfullscreen></iframe>
+											</div>
+											<h5 class="mt-3">Amélie & Karim : Reconstruire après une infidélité</h5>
+											<p>"Cela nous a pris 2 ans de travail intense, mais notre relation est aujourd'hui plus forte qu'avant."</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Onglet Exercices Pratiques -->
+				<div class="tab-pane fade" id="pills-exercises" role="tabpanel" aria-labelledby="pills-exercises-tab">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card mb-4">
+								<div class="card-header bg-gradient-orange text-white">
+									<i class="fas fa-dumbbell me-2"></i>Défis Couple
+								</div>
+								<div class="card-body">
+									<div class="alert alert-info">
+										<i class="fas fa-info-circle me-2"></i> Ces exercices sont conçus pour renforcer votre connexion. Faites-les dans un esprit d'ouverture et de bienveillance.
+									</div>
+
+									<!-- Défi 1 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #1 : Les 7 jours de gratitude</h4>
+											<span class="badge bg-success">Facile</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Cultiver la reconnaissance mutuelle.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li>Pendant 7 jours, notez chaque soir 1 chose que vous appréciez chez votre partenaire.</li>
+													<li>Partagez vos notes chaque jour à un moment calme.</li>
+													<li>Le 7ème jour, offrez-vous un moment spécial pour célébrer.</li>
+												</ol>
+												<div class="mt-3">
+													<button class="btn btn-sm btn-outline-primary">
+														<i class="fas fa-download me-2"></i>Télécharger le journal
+													</button>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-heart fa-3x mb-3 text-danger"></i>
+													<p class="mb-0 fw-bold">Durée : 7 jours</p>
+													<p class="mb-0">Temps/jour : 5 min</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Défi 2 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #2 : L'écoute active en 3 étapes</h4>
+											<span class="badge bg-warning text-dark">Intermédiaire</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Améliorer la qualité de votre communication.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li><strong>Écouter</strong> sans interrompre (même si vous n'êtes pas d'accord).</li>
+													<li><strong>Résumer</strong> ce que vous avez entendu ("Si je comprends bien, tu te sens...").</li>
+													<li><strong>Valider</strong> les émotions ("Je comprends que tu puisses te sentir ainsi").</li>
+												</ol>
+												<div class="mt-3">
+													<button class="btn btn-sm btn-outline-primary me-2">
+														<i class="fas fa-play-circle me-2"></i>Vidéo démo
+													</button>
+													<button class="btn btn-sm btn-outline-success">
+														<i class="fas fa-check-circle me-2"></i>Marquer comme fait
+													</button>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-comments fa-3x mb-3 text-primary"></i>
+													<p class="mb-0 fw-bold">Durée : 1 semaine</p>
+													<p class="mb-0">3x par jour</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Défi 3 -->
+									<div class="challenge-card p-4 mb-4 border rounded">
+										<div class="d-flex justify-content-between align-items-center mb-3">
+											<h4 class="mb-0">Défi #3 : Le rendez-vous surprise</h4>
+											<span class="badge bg-info">Créativité</span>
+										</div>
+										<div class="row">
+											<div class="col-md-8">
+												<p><strong>Objectif :</strong> Raviver la flamme par la surprise.</p>
+												<p><strong>Instructions :</strong></p>
+												<ol>
+													<li>Chacun planifie secrètement une activité surprise pour l'autre.</li>
+													<li>Le jour J, laissez-vous guider sans poser de questions.</li>
+													<li>Partagez ensuite ce que vous avez préféré.</li>
+												</ol>
+												<div class="mt-3">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" id="challenge3">
+														<label class="form-check-label" for="challenge3">
+															J'ai relevé ce défi !
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="p-3 bg-light rounded text-center">
+													<i class="fas fa-gift fa-3x mb-3 text-success"></i>
+													<p class="mb-0 fw-bold">Durée : 1 journée</p>
+													<p class="mb-0">Budget libre</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Onglet Ressources pour Couples en Crise -->
+				<div class="tab-pane fade" id="pills-crisis" role="tabpanel" aria-labelledby="pills-crisis-tab">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header bg-gradient-teal text-white">
+                    <i class="fas fa-handshake me-2"></i>Résolution de Crise en 8 Étapes
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> Cette méthode progressive vous guide pas à pas pour surmonter les crises conjugales. Suivez les étapes dans l'ordre.
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-primary rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-primary text-white rounded-circle me-3">1</span>
+                            <h4 class="mb-0">Identifier la Source de la Crise</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Comprendre la nature exacte du problème.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-check-circle text-success me-2"></i>Bonnes Pratiques :</h5>
+                                        <ul>
+                                            <li>Listez les faits objectifs (sans interprétation)</li>
+                                            <li>Notez les déclencheurs récurrents</li>
+                                            <li>Distinguer les problèmes conjoncturels des structurels</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-times-circle text-danger me-2"></i>À Éviter :</h5>
+                                        <ul>
+                                            <li>Faire des suppositions sans preuve</li>
+                                            <li>Confondre symptômes et causes profondes</li>
+                                            <li>Nier l'existence du problème</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#step1Details">
+                                    <i class="fas fa-eye me-2"></i>Outils complémentaires
+                                </button>
+                                <div class="collapse mt-2" id="step1Details">
+                                    <div class="card card-body">
+                                        <h5>Journal de crise :</h5>
+                                        <p>Notez pendant une semaine :</p>
+                                        <ol>
+                                            <li>Les moments de tension</li>
+                                            <li>Ce qui les a précédés</li>
+                                            <li>Vos réactions physiques (ex: cœur qui bat vite)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-info rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-info text-white rounded-circle me-3">2</span>
+                            <h4 class="mb-0">Instaurer un Dialogue Sécurisé</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Créer un espace de communication sans jugement.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-check-circle text-success me-2"></i>Techniques :</h5>
+                                        <ul>
+                                            <li>Utilisez des "messages Je" ("Je me sens...")</li>
+                                            <li>Fixez un créneau horaire dédié</li>
+                                            <li>Établissez des règles de base (pas d'interruption)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-times-circle text-danger me-2"></i>Pièges :</h5>
+                                        <ul>
+                                            <li>Parler en pleine crise émotionnelle</li>
+                                            <li>Utiliser des généralisations ("Tu toujours...")</li>
+                                            <li>Faire des comparaisons blessantes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-secondary">
+                                    <i class="fas fa-lightbulb me-2"></i> <strong>Script type :</strong> "J'aimerais qu'on parle de [sujet]. Est-ce que [horaire] te conviendrait ? Je m'engage à t'écouter sans t'interrompre."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-warning rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-warning text-dark rounded-circle me-3">3</span>
+                            <h4 class="mb-0">Gérer les Émotions Intenses</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Prévenir l'escalade conflictuelle.</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-heartbeat fa-2x text-danger mb-3"></i>
+                                        <h5>Technique 3-3-3</h5>
+                                        <p>Nommez :<br>3 choses que vous voyez<br>3 sons que vous entendez<br>3 parties de votre corps</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-hourglass-half fa-2x text-primary mb-3"></i>
+                                        <h5>Pause Temporisée</h5>
+                                        <p>"J'ai besoin de 20 minutes pour me calmer avant d'en reparler sereinement."</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-pen-fancy fa-2x text-success mb-3"></i>
+                                        <h5>Écriture Express</h5>
+                                        <p>Écrivez votre colère puis déchirez la feuille (sans la garder)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-warning">
+                                    <i class="fas fa-exclamation-triangle me-2"></i> Si les crises sont violentes, consultez un professionnel sans tarder.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-secondary rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-secondary text-white rounded-circle me-3">4</span>
+                            <h4 class="mb-0">Identifier les Besoins Non Satisfaits</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Décoder les attentes sous-jacentes.</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Conflit apparent</th>
+                                            <th>Besoin caché possible</th>
+                                            <th>Solution alternative</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>"Tu ne m'écoutes jamais"</td>
+                                            <td>Besoin de reconnaissance/attention</td>
+                                            <td>Moments de qualité sans distraction</td>
+                                        </tr>
+                                        <tr>
+                                            <td>"Tu es toujours sur ton téléphone"</td>
+                                            <td>Besoin de connexion émotionnelle</td>
+                                            <td>Rituel quotidien de discussion</td>
+                                        </tr>
+                                        <tr>
+                                            <td>"Tu ne m'aides pas assez"</td>
+                                            <td>Besoin de soutien/équipe</td>
+                                            <td>Redistribution claire des tâches</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#needsWorksheet">
+                                    <i class="fas fa-download me-2"></i>Télécharger la fiche d'analyse
+                                </button>
+                                <div class="collapse mt-2" id="needsWorksheet">
+                                    <div class="card card-body">
+                                        <h5>Grille d'analyse des besoins :</h5>
+                                        <ol>
+                                            <li>Quel est le déclencheur apparent ?</li>
+                                            <li>Quelle émotion je ressens ? (colère, tristesse...)</li>
+                                            <li>Quel besoin non satisfait se cache derrière ?</li>
+                                            <li>Comment pourrions-nous y répondre autrement ?</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 5 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-success rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-success text-white rounded-circle me-3">5</span>
+                            <h4 class="mb-0">Co-Construire des Solutions</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Trouver des compromis satisfaisants pour les deux parties.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded mb-3">
+                                        <h5><i class="fas fa-brain me-2 text-primary"></i>Méthode Gagnant-Gagnant</h5>
+                                        <ol>
+                                            <li>Listez toutes les idées (même farfelues)</li>
+                                            <li>Évaluez ensemble chaque proposition</li>
+                                            <li>Choisissez 1 solution à tester pour 15 jours</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded">
+                                        <h5><i class="fas fa-handshake me-2 text-success"></i>Exemples de Pactes</h5>
+                                        <ul>
+                                            <li>"Si je dis X, tu peux me répondre Y au lieu de Z"</li>
+                                            <li>"Quand je fais [geste], c'est que j'ai besoin d'une pause"</li>
+                                            <li>"On se donne 24h avant de reprendre ce sujet délicat"</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-success">
+                                    <i class="fas fa-lightbulb me-2"></i> <strong>Astuce :</strong> Formulez les solutions sous forme d'expérimentation ("Testons ceci pendant 15 jours et on réévalue").
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 6 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-danger rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-danger text-white rounded-circle me-3">6</span>
+                            <h4 class="mb-0">Réparer les Blessures</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Guérir les conséquences émotionnelles de la crise.</p>
+                            <div class="row">
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-danger bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-heart-crack fa-3x text-danger"></i>
+                                        </div>
+                                        <h5>Reconnaître</h5>
+                                        <p>"Je vois que mes paroles t'ont blessé"</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-primary bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-hand-holding-heart fa-3x text-primary"></i>
+                                        </div>
+                                        <h5>Réparer</h5>
+                                        <p>"Que puis-je faire pour te soulager ?"</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <div class="p-3 h-100">
+                                        <div class="repair-step bg-success bg-opacity-10 rounded-circle p-4 mx-auto mb-3" style="width: 120px; height: 120px;">
+                                            <i class="fas fa-seedling fa-3x text-success"></i>
+                                        </div>
+                                        <h5>Rebâtir</h5>
+                                        <p>Créer un nouveau souvenir positif ensemble</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-clock me-2"></i> <strong>Important :</strong> La réparation demande du temps. Soyez patients avec le processus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 7 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-info rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-info text-white rounded-circle me-3">7</span>
+                            <h4 class="mb-0">Établir des Garde-Fous</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Prévenir la répétition des crises.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded h-100">
+                                        <h5><i class="fas fa-shield-alt me-2 text-info"></i>Système d'Alertes</h5>
+                                        <ul>
+                                            <li>Mots-clés pour stopper l'escalade ("Temps mort")</li>
+                                            <li>Signaux non verbaux (ex: main sur le cœur)</li>
+                                            <li>Journal des déclencheurs à éviter</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="bg-light p-3 rounded h-100">
+                                        <h5><i class="fas fa-calendar-check me-2 text-info"></i>Rituels Protecteurs</h5>
+                                        <ul>
+                                            <li>Bilan relationnel hebdomadaire</li>
+                                            <li>Week-end "reset" tous les 3 mois</li>
+                                            <li>Code de conduite écrit et affiché</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fas fa-file-contract me-2"></i>Exemple de Pacte Relationnel
+                                    </div>
+                                    <div class="card-body">
+                                        <ol>
+                                            <li>Nous ne nous critiquerons pas en public</li>
+                                            <li>Nous ferons une pause dès qu'un des deux dit "Stop"</li>
+                                            <li>Nous chercherons de l'aide si une crise dure plus de 3 jours</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 8 -->
+                    <div class="step-card p-4 mb-4 border-start border-5 border-dark rounded">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="step-badge bg-dark text-white rounded-circle me-3">8</span>
+                            <h4 class="mb-0">Consolider la Relation</h4>
+                        </div>
+                        <div class="step-content ps-5">
+                            <p><strong>Objectif :</strong> Transformer la crise en opportunité de croissance.</p>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-book-open fa-2x mb-3 text-primary"></i>
+                                        <h5>Apprentissage</h5>
+                                        <p>Identifier les leçons de cette crise</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-heart fa-2x mb-3 text-danger"></i>
+                                        <h5>Réconciliation</h5>
+                                        <p>Cérémonie symbolique de renouveau</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="p-3 border rounded h-100 text-center">
+                                        <i class="fas fa-road fa-2x mb-3 text-success"></i>
+                                        <h5>Projet Commun</h5>
+                                        <p>Lancer une nouvelle activité ensemble</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="alert alert-success">
+                                    <i class="fas fa-star me-2"></i> <strong>Idée :</strong> Créez un "livret de résilience" où vous notez vos progrès et souvenirs positifs post-crise.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Ressources -->
+                    <div class="resources-section mt-5">
+                        <div class="card">
+                            <div class="card-header bg-teal text-white">
+                                <i class="fas fa-tools me-2"></i>Boîte à Outils Complémentaire
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5><i class="fas fa-book me-2 text-teal"></i>Livres Recommandés</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">"Les Crises Conjugales" - Dr. John Gottman</li>
+                                            <li class="list-group-item">"Réparer les Blessures Amoureuses" - Harville Hendrix</li>
+                                            <li class="list-group-item">"La Communication Non Violente" - Marshall Rosenberg</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5><i class="fas fa-globe me-2 text-teal"></i>Ressources en Ligne</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Test d'évaluation des conflits (lien)</li>
+                                            <li class="list-group-item">Forum de soutien entre couples</li>
+                                            <li class="list-group-item">Annuaire des thérapeutes spécialisés</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+				
+				
+			</div>
+		
+            <!-- Besoins Affectifs Tab -->
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-info-circle me-2"></i>Introduction
+                            </div>
+                            <div class="card-body">
+                                <p>Dans notre époque moderne, marquée par la rapidité des échanges et l'individualisme croissant, de nombreux couples se forment… mais aussi se défont rapidement. Pourquoi ? Parce que <strong>l'intelligence émotionnelle dans la relation est souvent négligée</strong>.</p>
+                                <p>L'amour ne suffit pas toujours. Il faut aussi comprendre <strong>comment l'autre se sent aimé</strong>. Les hommes et les femmes ont souvent des modes d'expression, de réception, et de gestion de l'amour <strong>fondamentalement différents</strong>.</p>
+                                <div class="alert alert-primary mt-3">
+                                    <i class="fas fa-lightbulb me-2"></i> <strong>Note importante :</strong> Ces notions sont inspirées de travaux de spécialistes (John Gray, Gary Chapman, Harville Hendrix, etc.). Elles reflètent <strong>des tendances observées</strong> et non des vérités figées. Chaque personne reste unique, avec son histoire, ses blessures, et ses forces.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-table me-2"></i>Tableau comparatif – 12 Besoins Émotionnels : Homme vs Femme
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>🧔 Homme</th>
+                                                <th>👩 Femme</th>
+                                                <th>🧩 Explication approfondie</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Reconnaissance</strong></td>
+                                                <td><strong>Compréhension</strong></td>
+                                                <td>L'homme se sent aimé quand ses efforts sont reconnus (même petits). La femme, elle, veut d'abord être <strong>entendue</strong>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Respect</strong></td>
+                                                <td><strong>Amour</strong></td>
+                                                <td>Pour un homme, le respect <strong>équivaut à l'amour</strong>. Une femme a besoin de gestes, de mots, de soins réguliers.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Confiance</strong></td>
+                                                <td><strong>Attention</strong></td>
+                                                <td>L'homme veut qu'on <strong>croit en lui</strong> sans lui dicter quoi faire. La femme se sent aimée par des attentions régulières.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Loyauté</strong></td>
+                                                <td><strong>Fidélité émotionnelle</strong></td>
+                                                <td>L'homme veut savoir qu'on le soutient même dans l'échec. La femme veut être <strong>émotionnellement prioritaire</strong>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Appréciation</strong></td>
+                                                <td><strong>Gratitude verbale</strong></td>
+                                                <td>Dire "merci" ou remarquer ses gestes motive un homme. Une femme aime qu'on <strong>mette en mots</strong> la gratitude.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Autonomie</strong></td>
+                                                <td><strong>Sécurité</strong></td>
+                                                <td>L'homme a besoin d'espace et de silence pour se recentrer. La femme, elle, recherche <strong>stabilité et cohérence</strong>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Acceptation</strong></td>
+                                                <td><strong>Validation</strong></td>
+                                                <td>L'homme veut qu'on ne le change pas. La femme veut qu'on <strong>accueille ses ressentis</strong> sans minimiser.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Admiration</strong></td>
+                                                <td><strong>Tendresse</strong></td>
+                                                <td>Être admiré par sa partenaire booste l'homme. La femme veut des <strong>gestes doux et affectueux réguliers</strong>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Soutien matériel</strong></td>
+                                                <td><strong>Soutien émotionnel</strong></td>
+                                                <td>L'homme apporte de l'aide pratique. La femme a besoin de <strong>présence émotionnelle</strong>, d'une écoute calme.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Leadership assumé</strong></td>
+                                                <td><strong>Co-construction</strong></td>
+                                                <td>L'homme aime <strong>prendre des décisions</strong> pour protéger. La femme préfère <strong>participer activement aux choix</strong>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Liberté de réflexion</strong></td>
+                                                <td><strong>Présence mentale</strong></td>
+                                                <td>L'homme a besoin de solitude constructive. La femme veut une <strong>attention pleine et entière</strong> dans l'échange.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Simplicité</strong></td>
+                                                <td><strong>Connexion émotionnelle</strong></td>
+                                                <td>L'homme valorise les choses simples. La femme cherche une <strong>profondeur de lien</strong>, une intimité sincère.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+
+
+<!-- Et ajoutez ce contenu dans la partie <div class="tab-content"> -->
+<div class="tab-pane fade" id="pills-quiz" role="tabpanel" aria-labelledby="pills-quiz-tab">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-question-circle me-2"></i>Quiz Couple - Testez vos connaissances
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> Ce quiz de 25 questions vous aidera à évaluer votre compréhension des besoins affectifs et des dynamiques de couple. Pour chaque question, choisissez la réponse qui vous semble la plus juste.
+                    </div>
+					
+					<div style="border: 2px solid #4CAF50; padding: 20px; border-radius: 8px; background-color: #f0fff0; max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif;">
+					  <h2 style="color: #2e7d32;">Introduction au Quiz</h2>
+					  <p>
+						Bienvenue à ce quiz sur les relations de couple et la communication saine. Ce quiz a pour but de vous aider à mieux comprendre les dynamiques qui favorisent une relation harmonieuse et respectueuse. Que vous soyez en couple ou simplement curieux d’en apprendre plus, ce test vous permettra de vérifier vos connaissances et de réfléchir à des bonnes pratiques relationnelles.
+					  </p>
+					  <h3 style="color: #388e3c;">Instructions</h3>
+					  <ul>
+						<li>Ce quiz comprend 25 questions à choix multiples.</li>
+						<li>Pour chaque question, choisissez la réponse que vous pensez être la plus juste en cochant la case correspondante.</li>
+						<li>Après avoir sélectionné votre réponse, vous pouvez vérifier immédiatement si elle est correcte grâce au retour affiché.</li>
+						<li>Prenez le temps de bien lire chaque question avant de répondre.</li>
+						<li>Il n’y a pas de limite de temps, mais essayez de répondre avec honnêteté pour tirer le meilleur profit de ce quiz.</li>
+					  </ul>
+					  <p><strong>Bonne chance et bonne découverte !</strong></p>
+					</div>
+
+                    
+                    <form id="coupleQuiz">
+                        <!-- Question 1 -->
+                        <div class="mb-4 p-3 border rounded">
+                            <h5>1. Quel est le besoin émotionnel principal d'un homme selon John Gray ?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
+                                <label class="form-check-label" for="q1a">Être écouté pendant des heures</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
+                                <label class="form-check-label" for="q1b">Recevoir des compliments sur son apparence</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
+                                <label class="form-check-label" for="q1c">Se sentir respecté et utile</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1d" value="d">
+                                <label class="form-check-label" for="q1d">Avoir des surprises romantiques quotidiennes</label>
+                            </div>
+                            <div class="answer-feedback mt-2" id="feedback-q1" style="display: none;">
+                                <div class="alert alert-success">
+                                    <strong>Bonne réponse !</strong> Les hommes ont principalement besoin de se sentir <strong>respectés</strong> et utiles dans la relation. Le respect est souvent équivalent à l'amour pour eux.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="mb-4 p-3 border rounded">
+                            <h5>2. Quel langage d'amour correspond à "passer du temps de qualité ensemble" ?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
+                                <label class="form-check-label" for="q2a">Paroles valorisantes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+                                <label class="form-check-label" for="q2b">Moments de qualité</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+                                <label class="form-check-label" for="q2c">Services rendus</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2d" value="d">
+                                <label class="form-check-label" for="q2d">Toucher physique</label>
+                            </div>
+                            <div class="answer-feedback mt-2" id="feedback-q2" style="display: none;">
+                                <div class="alert alert-success">
+                                    <strong>Exact !</strong> Les <strong>moments de qualité</strong> sont un des 5 langages d'amour identifiés par Gary Chapman. Cela signifie être pleinement présent avec son partenaire, sans distractions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="mb-4 p-3 border rounded">
+                            <h5>3. Que signifie "la caverne" dans la théorie de John Gray ?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
+                                <label class="form-check-label" for="q3a">Un lieu romantique pour les rendez-vous</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+                                <label class="form-check-label" for="q3b">Le besoin d'un homme de se retirer pour réfléchir</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+                                <label class="form-check-label" for="q3c">Un endroit où cacher des secrets</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" id="q3d" value="d">
+                                <label class="form-check-label" for="q3d">Une métaphore pour la vie sexuelle du couple</label>
+                            </div>
+                            <div class="answer-feedback mt-2" id="feedback-q3" style="display: none;">
+                                <div class="alert alert-success">
+                                    <strong>Correct !</strong> La <strong>"caverne"</strong> représente le besoin masculin de se retirer temporairement pour gérer son stress ou réfléchir, avant de revenir plus disponible dans la relation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="mb-4 p-3 border rounded">
+                            <h5>4. Quel est le besoin émotionnel principal d'une femme dans un couple ?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
+                                <label class="form-check-label" for="q4a">Recevoir des cadeaux coûteux</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
+                                <label class="form-check-label" for="q4b">Se sentir écoutée et comprise</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
+                                <label class="form-check-label" for="q4c">Avoir un partenaire toujours disponible</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" id="q4d" value="d">
+                                <label class="form-check-label" for="q4d">Contrôler les décisions du couple</label>
+                            </div>
+                            <div class="answer-feedback mt-2" id="feedback-q4" style="display: none;">
+                                <div class="alert alert-success">
+                                    <strong>Tout à fait !</strong> Les femmes ont principalement besoin de se sentir <strong>écoutées et comprises</strong>, pas nécessairement que leur partenaire résolve leurs problèmes, mais qu'il valide leurs émotions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="mb-4 p-3 border rounded">
+                            <h5>5. Que signifie "fidélité émotionnelle" pour une femme ?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
+                                <label class="form-check-label" for="q5a">Ne jamais regarder une autre personne</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
+                                <label class="form-check-label" for="q5b">Être la priorité émotionnelle de son partenaire</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
+                                <label class="form-check-label" for="q5c">Partager tous ses mots de passe</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" id="q5d" value="d">
+                                <label class="form-check-label" for="q5d">Ne jamais avoir d'amis du sexe opposé</label>
+                            </div>
+                            <div class="answer-feedback mt-2" id="feedback-q5" style="display: none;">
+                                <div class="alert alert-success">
+                                    <strong>Exactement !</strong> La <strong>fidélité émotionnelle</strong> signifie que la femme se sente la priorité affective de son partenaire, qu'il partage avec elle ses pensées et émotions profondes.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ajoutez les 20 autres questions suivant le même modèle -->
+						
+						<!-- Question 6 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>6. Quel langage d'amour correspond aux "services rendus" ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q6" id="q6a" value="a">
+								<label class="form-check-label" for="q6a">Donner des cadeaux</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
+								<label class="form-check-label" for="q6b">Aider concrètement</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
+								<label class="form-check-label" for="q6c">Passer du temps ensemble</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q6" id="q6d" value="d">
+								<label class="form-check-label" for="q6d">Exprimer son amour par des paroles</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q6" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Les <strong>services rendus</strong> consistent à exprimer son amour par des actions concrètes qui facilitent la vie de l'autre.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 7 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>7. Dans la théorie de John Gray, que symbolise "la grotte" chez l'homme ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q7" id="q7a" value="a">
+								<label class="form-check-label" for="q7a">Un lieu de silence pour se ressourcer</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
+								<label class="form-check-label" for="q7b">Un espace pour planifier des surprises</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
+								<label class="form-check-label" for="q7c">Un endroit pour exprimer ses émotions</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q7" id="q7d" value="d">
+								<label class="form-check-label" for="q7d">Un lieu pour se réfugier et réfléchir seul</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q7" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Correct !</strong> La <strong>grotte</strong> représente ce besoin masculin de solitude pour gérer le stress avant de revenir dans la relation.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 8 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>8. Quelle est une des cinq façons d'exprimer l'amour selon Gary Chapman ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q8" id="q8a" value="a">
+								<label class="form-check-label" for="q8a">Faire des cadeaux coûteux</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
+								<label class="form-check-label" for="q8b">Paroles valorisantes</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
+								<label class="form-check-label" for="q8c">Contrôler les décisions</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q8" id="q8d" value="d">
+								<label class="form-check-label" for="q8d">Ignorer les conflits</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q8" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Exact !</strong> <strong>Les paroles valorisantes</strong> font partie des cinq langages de l'amour identifiés par Gary Chapman.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 9 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>9. Que signifie "écoute active" dans une relation de couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q9" id="q9a" value="a">
+								<label class="form-check-label" for="q9a">Interrompre pour donner son avis</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
+								<label class="form-check-label" for="q9b">Écouter sans juger et reformuler</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
+								<label class="form-check-label" for="q9c">Ignorer ce que dit l'autre</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q9" id="q9d" value="d">
+								<label class="form-check-label" for="q9d">Changer de sujet rapidement</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q9" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> L'<strong>écoute active</strong> consiste à écouter pleinement, sans jugement, en reformulant pour montrer sa compréhension.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 10 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>10. Pourquoi les compliments sont importants dans une relation ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q10" id="q10a" value="a">
+								<label class="form-check-label" for="q10a">Pour flatter sans sincérité</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
+								<label class="form-check-label" for="q10b">Pour renforcer la confiance et le lien affectif</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
+								<label class="form-check-label" for="q10c">Pour manipuler l'autre</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q10" id="q10d" value="d">
+								<label class="form-check-label" for="q10d">Pour cacher ses erreurs</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q10" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Exact !</strong> Les <strong>compliments sincères</strong> renforcent la confiance en soi et consolident la relation.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 11 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>11. Quel est l'effet des surprises romantiques régulières dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q11" id="q11a" value="a">
+								<label class="form-check-label" for="q11a">Renforcer la routine</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q11" id="q11b" value="b">
+								<label class="form-check-label" for="q11b">Stimuler la passion et l'intérêt</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q11" id="q11c" value="c">
+								<label class="form-check-label" for="q11c">Créer des malentendus</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q11" id="q11d" value="d">
+								<label class="form-check-label" for="q11d">Augmenter le stress</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q11" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Correct !</strong> Les <strong>surprises romantiques</strong> ravivent l'intérêt et la passion dans le couple.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 12 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>12. Qu'est-ce qu'un langage d'amour primaire ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q12" id="q12a" value="a">
+								<label class="form-check-label" for="q12a">Le langage qu'on préfère donner</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q12" id="q12b" value="b">
+								<label class="form-check-label" for="q12b">Le langage que l'on comprend le moins</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q12" id="q12c" value="c">
+								<label class="form-check-label" for="q12c">Le langage par lequel on reçoit le plus d'amour</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q12" id="q12d" value="d">
+								<label class="form-check-label" for="q12d">Un langage universel sans préférence</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q12" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Le <strong>langage d'amour primaire</strong> est celui par lequel une personne ressent le plus d'amour.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 13 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>13. Quel est un obstacle courant à la communication dans le couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q13" id="q13a" value="a">
+								<label class="form-check-label" for="q13a">Écoute active</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q13" id="q13b" value="b">
+								<label class="form-check-label" for="q13b">Jugement et critique</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q13" id="q13c" value="c">
+								<label class="form-check-label" for="q13c">Exprimer ses sentiments clairement</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q13" id="q13d" value="d">
+								<label class="form-check-label" for="q13d">Partager du temps de qualité</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q13" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Correct !</strong> Le <strong>jugement et la critique</strong> empêchent une communication saine.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 14 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>14. Que signifie "temps de qualité" dans une relation ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q14" id="q14a" value="a">
+								<label class="form-check-label" for="q14a">Être ensemble sans distractions</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q14" id="q14b" value="b">
+								<label class="form-check-label" for="q14b">Être ensemble en regardant la télé chacun de son côté</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q14" id="q14c" value="c">
+								<label class="form-check-label" for="q14c">Faire des activités séparées</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q14" id="q14d" value="d">
+								<label class="form-check-label" for="q14d">Passer du temps en silence sans interaction</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q14" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Le <strong>temps de qualité</strong> implique une attention exclusive et partagée.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 15 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>15. Quel est un signe de bonne communication dans le couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q15" id="q15a" value="a">
+								<label class="form-check-label" for="q15a">Ignorer les problèmes</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q15" id="q15b" value="b">
+								<label class="form-check-label" for="q15b">Exprimer clairement ses besoins et écouter l'autre</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q15" id="q15c" value="c">
+								<label class="form-check-label" for="q15c">Éviter les discussions importantes</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q15" id="q15d" value="d">
+								<label class="form-check-label" for="q15d">Critiquer constamment</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q15" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Correct !</strong> Une bonne communication inclut <strong>expression claire et écoute attentive</strong>.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 16 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>16. Que signifie "donner du feedback constructif" ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q16" id="q16a" value="a">
+								<label class="form-check-label" for="q16a">Critiquer sans solution</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q16" id="q16b" value="b">
+								<label class="form-check-label" for="q16b">Faire des remarques positives et suggestions utiles</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q16" id="q16c" value="c">
+								<label class="form-check-label" for="q16c">Ignorer les erreurs</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q16" id="q16d" value="d">
+								<label class="form-check-label" for="q16d">Cacher ses vrais sentiments</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q16" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Le <strong>feedback constructif</strong> aide à progresser avec respect et bienveillance.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 17 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>17. Quel rôle jouent les expressions non verbales dans la communication ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q17" id="q17a" value="a">
+								<label class="form-check-label" for="q17a">Peu d'importance</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q17" id="q17b" value="b">
+								<label class="form-check-label" for="q17b">Elles transmettent souvent plus que les mots</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q17" id="q17c" value="c">
+								<label class="form-check-label" for="q17c">Elles empêchent la compréhension</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q17" id="q17d" value="d">
+								<label class="form-check-label" for="q17d">Elles sont inutiles en couple</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q17" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Exact !</strong> Les <strong>expressions non verbales</strong> jouent un rôle clé dans la compréhension mutuelle.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 18 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>18. Quelle est l'importance du pardon dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q18" id="q18a" value="a">
+								<label class="form-check-label" for="q18a">Permet de garder rancune</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q18" id="q18b" value="b">
+								<label class="form-check-label" for="q18b">Favorise la guérison et la réconciliation</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q18" id="q18c" value="c">
+								<label class="form-check-label" for="q18c">N'est pas nécessaire</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q18" id="q18d" value="d">
+								<label class="form-check-label" for="q18d">Est un signe de faiblesse</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q18" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Correct !</strong> Le <strong>pardon</strong> aide à dépasser les conflits et à reconstruire la confiance.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 19 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>19. Pourquoi est-il important de connaître le langage d'amour de son partenaire ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q19" id="q19a" value="a">
+								<label class="form-check-label" for="q19a">Pour manipuler ses sentiments</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q19" id="q19b" value="b">
+								<label class="form-check-label" for="q19b">Pour mieux répondre à ses besoins affectifs</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q19" id="q19c" value="c">
+								<label class="form-check-label" for="q19c">Pour critiquer ses défauts</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q19" id="q19d" value="d">
+								<label class="form-check-label" for="q19d">Pour changer sa personnalité</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q19" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Connaître le <strong>langage d'amour</strong> de l'autre permet d'exprimer son affection de façon efficace.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 20 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>20. Quel est le rôle des « temps morts » dans une dispute de couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q20" id="q20a" value="a">
+								<label class="form-check-label" for="q20a">Ignorer les problèmes</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q20" id="q20b" value="b">
+								<label class="form-check-label" for="q20b">Permettre de se calmer avant de continuer</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q20" id="q20c" value="c">
+								<label class="form-check-label" for="q20c">Prolonger le conflit</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q20" id="q20d" value="d">
+								<label class="form-check-label" for="q20d">Éviter de parler des problèmes</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q20" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Les <strong>temps morts</strong> aident à gérer les émotions et à reprendre la discussion calmement.
+								</div>
+							</div>
+						</div>
+
+
+						<!-- Question 21 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>21. Quel est un signe important d’une communication saine dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q21" id="q21a" value="a">
+								<label class="form-check-label" for="q21a">Éviter complètement les désaccords</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q21" id="q21b" value="b">
+								<label class="form-check-label" for="q21b">Savoir écouter et exprimer ses émotions</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q21" id="q21c" value="c">
+								<label class="form-check-label" for="q21c">Gagner toutes les disputes</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q21" id="q21d" value="d">
+								<label class="form-check-label" for="q21d">Ignorer les besoins de l’autre</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q21" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Une communication saine implique l’écoute active et l’expression sincère des émotions.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 22 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>22. Quelle est une conséquence fréquente du non-respect des limites dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q22" id="q22a" value="a">
+								<label class="form-check-label" for="q22a">Renforcement de la confiance</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q22" id="q22b" value="b">
+								<label class="form-check-label" for="q22b">Sentiment de frustration ou de colère</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q22" id="q22c" value="c">
+								<label class="form-check-label" for="q22c">Amélioration de la relation</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q22" id="q22d" value="d">
+								<label class="form-check-label" for="q22d">Moins de disputes</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q22" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Le non-respect des limites peut provoquer frustration et conflits dans le couple.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 23 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>23. Quel est un moyen efficace pour résoudre un conflit dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q23" id="q23a" value="a">
+								<label class="form-check-label" for="q23a">Éviter d’en parler</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q23" id="q23b" value="b">
+								<label class="form-check-label" for="q23b">Chercher à comprendre le point de vue de l’autre</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q23" id="q23c" value="c">
+								<label class="form-check-label" for="q23c">Gagner à tout prix</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q23" id="q23d" value="d">
+								<label class="form-check-label" for="q23d">Ignorer les sentiments de l’autre</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q23" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Comprendre l’autre est une étape clé pour résoudre efficacement un conflit.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 24 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>24. Quelle attitude favorise le renforcement de la complicité dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q24" id="q24a" value="a">
+								<label class="form-check-label" for="q24a">Critiquer constamment</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q24" id="q24b" value="b">
+								<label class="form-check-label" for="q24b">Partager des moments agréables ensemble</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q24" id="q24c" value="c">
+								<label class="form-check-label" for="q24c">Ignorer les besoins de l’autre</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q24" id="q24d" value="d">
+								<label class="form-check-label" for="q24d">Éviter toute discussion</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q24" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Passer du temps de qualité ensemble renforce la complicité et la connexion émotionnelle.
+								</div>
+							</div>
+						</div>
+
+						<!-- Question 25 -->
+						<div class="mb-4 p-3 border rounded">
+							<h5>25. Quelle est l’importance de l’expression des besoins dans un couple ?</h5>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q25" id="q25a" value="a">
+								<label class="form-check-label" for="q25a">Elle permet d’éviter les malentendus et frustrations</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q25" id="q25b" value="b">
+								<label class="form-check-label" for="q25b">Elle n’a pas d’importance</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q25" id="q25c" value="c">
+								<label class="form-check-label" for="q25c">Elle empêche la communication</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="q25" id="q25d" value="d">
+								<label class="form-check-label" for="q25d">Elle est source de conflits</label>
+							</div>
+							<div class="answer-feedback mt-2" id="feedback-q25" style="display: none;">
+								<div class="alert alert-success">
+									<strong>Bonne réponse !</strong> Exprimer ses besoins aide à mieux se comprendre et prévenir les frustrations.
+								</div>
+							</div>
+						</div>
+
+
+
+                        <div class="text-center mt-4">
+                            <button type="button" class="btn btn-custom" id="submitQuiz">
+                                <i class="fas fa-check-circle me-2"></i>Valider le quiz
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Résultats du quiz -->
+                    <div class="card mt-4" id="quizResults" style="display: none;">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-award me-2"></i>Résultats de votre quiz
+                        </div>
+                        <div class="card-body">
+                            <h4 class="text-center mb-4">Votre score : <span id="quizScore">0</span>/25</h4>
+                            
+                            <div id="excellentScore" style="display: none;">
+                                <div class="alert alert-success text-center">
+                                    <h4><i class="fas fa-trophy me-2"></i>Excellent !</h4>
+                                    <p>Vous avez une compréhension approfondie des dynamiques de couple. Continuez à appliquer ces connaissances dans votre relation !</p>
+                                </div>
+                                <div class="recommendation-card p-3 mb-3 border rounded">
+                                    <h5><i class="fas fa-lightbulb me-2"></i>Conseil :</h5>
+                                    <p>Maintenez cette qualité de relation en pratiquant régulièrement :</p>
+                                    <ul>
+                                        <li>Des moments de qualité sans distractions</li>
+                                        <li>L'expression de gratitude mutuelle</li>
+                                        <li>Des discussions sur vos projets communs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="goodScore" style="display: none;">
+                                <div class="alert alert-info text-center">
+                                    <h4><i class="fas fa-thumbs-up me-2"></i>Bon score !</h4>
+                                    <p>Vous avez de bonnes bases de compréhension des besoins dans un couple. Quelques lectures complémentaires pourraient vous aider à perfectionner vos connaissances.</p>
+                                </div>
+                                <div class="recommendation-card p-3 mb-3 border rounded">
+                                    <h5><i class="fas fa-book me-2"></i>Suggestions de lecture :</h5>
+                                    <ul>
+                                        <li><strong>"Les 5 langages de l'amour"</strong> - Gary Chapman</li>
+                                        <li><strong>"Les hommes viennent de Mars, les femmes viennent de Vénus"</strong> - John Gray</li>
+                                        <li><strong>"Le couple heureux"</strong> - Yvon Dallaire</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="averageScore" style="display: none;">
+                                <div class="alert alert-warning text-center">
+                                    <h4><i class="fas fa-info-circle me-2"></i>Score moyen</h4>
+                                    <p>Vous avez certaines connaissances mais il reste des aspects à approfondir. C'est une excellente opportunité d'apprentissage pour améliorer votre relation !</p>
+                                </div>
+                                <div class="recommendation-card p-3 mb-3 border rounded">
+                                    <h5><i class="fas fa-hands-helping me-2"></i>Actions recommandées :</h5>
+                                    <ul>
+                                        <li>Discutez avec votre partenaire de vos besoins respectifs</li>
+                                        <li>Identifiez vos langages d'amour principaux</li>
+                                        <li>Pratiquez l'écoute active au quotidien</li>
+                                        <li>Consultez les onglets "Besoins Affectifs" et "Bonnes Pratiques" de ce dashboard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="lowScore" style="display: none;">
+                                <div class="alert alert-danger text-center">
+                                    <h4><i class="fas fa-book me-2"></i>À approfondir</h4>
+                                    <p>Vos connaissances sur les dynamiques de couple sont limitées, mais c'est le début d'un beau voyage d'apprentissage !</p>
+                                </div>
+                                <div class="recommendation-card p-3 mb-3 border rounded">
+                                    <h5><i class="fas fa-road me-2"></i>Plan d'action :</h5>
+                                    <ol>
+                                        <li>Commencez par lire les sections "Introduction" et "Besoins Affectifs"</li>
+                                        <li>Identifiez 3 points à améliorer dans votre relation</li>
+                                        <li>Choisissez un livre de référence dans l'onglet "Livres Clés"</li>
+                                        <li>Suivez la "Feuille de Route" étape par étape</li>
+                                        <li>Refaites ce quiz après quelques semaines d'apprentissage</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-outline-primary" id="retryQuiz">
+                                    <i class="fas fa-redo me-2"></i>Refaire le quiz
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Livres Clés Tab -->
+            <div class="tab-pane fade" id="pills-books" role="tabpanel" aria-labelledby="pills-books-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-book me-2"></i>Les 5 langages de l'amour – Gary Chapman
+                            </div>
+                            <div class="card-body">
+                                <p>Ce livre fondamental révèle que <strong>nous ne donnons pas l'amour comme nous aimons le recevoir</strong>. Comprendre son propre langage et celui de son partenaire permet d'éviter les frustrations.</p>
+                                <h6>Les 5 langages sont :</h6>
+                                <ol>
+                                    <li><strong>Paroles valorisantes</strong> : "Tu es important pour moi." – Des mots qui renforcent.</li>
+                                    <li><strong>Moments de qualité</strong> : Être 100 % présent (sans écran) lors d'un repas ou d'une balade.</li>
+                                    <li><strong>Cadeaux</strong> : Un geste symbolique, même simple, peut toucher profondément.</li>
+                                    <li><strong>Services rendus</strong> : Aider l'autre au quotidien, alléger ses tâches.</li>
+                                    <li><strong>Toucher physique</strong> : Un câlin, une main tenue, un baiser inattendu.</li>
+                                </ol>
+                                <div class="quote-card p-3 mt-3">
+                                    <i class="fas fa-quote-left me-2"></i> Lui lui offre souvent des cadeaux (son langage à lui), mais elle préfère passer du temps ensemble (son langage à elle). Ils s'aiment mais <strong>ne se sentent pas aimés</strong>. Une fois les langages identifiés, tout change.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-book me-2"></i>Le Couple Heureux – Yvon Dallaire
+                            </div>
+                            <div class="card-body">
+                                <p>Psychologue et sexologue, Yvon Dallaire propose une <strong>vision lucide mais optimiste</strong> du couple. Ce livre outille les partenaires pour construire un <strong>amour durable et conscient</strong>.</p>
+                                <h6>Thèmes abordés :</h6>
+                                <ul>
+                                    <li>Le <strong>respect des différences psychologiques</strong></li>
+                                    <li>Les <strong>étapes de développement</strong> d'un couple</li>
+                                    <li>La gestion saine des conflits (avec humour parfois)</li>
+                                    <li>Le rôle fondamental de l'intimité et de la complicité</li>
+                                </ul>
+                                <div class="quote-card p-3 mt-3">
+                                    <i class="fas fa-quote-left me-2"></i> Idéal pour ceux qui veulent <strong>éviter la répétition des schémas passés</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-book me-2"></i>Les hommes viennent de Mars, les femmes viennent de Vénus – John Gray
+                            </div>
+                            <div class="card-body">
+                                <p>Ce best-seller explique comment hommes et femmes ont souvent <strong>des modes de fonctionnement émotionnel radicalement différents</strong>, sans que cela signifie une incompatibilité.</p>
+                                <h6>Enseignements clés :</h6>
+                                <ul>
+                                    <li>L'homme a besoin de se retirer pour mieux revenir (la "caverne" masculine)</li>
+                                    <li>La femme a besoin d'exprimer ses émotions pour se libérer (effet "vague")</li>
+                                    <li>Les intentions sont souvent bonnes, mais <strong>les moyens d'expression sont mal interprétés</strong></li>
+                                    <li>Savoir <strong>traduire le langage affectif de l'autre</strong> évite bien des conflits</li>
+                                </ul>
+                                <div class="quote-card p-3 mt-3">
+                                    <i class="fas fa-quote-left me-2"></i> Ce livre a sauvé de nombreux couples qui pensaient être en guerre, alors qu'ils parlaient juste des langues différentes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-book me-2"></i>S'aimer même si c'est difficile – Christophe André
+                            </div>
+                            <div class="card-body">
+                                <p>Ce livre thérapeutique aborde <strong>l'estime de soi</strong> comme un pilier pour aimer sainement. Car <strong>on ne peut pas bien aimer l'autre si on ne s'aime pas soi-même</strong>.</p>
+                                <h6>Clés relationnelles tirées du livre :</h6>
+                                <ul>
+                                    <li>Travailler sa <strong>valeur personnelle</strong> pour ne pas chercher dans le couple une réparation permanente</li>
+                                    <li>Savoir dire "non" sans peur d'être abandonné(e)</li>
+                                    <li>Développer un amour <strong>libre de dépendance affective</strong></li>
+                                    <li>Apprendre à reconnaître ses schémas répétitifs</li>
+                                </ul>
+                                <div class="quote-card p-3 mt-3">
+                                    <i class="fas fa-quote-left me-2"></i> Un livre pour <strong>grandir émotionnellement</strong>, en solo ou à deux.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bonnes Pratiques Tab -->
+            <div class="tab-pane fade" id="pills-practices" role="tabpanel" aria-labelledby="pills-practices-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-male me-2"></i>5 Pratiques pour Rendre un Homme Heureux
+                            </div>
+                            <div class="card-body">
+                                <ol class="list-group list-group-numbered">
+                                    <li class="list-group-item border-0 ps-0"><strong>Respectez son besoin d'indépendance</strong> sans le juger ou le contraindre.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Félicitez-le</strong> pour ce qu'il fait (même si c'est "normal") – il a besoin de <strong>reconnaissance extérieure</strong>.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Laissez-lui un espace de retrait</strong> lorsqu'il est stressé. Il reviendra plus disponible.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Valorisez ses idées</strong> même si vous n'êtes pas d'accord – cela renforce sa confiance.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Exprimez votre fierté de l'avoir comme partenaire.</strong> Il a besoin de savoir qu'il est "l'homme qu'il faut" pour vous.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header" style="background-color: #e83e8c; color: white;">
+                                <i class="fas fa-female me-2"></i>5 Pratiques pour Rendre une Femme Heureuse
+                            </div>
+                            <div class="card-body">
+                                <ol class="list-group list-group-numbered">
+                                    <li class="list-group-item border-0 ps-0"><strong>Écoutez activement</strong>, sans interrompre ni chercher à "réparer" ses émotions.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Montrez de l'attention spontanée</strong> : un message doux, une fleur, un câlin.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Exprimez vos sentiments régulièrement</strong>, même si vous êtes discret par nature.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Créez un environnement de sécurité affective</strong> : stabilité, constance, engagement.</li>
+                                    <li class="list-group-item border-0 ps-0"><strong>Partagez vos vulnérabilités</strong>, vos joies, vos doutes – cela <strong>crée l'intimité émotionnelle</strong> dont elle a besoin.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-lightbulb me-2"></i>Les 4 piliers fondamentaux d'un couple solide
+                            </div>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="p-3 border rounded" style="height: 100%;">
+                                            <i class="fas fa-comments fa-2x mb-3" style="color: var(--primary-color);"></i>
+                                            <h5>Communication</h5>
+                                            <p>Clé de l'harmonie. Parler avec sincérité, écouter avec attention, sans jugement.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="p-3 border rounded" style="height: 100%;">
+                                            <i class="fas fa-handshake fa-2x mb-3" style="color: var(--primary-color);"></i>
+                                            <h5>Respect</h5>
+                                            <p>Accepter l'autre tel qu'il est, sans chercher à le changer ou à le dominer.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="p-3 border rounded" style="height: 100%;">
+                                            <i class="fas fa-heart fa-2x mb-3" style="color: var(--primary-color);"></i>
+                                            <h5>Temps de qualité</h5>
+                                            <p>Partager des moments authentiques pour nourrir la complicité.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="p-3 border rounded" style="height: 100%;">
+                                            <i class="fas fa-bullseye fa-2x mb-3" style="color: var(--primary-color);"></i>
+                                            <h5>Vision commune</h5>
+                                            <p>Construire un projet de vie aligné : valeurs, famille, ambitions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+			<!--RED Flags et Epreuves -->
+
+<div class="tab-pane fade" id="pills-redflags" role="tabpanel" aria-labelledby="pills-redflags-tab">
+
+  <!-- RED FLAGS -->
+  <div class="p-4 mt-4 rounded-lg border border-red-300 bg-red-50">
+    <h3 class="text-lg font-bold text-red-700 mb-2">🚩 Signes d’alerte (Red Flags) dans un couple</h3>
+    <ul class="list-disc list-inside text-red-600 space-y-1">
+      <li>Absence de communication bienveillante</li>
+      <li>Manque de respect ou humiliations régulières</li>
+      <li>Contrôle excessif ou jalousie maladive</li>
+      <li>Manque d’effort dans les moments difficiles</li>
+      <li>Fuite des responsabilités ou instabilité chronique</li>
+      <li>Violence verbale, émotionnelle ou physique</li>
+      <li>Manipulations constantes ou culpabilisation</li>
+      <li>Absence de projets communs ou d’engagement concret</li>
+      <li>Infidélité répétée ou mensonges fréquents</li>
+      <li>Dénigrement de la foi, de la famille ou des valeurs de l’autre</li>
+      <li>Dépendance affective ou relation à sens unique</li>
+      <li>Refus d’évoluer, de demander pardon ou de se remettre en question</li>
+      <li>Mépris ou moqueries face à la douleur de l’autre</li>
+      <li>Jeu constant de « chaud-froid » émotionnel</li>
+      <li>Recherche excessive d’approbation extérieure (réseaux sociaux, regards d’autrui)</li>
+    </ul>
+  </div>
+
+  <!-- ÉPREUVES DE L’HOMME -->
+  <div class="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
+    <h3 class="text-lg font-semibold text-blue-800 mb-2">💼 Épreuves courantes vécues par l’homme</h3>
+    <p class="text-gray-700">🔻 <strong>Perte de travail ou difficultés professionnelles</strong> : Son identité est souvent liée à sa capacité à subvenir aux besoins. Ces moments testent son courage et sa persévérance.</p>
+    <p class="text-gray-700">🔻 <strong>Crises financières ou dettes</strong> : Il peut ressentir de la honte ou de l’échec. Le soutien émotionnel et la confiance de sa partenaire sont alors précieux.</p>
+    <p class="text-gray-700">🔻 <strong>Pression sociale de réussite</strong> : Il est souvent jugé sur sa capacité à « réussir ». Cela peut générer du stress, du doute ou de la solitude.</p>
+    <p class="text-gray-700">🔻 <strong>Manque de reconnaissance</strong> : Lorsqu’il donne, agit ou sacrifie, mais qu’il n’est ni vu ni valorisé, il peut se refermer.</p>
+    <p class="text-gray-700">🔻 <strong>Éloignement spirituel</strong> : Lorsque l’homme s’éloigne de ses repères religieux, il peut se perdre intérieurement, affectant aussi le couple.</p>
+    <p class="text-gray-700">🔻 <strong>Rôle de pilier incompris</strong> : On attend de lui qu’il soit fort même lorsqu’il est brisé à l’intérieur, ce qui peut provoquer un épuisement silencieux.</p>
+  </div>
+
+  <!-- ÉPREUVES DE LA FEMME -->
+  <div class="mt-4 p-4 rounded-lg bg-pink-50 border border-pink-200">
+    <h3 class="text-lg font-semibold text-pink-800 mb-2">🌺 Épreuves courantes vécues par la femme</h3>
+    <p class="text-gray-700">🔻 <strong>Problèmes de santé ou fatigue chronique</strong> : Souvent multitâche, elle s’épuise à force de donner sans recevoir.</p>
+    <p class="text-gray-700">🔻 <strong>Changements liés à la beauté ou à l’âge</strong> : Vieillissement, prise de poids, maternité... Elle peut douter d’elle-même et avoir besoin de tendresse et de valorisation sincère.</p>
+    <p class="text-gray-700">🔻 <strong>Manque d’écoute ou d’empathie</strong> : Lorsqu’elle se confie, mais qu’on minimise ses émotions, cela crée de la frustration.</p>
+    <p class="text-gray-700">🔻 <strong>Charge mentale excessive</strong> : Organisation du foyer, enfants, travail… Elle porte souvent plus que ce qui est visible.</p>
+    <p class="text-gray-700">🔻 <strong>Manque de sécurité affective</strong> : Elle a besoin de se sentir choisie, prioritaire, aimée sans condition ni comparaison.</p>
+    <p class="text-gray-700">🔻 <strong>Jugement extérieur sur son rôle</strong> : Qu’elle travaille ou non, qu’elle ait des enfants ou non, elle est souvent jugée. Cela peut miner sa confiance.</p>
+  </div>
+
+  <!-- INTERPRÉTATION & VALEURS -->
+  <div class="mt-4 p-4 rounded bg-green-50 border border-green-300">
+    <h3 class="text-lg font-semibold text-green-800 mb-2">💚 Interprétation & sagesse</h3>
+    <p class="text-gray-700">
+      Dans la vie de couple, chacun traverse des tempêtes. L’amour véritable ne consiste pas à rester uniquement dans les beaux jours, mais à <strong>choisir de rester, de soutenir et de reconstruire ensemble</strong>.
+    </p>
+    <p class="text-gray-700">
+      Quand l’homme est dans l’épreuve, que la femme l’encourage. Quand la femme est dans la fragilité, que l’homme l’élève. Ainsi, l’équilibre est gardé, et la baraka demeure.
+    </p>
+    <p class="text-gray-700">
+      La patience dans l’adversité est une source de purification. Chaque difficulté est une opportunité de grandir ensemble, de renforcer la foi et de construire une union sincère.
+    </p>
+    <p class="text-gray-700">
+      Ce n’est pas l’absence d’épreuves qui rend un couple fort, mais la façon dont il choisit d’y faire face avec foi, loyauté et douceur.
+    </p>
+    <p class="text-gray-700">
+      💡 Dans un couple, <strong>les épreuves sont des révélateurs</strong>, pas des condamnations. Elles permettent de voir la solidité de l’engagement et la vérité du cœur.
+    </p>
+  </div>
+
+</div>
+
+
+            <!-- Annexes Tab -->
+			
+			
+
+
+            <div class="tab-pane fade" id="pills-annexes" role="tabpanel" aria-labelledby="pills-annexes-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-venus-mars me-2"></i>Homme vs Garçon
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Homme Mature</th>
+                                                <th>Garçon Blessé (immature)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Assume les conséquences de ses choix</td>
+                                                <td>Se victimise, cherche des excuses</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Communique ses émotions</td>
+                                                <td>Se renferme ou explose</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Valorise et protège sa partenaire</td>
+                                                <td>A besoin d'être materné ou dominé</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Prend des décisions partagées</td>
+                                                <td>Improvise ou évite les responsabilités</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Respecte les limites</td>
+                                                <td>Teste et franchit les limites</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-3">
+                                    <i class="fas fa-info-circle me-2"></i> Un homme mature <strong>a intégré ses blessures sans les projeter</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-venus me-2"></i>Femme vs Fille
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Femme Équilibrée</th>
+                                                <th>Fille Blessée</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Assume ses choix relationnels</td>
+                                                <td>Subit ou dramatise</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aime librement, sans dépendance</td>
+                                                <td>Aime pour combler un vide</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Se protège sans se fermer</td>
+                                                <td>Aime même si elle est maltraitée</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Communique clairement</td>
+                                                <td>Attend qu'on "devine"</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sait s'éloigner si nécessaire</td>
+                                                <td>Reste "accrochée" à tout prix</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-3">
+                                    <i class="fas fa-info-circle me-2"></i> Une femme équilibrée n'a pas peur de <strong>poser ses limites</strong>, même si elle aime profondément.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-heartbeat me-2"></i>Attirance, Béguin, Attachement, Passion, Amour – Ne pas confondre !
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>État Émotionnel</th>
+                                                <th>Définition</th>
+                                                <th>Durée typique</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Attirance</strong></td>
+                                                <td>Réaction instinctive et physique à un physique, une énergie ou un charisme.</td>
+                                                <td>Très court terme (secondes à jours)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Béguin (Crush)</strong></td>
+                                                <td>Idéalisation temporaire, souvent liée à un fantasme ou à la nouveauté.</td>
+                                                <td>Quelques jours à mois</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Attachement</strong></td>
+                                                <td>Lien émotionnel développé par la proximité, l'habitude ou le besoin affectif.</td>
+                                                <td>Moyen à long terme</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Passion</strong></td>
+                                                <td>Amour intense et émotionnel, souvent dramatique ou excessif.</td>
+                                                <td>Intense mais instable (semaines à années)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Amour Véritable</strong></td>
+                                                <td>Engagement conscient, nourri par respect, confiance, compatibilité et vision commune.</td>
+                                                <td>Long terme et évolutif</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <i class="fas fa-chess me-2"></i>Couple Évolué vs Couple Immature
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Couple Évolué</th>
+                                                <th>Couple Immature</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Parle des émotions <strong>avant l'explosion</strong></td>
+                                                <td>S'accuse en pleine crise</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Prend du recul pour mieux se retrouver</td>
+                                                <td>Se fuit ou se punit mutuellement</td>
+                                            </tr>
+                                            <tr>
+                                                <td>S'engage dans des projets communs</td>
+                                                <td>Vivent côte à côte sans vision</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rit ensemble même dans les difficultés</td>
+                                                <td>S'alimente de tensions permanentes</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apprend à aimer mieux chaque jour</td>
+                                                <td>Survit par habitude ou peur</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+				
+				<section class="mb-4 p-3 bg-light rounded">
+				<div class="card-header">
+        Voici une version doublée avec 8 organes (4 pour l’homme et 4 pour la femme) en HTML, dans le même style :
+
+<h3 class="mb-3">Sagesse africaine sur le couple : L’art de la retenue</h3>
+</div>
+<p>🧔🏽‍♂️ <strong>L’homme ferme ses oreilles</strong> = Il ne réagit pas à toutes les paroles blessantes ou impulsives.<br/>
+👩🏽 <strong>La femme ferme sa bouche</strong> = Elle choisit de ne pas toujours répondre dans la colère ou la frustration.</p>
+
+<p>🧔🏽‍♂️ <strong>L’homme calme son cœur</strong> = Il apprend à maîtriser ses émotions avant de réagir.<br/>
+👩🏽 <strong>La femme ouvre ses yeux</strong> = Elle observe attentivement avant de juger ou d’intervenir.</p>
+
+<p>🧔🏽‍♂️ <strong>L’homme serre ses poings</strong> = Il retient sa colère et évite les gestes impulsifs.<br/>
+👩🏽 <strong>La femme étend ses mains</strong> = Elle tend la main pour apaiser et chercher le dialogue.</p>
+
+<p>🧔🏽‍♂️ <strong>L’homme garde son souffle</strong> = Il sait rester calme même dans les moments de tension.<br/>
+👩🏽 <strong>La femme apaise ses pas</strong> = Elle avance avec douceur et patience dans la relation.</p>
+
+<p><em>✨ Interprétation :</em><br/>
+Dans un couple, apprendre à se taire quand l’autre est emporté, et à écouter avec sagesse, est une force.<br/>
+L’équilibre vient souvent de la maîtrise de soi plus que du besoin d’avoir raison.<br/>
+La paix naît de la patience, de la compréhension mutuelle et d’une communication respectueuse, symbolisées ici par ces gestes de retenue et d’attention.</p>
+
+
+
+        <h4 class="mt-4">Pour l’homme :</h4>
+        <div class="wisdom-card mb-3">
+            <h5>Le guerrier calme son souffle avant la tempête</h5>
+            <p>🧔🏽‍♂️ L’homme inspire profondément = Il prend le temps de réfléchir avant de répondre, évitant ainsi les mots blessants.</p>
+            <p><em>Interprétation :</em> Dans le couple, savoir maîtriser ses émotions avant de parler évite les conflits inutiles. La patience est une arme de paix.</p>
+        </div>
+
+        <h4>Pour la femme :</h4>
+        <div class="wisdom-card mb-3">
+            <h5>La reine choisit ses paroles comme on choisit ses bijoux</h5>
+            <p>👩🏽 La femme mesure ses mots = Elle parle avec douceur et discernement, même quand elle est troublée.</p>
+            <p><em>Interprétation :</em> La parole d’une femme dans le couple, quand elle est posée et réfléchie, apporte lumière et apaisement, évitant les blessures.</p>
+        </div>
+    </section>
+				
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-globe-africa me-2"></i>Sagesses Africaines pour le Couple
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="text-center mb-3">Pour les Hommes</h5>
+                                        <div class="wisdom-card">
+                                            <h5>"Un homme qui crie plus fort que sa femme n'est pas plus fort, seulement plus vide."</h5>
+                                            <p class="mb-0">→ La vraie force réside dans le calme et la maîtrise de soi.</p>
+                                        </div>
+                                        <div class="wisdom-card">
+                                            <h5>"Celui qui ne sait pas écouter sa femme entendra ses silences trop tard."</h5>
+                                            <p class="mb-0">→ L'écoute est un acte d'amour et de prévention des conflits.</p>
+                                        </div>
+                                        <div class="wisdom-card">
+                                            <h5>"Le chef du foyer est celui qui allume la paix, pas celui qui brandit son autorité."</h5>
+                                            <p class="mb-0">→ Diriger, c'est protéger, non dominer.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5 class="text-center mb-3">Pour les Femmes</h5>
+                                        <div class="wisdom-card">
+                                            <h5>"La femme qui parle avec douceur construit sa maison avec ses mots."</h5>
+                                            <p class="mb-0">→ Le ton utilisé change le fond du message.</p>
+                                        </div>
+                                        <div class="wisdom-card">
+                                            <h5>"Une femme qui critique son mari en public arrache les briques de son foyer."</h5>
+                                            <p class="mb-0">→ La dignité du couple se protège dans l'intimité.</p>
+                                        </div>
+                                        <div class="wisdom-card">
+                                            <h5>"Celle qui respecte son mari lui apprend à l'aimer plus."</h5>
+                                            <p class="mb-0">→ Le respect nourrit l'amour chez l'homme.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feuille de Route Tab -->
+            <div class="tab-pane fade" id="pills-roadmap" role="tabpanel" aria-labelledby="pills-roadmap-tab">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-road me-2"></i>Feuille de Route pour un Mariage Réussi
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <h5>Étape 1 : Connaissance de Soi</h5>
+                                        <p><strong>Objectif :</strong> Identifier vos besoins émotionnels, vos langages d'amour et vos schémas relationnels.</p>
+                                        <ul>
+                                            <li>Lire <em>Les 5 langages de l'amour</em> de Gary Chapman</li>
+                                            <li>Faire le test des langages d'amour (disponible en ligne)</li>
+                                            <li>Réfléchir à vos attentes et besoins dans une relation</li>
+                                        </ul>
+                                        <div class="progress mt-2">
+                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <h5>Étape 2 : Compréhension des Différences</h5>
+                                        <p><strong>Objectif :</strong> Apprendre à comprendre et respecter les différences homme/femme.</p>
+                                        <ul>
+                                            <li>Lire <em>Les hommes viennent de Mars, les femmes viennent de Vénus</em></li>
+                                            <li>Discuter avec votre partenaire de vos différences et complémentarités</li>
+                                            <li>Pratiquer l'empathie et la patience</li>
+                                        </ul>
+                                        <div class="progress mt-2">
+                                            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <h5>Étape 3 : Communication Saine</h5>
+                                        <p><strong>Objectif :</strong> Développer des compétences de communication non violente et d'écoute active.</p>
+                                        <ul>
+                                            <li>Apprendre les bases de la communication non violente (CNV)</li>
+                                            <li>Pratiquer l'écoute active sans jugement</li>
+                                            <li>Établir des règles pour les conflits (pas de cris, pas de violence verbale)</li>
+                                        </ul>
+                                        <div class="progress mt-2">
+                                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-item">
+                                        <h5>Étape 4 : Construction de Projets Communs</h5>
+                                        <p><strong>Objectif :</strong> Définir une vision commune pour votre vie à deux.</p>
+                                        <ul>
+                                            <li>Discuter de vos valeurs, objectifs et rêves communs</li>
+                                            <li>Établir un plan financier et familial</li>
+                                            <li>Créer des rituels de couple (date night, vacances annuelles, etc.)</li>
+                                        </ul>
+                                        <div class="progress mt-2">
+                                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <i class="fas fa-check-circle me-2"></i>Checklist Mensuelle
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="check1">
+                                                    <label class="form-check-label" for="check1">Avoir au moins un "moment de qualité" sans distractions</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="check2">
+                                                    <label class="form-check-label" for="check2">Exprimer de la gratitude pour au moins 3 choses</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="check3">
+                                                    <label class="form-check-label" for="check3">Faire une activité nouvelle ensemble</label>
+                                                </div>
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="check4">
+                                                    <label class="form-check-label" for="check4">Discuter des projets et rêves communs</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="check5">
+                                                    <label class="form-check-label" for="check5">Faire un bilan émotionnel de la relation</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <i class="fas fa-star me-2"></i>Recommandations Clés
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="alert alert-success">
+                                                    <i class="fas fa-heart me-2"></i> <strong>Priorité à la relation :</strong> Consacrez du temps régulier à nourrir votre lien, même (surtout) quand tout va bien.
+                                                </div>
+                                                <div class="alert alert-info">
+                                                    <i class="fas fa-comments me-2"></i> <strong>Communication :</strong> Parlez de vos besoins avant qu'ils ne deviennent des frustrations.
+                                                </div>
+                                                <div class="alert alert-warning">
+                                                    <i class="fas fa-handshake me-2"></i> <strong>Respect :</strong> Traitez votre partenaire avec le même respect que vous attendez pour vous-même.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Conseil du jour">
+        <i class="fas fa-lightbulb"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">💞 <strong>Mieux S'aimer</strong> – Guide complet pour un couple équilibré, profond et durable</p>
+            <p class="text-muted small mt-2">© 2023 Formation sur le Mariage – Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Enable tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Random daily tip
+            const dailyTips = [
+                "Prenez 5 minutes chaque jour pour exprimer votre gratitude à votre partenaire.",
+                "Un câlin de 20 secondes libère de l'ocytocine, l'hormone du bien-être et de l'attachement.",
+                "Écoutez pour comprendre, pas pour répondre. La vraie écoute est un cadeau précieux.",
+                "Planifiez des 'rendez-vous' réguliers en couple, même après des années de vie commune.",
+                "Apprenez le langage d'amour principal de votre partenaire et pratiquez-le régulièrement."
+            ];
+            
+            const randomTip = dailyTips[Math.floor(Math.random() * dailyTips.length)];
+            document.querySelector('.floating-btn').setAttribute('data-bs-original-title', randomTip);
+            
+            // Show tip on click
+            document.querySelector('.floating-btn').addEventListener('click', function() {
+                alert("Conseil du jour :\n\n" + randomTip);
+            });
+        });
+    </script>
+	
+	<!-- Ajoutez ce script à la fin, avant la balise </body> -->
+<script>
+    // Quiz functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const correctAnswers = {
+            q1: 'c', q2: 'b', q3: 'b', q4: 'b', q5: 'b',
+            // Ajoutez les réponses correctes pour les 20 autres questions
+        };
+
+        // Show feedback when an answer is selected
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const questionName = this.name;
+                const feedbackElement = document.getElementById(`feedback-${questionName}`);
+                
+                // Hide all feedbacks for this question first
+                document.querySelectorAll(`.answer-feedback`).forEach(fb => {
+                    if (fb.id.startsWith(`feedback-${questionName}`)) {
+                        fb.style.display = 'none';
+                    }
+                });
+                
+                // Show feedback after a short delay
+                setTimeout(() => {
+                    feedbackElement.style.display = 'block';
+                }, 300);
+            });
+        });
+
+        // Submit quiz
+        document.getElementById('submitQuiz').addEventListener('click', function() {
+            let score = 0;
+            const form = document.getElementById('coupleQuiz');
+            const formData = new FormData(form);
+            
+            // Calculate score
+            for (const [question, answer] of formData.entries()) {
+                if (correctAnswers[question] === answer) {
+                    score++;
+                }
+            }
+            
+            // Show results
+            document.getElementById('quizScore').textContent = score;
+            document.getElementById('quizResults').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show appropriate feedback based on score
+            document.querySelectorAll('#excellentScore, #goodScore, #averageScore, #lowScore').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            if (score >= 20) {
+                document.getElementById('excellentScore').style.display = 'block';
+            } else if (score >= 15) {
+                document.getElementById('goodScore').style.display = 'block';
+            } else if (score >= 10) {
+                document.getElementById('averageScore').style.display = 'block';
+            } else {
+                document.getElementById('lowScore').style.display = 'block';
+            }
+        });
+
+        // Retry quiz
+        document.getElementById('retryQuiz').addEventListener('click', function() {
+            document.getElementById('coupleQuiz').reset();
+            document.getElementById('quizResults').style.display = 'none';
+            document.querySelectorAll('.answer-feedback').forEach(fb => {
+                fb.style.display = 'none';
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+</script>
+
+<script>
+// Gestion des boutons "Lire la suite"
+document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
+    button.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        if (this.classList.contains('collapsed')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        }
+    });
+});
+
+// Suivi des défis complétés
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            this.parentElement.classList.add('text-success', 'fw-bold');
+        } else {
+            this.parentElement.classList.remove('text-success', 'fw-bold');
+        }
+    });
+});
+
+// Recherche de thérapeutes (simulation)
+document.querySelector('.btn-primary').addEventListener('click', function() {
+    alert('Fonctionnalité de recherche en développement. Pour l\'instant, consultez l\'annuaire des psychologues sur le site de l\'ARS.');
+});
+</script>
+
+</body>
+</html>
