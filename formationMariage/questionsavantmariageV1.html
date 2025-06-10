@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 Questions Essentielles Avant le Mariage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3e9f2 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, .display-1, .display-2, .display-3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 80vh;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .hero-overlay {
+            background: rgba(142, 68, 173, 0.85);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        /* Catégories */
+        .category-section {
+            margin: 60px 0 30px;
+            position: relative;
+        }
+        
+        .category-title {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+        }
+        
+        /* Cartes de questions */
+        .question-card {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .question-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 25px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-header h3 {
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            font-size: 1.4rem;
+        }
+        
+        .question-header:after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10px;
+            width: 120%;
+            height: 100px;
+            background: white;
+            transform: rotate(-3deg);
+            z-index: 1;
+        }
+        
+        .question-body {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+        }
+        
+        .importance-stars {
+            color: #f1c40f;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .checklist {
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+        
+        .checklist-item {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .checklist-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Autres éléments */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.5);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            background: #c0392b;
+        }
+        
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color) 0%, var(--warning-color) 100%);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6c3483 100%);
+            color: white;
+            padding: 80px 0;
+            margin: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-section:before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 150px;
+            color: rgba(255,255,255,0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .quote-section:after {
+            content: """;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 150px;
+            color: rgba(255,255,255,0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+            }
+            
+            .question-header {
+                min-height: auto;
+                padding: 20px;
+            }
+            
+            .question-header h3 {
+                font-size: 1.2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay">
+            <div class="container">
+                <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">21 Questions Essentielles</h1>
+                <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Pour construire un mariage solide et heureux</p>
+                <a href="#questions" class="btn btn-light btn-lg mt-4 animate__animated animate__fadeInUp animate__delay-2s">Découvrir les Questions</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Introduction -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4">Préparez-vous pour le voyage de votre vie</h2>
+                <p class="lead">Le mariage est une aventure magnifique, mais il nécessite une préparation sérieuse. Ces 21 questions couvrent tous les aspects cruciaux que les futurs mariés doivent discuter ouvertement avant de s'engager.</p>
+                <p>Prenez le temps d'y répondre honnêtement avec votre partenaire - cela pourrait faire toute la différence dans votre vie commune.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Questions Section -->
+    <section class="container" id="questions">
+        <!-- Catégorie 1: Vision et Valeurs -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Vision & Valeurs</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Vision de Vie Commune</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Fondamental</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Quelle est votre vision commune pour votre vie ensemble? Où vous voyez-vous dans 5, 10, 20 ans?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Discutez de vos aspirations individuelles et communes</div>
+                            <div class="checklist-item">Évaluez votre compatibilité à long terme</div>
+                            <div class="checklist-item">Planifiez des objectifs de vie réalistes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Religion & Spiritualité</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Valeurs</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Quelle place occupent la religion et la spiritualité dans votre vie? Comment les intégrerez-vous dans votre mariage?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Compatibilité des croyances</div>
+                            <div class="checklist-item">Pratiques religieuses au quotidien</div>
+                            <div class="checklist-item">Célébration des fêtes et traditions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Philosophie Éducative</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Enfants</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Comment envisagez-vous l'éducation de vos enfants? Quelles valeurs souhaitez-vous leur transmettre?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Méthodes éducatives (autoritaires, permissives, etc.)</div>
+                            <div class="checklist-item">Éducation religieuse ou spirituelle</div>
+                            <div class="checklist-item">Rôles parentaux et répartition des tâches</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 2: Finances -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Finances & Carrière</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Gestion Financière</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Budget</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Comment allez-vous gérer vos finances communes? Qui prend en charge quoi?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Comptes joints ou séparés</div>
+                            <div class="checklist-item">Répartition des dépenses</div>
+                            <div class="checklist-item">Épargne et investissements</div>
+                            <div class="checklist-item">Gestion des dettes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Objectifs Financiers</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Planification</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Quels sont vos objectifs financiers à court et long terme? Comment les atteindrez-vous ensemble?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Projet d'achat immobilier</div>
+                            <div class="checklist-item">Épargne pour les études des enfants</div>
+                            <div class="checklist-item">Plan de retraite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Carrière & Ambitions</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Profession</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Comment gérez-vous vos ambitions professionnelles et vos passions personnelles dans le couple?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Priorité carrière vs famille</div>
+                            <div class="checklist-item">Déménagements pour opportunités professionnelles</div>
+                            <div class="checklist-item">Soutien mutuel pour les projets personnels</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 3: Famille & Relations -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Famille & Relations</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 7 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Relations Familiales</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Belle-famille</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Comment gérez-vous les relations avec vos belles-familles? Vos valeurs sont-elles compatibles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Fréquence des visites familiales</div>
+                            <div class="checklist-item">Gestion des conflits familiaux</div>
+                            <div class="checklist-item">Limites et frontières saines</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 8 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Amis & Vie Sociale</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Relations</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Comment gérez-vous vos relations avec le sexe opposé et vos cercles d'amis?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Limites dans les amitiés mixtes</div>
+                            <div class="checklist-item">Temps passé avec les amis vs en couple</div>
+                            <div class="checklist-item">Intégration des cercles sociaux</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 9 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Décisions Familiales</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Autorité</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Comment prendrez-vous les décisions importantes concernant la famille?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Processus de décision commune</div>
+                            <div class="checklist-item">Gestion des désaccords</div>
+                            <div class="checklist-item">Rôles dans la prise de décision</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 4: Mode de Vie -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Mode de Vie</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 10 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Répartition des Tâches</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Quotidien</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Comment allez-vous répartir les tâches ménagères et responsabilités quotidiennes?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Répartition équitable des corvées</div>
+                            <div class="checklist-item">Gestion des repas et courses</div>
+                            <div class="checklist-item">Organisation du foyer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 11 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Loisirs & Passions</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Épanouissement</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Comment allez-vous concilier vos loisirs individuels et vos activités communes?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Temps pour les passions personnelles</div>
+                            <div class="checklist-item">Activités à faire ensemble</div>
+                            <div class="checklist-item">Équilibre entre vie commune et individuelle</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 12 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Habitudes de Vie</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Santé</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Vos habitudes de vie (alimentation, sport, sommeil) sont-elles compatibles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Style alimentaire et repas</div>
+                            <div class="checklist-item">Activité physique et santé</div>
+                            <div class="checklist-item">Rythmes de vie et sommeil</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 5: Communication & Intimité -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Communication & Intimité</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 13 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Style de Communication</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Dialogue</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Comment communiquez-vous lors des désaccords? Avez-vous des styles compatibles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Méthodes de résolution de conflits</div>
+                            <div class="checklist-item">Expression des émotions</div>
+                            <div class="checklist-item">Besoins en communication</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 14 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Vie Intime</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Sexualité</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Avez-vous discuté ouvertement de vos attentes et besoins en matière d'intimité?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Fréquence et attentes</div>
+                            <div class="checklist-item">Besoins et limites</div>
+                            <div class="checklist-item">Communication sur le sujet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 15 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Affection & Romance</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Amour</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Comment exprimez-vous et recevez-vous l'amour? Vos langages d'amour sont-ils compatibles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Moyens d'expression de l'affection</div>
+                            <div class="checklist-item">Besoins en démonstrations d'amour</div>
+                            <div class="checklist-item">Entretien de la flamme</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 6: Projets & Engagement -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Projets & Engagement</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 16 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Projet Résidentiel</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Logement</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Où et comment souhaitez-vous vivre? Ville ou campagne? Location ou propriété?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Type de logement idéal</div>
+                            <div class="checklist-item">Localisation géographique</div>
+                            <div class="checklist-item">Budget et échéances</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 17 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Engagement Social</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Communauté</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Quelle place donnez-vous à l'engagement social, associatif ou communautaire?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Implication dans des causes</div>
+                            <div class="checklist-item">Temps consacré au bénévolat</div>
+                            <div class="checklist-item">Valeurs sociales partagées</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 18 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Voyages & Aventures</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Découverte</span>
+                        <div class="importance-stars">
+                            ★★★☆☆
+                        </div>
+                        <p>Quels sont vos projets de voyage et d'aventure? Avez-vous des envies compatibles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Type de voyages préférés</div>
+                            <div class="checklist-item">Fréquence des voyages</div>
+                            <div class="checklist-item">Budget voyage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Catégorie 7: Défis & Croissance -->
+        <div class="category-section text-center">
+            <h2 class="category-title">Défis & Croissance</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Question 19 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Gestion des Conflits</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Résolution</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Comment gérez-vous actuellement les conflits? Comment pourriez-vous améliorer cela?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Stratégies de résolution</div>
+                            <div class="checklist-item">Gestion de la colère</div>
+                            <div class="checklist-item">Demande d'aide extérieure si besoin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 20 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Croissance Personnelle</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Évolution</span>
+                        <div class="importance-stars">
+                            ★★★★☆
+                        </div>
+                        <p>Comment envisagez-vous votre croissance personnelle au sein du couple?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Espaces d'évolution individuelle</div>
+                            <div class="checklist-item">Soutien mutuel dans les projets</div>
+                            <div class="checklist-item">Acceptation du changement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 21 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>Engagement Absolu</h3>
+                    </div>
+                    <div class="question-body">
+                        <span class="category-badge">Fondamental</span>
+                        <div class="importance-stars">
+                            ★★★★★
+                        </div>
+                        <p>Êtes-vous prêts à vous engager pleinement, même dans les moments difficiles?</p>
+                        <div class="checklist">
+                            <div class="checklist-item">Définition de l'engagement</div>
+                            <div class="checklist-item">Seuils de tolérance</div>
+                            <div class="checklist-item">Vision du mariage à vie</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container text-center">
+            <blockquote class="blockquote">
+                <p class="quote-text">"Un mariage réussi ne consiste pas à trouver la personne parfaite, mais à aimer la personne imparfaite que vous avez choisie, de manière parfaite."</p>
+                <footer class="blockquote-footer text-white mt-4">Faulkner</footer>
+            </blockquote>
+        </div>
+    </section>
+    
+    <!-- Checklist Section -->
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="text-center mb-5">Comment Utiliser Ce Guide</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="display-4 text-primary mb-3">1</div>
+                                <h4>Lire Ensemble</h4>
+                                <p>Prenez le temps de parcourir chaque question ensemble, dans un environnement calme et propice à la discussion.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="display-4 text-primary mb-3">2</div>
+                                <h4>Réfléchir Séparément</h4>
+                                <p>Notez vos réponses individuellement avant d'en discuter, pour clarifier vos propres pensées.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <div class="display-4 text-primary mb-3">3</div>
+                                <h4>Discuter Ouvertement</h4>
+                                <p>Échangez vos réponses avec bienveillance, sans jugement, en cherchant des terrains d'entente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Floating Action Button -->
+    <button class="floating-btn" id="shareBtn">
+        <i class="fas fa-share-alt"></i>
+    </button>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h5>21 Questions Essentielles</h5>
+                    <p>Un guide complet pour les futurs mariés qui veulent construire une relation solide et durable.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-light me-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="btn btn-outline-light me-2">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="btn btn-outline-light">
+                            <i class="fab fa-instagram"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ressources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Livres recommandés</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Thérapeutes conjugaux</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Ateliers prémaritaux</a></li>
+                        <li><a href="#" class="text-white-50">Conseils relationnels</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Questions?</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Témoignages</a></li>
+                        <li><a href="#" class="text-white-50">Partenariats</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-white-50">© 2023 Guide des Futurs Mariés. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Scroll Progress Bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+        
+        // Animate elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.question-card').forEach((card, index) => {
+            // Stagger the animation delay
+            card.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(card);
+        });
+        
+        // Share button functionality
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '21 Questions Essentielles Avant le Mariage',
+                    text: 'Découvrez les questions cruciales à aborder avant de vous marier',
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = window.location.href;
+                const tempInput = document.createElement('input');
+                document.body.appendChild(tempInput);
+                tempInput.value = shareUrl;
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                alert('Lien copié dans le presse-papier : ' + shareUrl);
+            }
+        });
+    </script>
+</body>
+</html>
