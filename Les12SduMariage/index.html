@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Clés de l'Harmonie Conjugale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --couleur-femme: #ff9ff3;
+            --couleur-homme: #48dbfb;
+            --couleur-accent: #6c5ce7;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .intro-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--couleur-accent);
+        }
+        
+        .checklist-section {
+            margin-top: 2rem;
+        }
+        
+        .checklist-card {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .checklist-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header-femme {
+            background-color: var(--couleur-femme);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .card-header-homme {
+            background-color: var(--couleur-homme);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .checklist-item {
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .form-check-input {
+            width: 1.3em;
+            height: 1.3em;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--couleur-accent);
+            border-color: var(--couleur-accent);
+        }
+        
+        .progress-container {
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar-femme {
+            background-color: var(--couleur-femme);
+        }
+        
+        .progress-bar-homme {
+            background-color: var(--couleur-homme);
+        }
+        
+        .recommandations {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            border-left: 5px solid var(--couleur-accent);
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .share-btn {
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .btn-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+        
+        .btn-pdf {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+        
+        .checklist-count {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: 0.5rem;
+        }
+        
+        .btn-details {
+            margin-left: auto;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #666;
+            transition: all 0.3s;
+        }
+        
+        .btn-details:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .modal-femme .modal-header {
+            background-color: var(--couleur-femme);
+            color: white;
+        }
+        
+        .modal-homme .modal-header {
+            background-color: var(--couleur-homme);
+            color: white;
+        }
+        
+        .badge-femme {
+            background-color: var(--couleur-femme);
+        }
+        
+        .badge-homme {
+            background-color: var(--couleur-homme);
+        }
+        
+        @media (max-width: 768px) {
+            .checklist-item {
+                padding: 0.8rem 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+            }
+   
+        .btn-details {
+            margin-left: auto;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            color: #555;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+        }
+        
+        .btn-details:hover {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        
+        .btn-details i {
+            font-size: 0.7rem;
+        }
+        
+        .checklist-item {
+            align-items: center;
+        }
+        
+        @media (max-width: 576px) {
+            .btn-details span {
+                display: none;
+            }
+            
+            .btn-details i {
+                font-size: 0.8rem;
+            }
+            
+            .btn-details {
+                padding: 0.3rem;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modals Femme -->
+    <div class="modal fade modal-femme" id="modalSagesse" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🌸 Sagesse</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Explications :</h6>
+                    <p>La sagesse conjugale, c'est l'art de prendre des décisions réfléchies pour le bien du couple, en tenant compte des conséquences à long terme plutôt que des émotions immédiates.</p>
+                    
+                    <h6 class="mt-4">Exemples concrets :</h6>
+                    <ul>
+                        <li>Savoir quand parler et quand se taire lors d'un désaccord</li>
+                        <li>Choisir le moment approprié pour aborder des sujets délicats</li>
+                        <li>Prendre du recul avant de réagir à une situation tendue</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Bonnes pratiques :</h6>
+                    <div class="alert alert-light">
+                        <strong>Pratiquez la règle des 24h :</strong> Pour les décisions importantes, prenez 24h de réflexion avant de donner votre réponse.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Cultivez la lecture :</strong> Lisez des livres sur la psychologie des relations et la communication conjugale.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Journal de réflexion :</strong> Tenez un journal où vous analysez les situations difficiles et comment vous auriez pu les gérer avec plus de sagesse.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal exemple pour un autre S -->
+    <div class="modal fade modal-femme" id="modalSoumise" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🌸 Soumise</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Explications :</h6>
+                    <p>La soumission dans le mariage est un acte volontaire de respect et de coopération, où la femme choisit de faire confiance au leadership de son mari, tout en conservant sa propre voix et son discernement.</p>
+                    
+                    <h6 class="mt-4">Exemples concrets :</h6>
+                    <ul>
+                        <li>Accepter une décision finale après avoir exprimé son point de vue</li>
+                        <li>Supporter son mari dans ses projets même quand on a des doutes</li>
+                        <li>Créer un environnement domestique harmonieux</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Bonnes pratiques :</h6>
+                    <div class="alert alert-light">
+                        <strong>Communication assertive :</strong> Exprimez vos opinions avec calme et respect, sans agressivité ni passivité.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Choix des batailles :</strong> Distinguez ce qui est essentiel de ce qui est secondaire pour éviter des conflits inutiles.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Confiance mutuelle :</strong> Construisez progressivement une relation où la soumission devient naturelle parce que la confiance est établie.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	<!-- Modal Patient -->
+<div class="modal fade modal-homme" id="modalPatient" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Patient</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La patience masculine est une force tranquille qui permet d'écouter, comprendre et agir au bon moment.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Écouter sans interrompre</li>
+                    <li>Laisser le temps à sa femme d'exprimer complètement sa pensée</li>
+                    <li>Supporter les imperfections avec bienveillance</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Compte à rebours :</strong> Quand vous sentez l'impatience monter, comptez mentalement jusqu'à 10 avant de répondre.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Protecteur -->
+<div class="modal fade modal-homme" id="modalProtecteur" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Protecteur</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La protection masculine englobe la sécurité physique, émotionnelle et spirituelle du foyer.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Veiller à la sécurité du domicile</li>
+                    <li>Protéger sa femme des influences négatives</li>
+                    <li>Créer un environnement stable pour les enfants</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Audit de sécurité :</strong> Faites régulièrement le point sur les aspects de protection de votre foyer.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Respectueux -->
+<div class="modal fade modal-homme" id="modalRespectueux" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Respectueux</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>Le respect se manifeste par des mots et des actes qui honorent la valeur et la dignité de son épouse.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Parler avec considération en privé comme en public</li>
+                    <li>Respecter ses opinions différentes</li>
+                    <li>Honorer son temps et ses efforts</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Langage respectueux :</strong> Bannissez les mots méprisants, même dans la colère.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Stable (Homme) -->
+<div class="modal fade modal-homme" id="modalStableH" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Stable</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La stabilité masculine apporte sécurité et confiance à toute la famille.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Gestion responsable des finances</li>
+                    <li>Réactions mesurées face aux crises</li>
+                    <li>Prévisibilité dans les décisions</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Planification :</strong> Établir des budgets et plans à long terme
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Soutenant -->
+<div class="modal fade modal-homme" id="modalSoutenant" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Soutenant</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>Le soutien masculin se manifeste par une présence constante et un encouragement actif.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Soutenir les projets personnels de sa femme</li>
+                    <li>Être présent dans les épreuves</li>
+                    <li>Encourager les talents</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Questions clés :</strong> "Comment puis-je t'aider à atteindre ton objectif ?"
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sincère (Homme) -->
+<div class="modal fade modal-homme" id="modalSincereH" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Sincère</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>L'honnêteté masculine bâtit une confiance inébranlable dans le couple.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Partager ses pensées réelles</li>
+                    <li>Reconnaître ses erreurs</li>
+                    <li>Être transparent</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Règle d'or :</strong> Mieux vaut une vérité difficile qu'un mensonge facile
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Spirituel -->
+<div class="modal fade modal-homme" id="modalSpirituel" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Spirituel</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La spiritualité masculine guide la famille avec sagesse et discernement.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Initier des temps spirituels en famille</li>
+                    <li>Montrer l'exemple par ses valeurs</li>
+                    <li>Être un repère moral</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Lecture inspirante :</strong> Partager régulièrement des textes qui vous inspirent
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sensuel -->
+<div class="modal fade modal-homme" id="modalSensuel" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Sensuel</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La sensualité masculine entretient la flamme amoureuse et l'intimité du couple.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Créer des moments romantiques</li>
+                    <li>Entretenir la séduction mutuelle</li>
+                    <li>Exprimer son désir avec respect</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Petites attentions :</strong> Messages, cadeaux, moments volés
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Serviable (Homme) -->
+<div class="modal fade modal-homme" id="modalServiableH" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Serviable</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>Le service masculin est une manifestation concrète de l'amour à travers des actes quotidiens.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Participer aux tâches domestiques</li>
+                    <li>Aider sans qu'on le demande</li>
+                    <li>Prendre en charge certaines responsabilités</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Observation :</strong> Identifier les besoins avant qu'ils ne soient exprimés
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sage -->
+<div class="modal fade modal-homme" id="modalSage" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">🤵🏽‍♂️ Sage</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Explications :</h6>
+                <p>La sagesse masculine guide les décisions importantes avec discernement et réflexion.</p>
+                
+                <h6 class="mt-4">Exemples concrets :</h6>
+                <ul>
+                    <li>Prendre des décisions réfléchies</li>
+                    <li>Consulter avant de choisir</li>
+                    <li>Apprendre des expériences passées</li>
+                </ul>
+                
+                <h6 class="mt-4">Bonnes pratiques :</h6>
+                <div class="alert alert-light">
+                    <strong>Processus décisionnel :</strong> Établir une méthode pour les grandes décisions
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modals Homme -->
+    <div class="modal fade modal-homme" id="modalLoyal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🤵🏽‍♂️ Loyal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Explications :</h6>
+                    <p>La loyauté est le ciment invisible du mariage. C'est un engagement inconditionnel envers son épouse, qui se manifeste par la fidélité, la constance et le soutien inébranlable.</p>
+                    
+                    <h6 class="mt-4">Exemples concrets :</h6>
+                    <ul>
+                        <li>Défendre son épouse en son absence</li>
+                        <li>Rester fidèle physiquement et émotionnellement</li>
+                        <li>Honorer ses engagements et promesses</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Bonnes pratiques :</h6>
+                    <div class="alert alert-light">
+                        <strong>Transparence :</strong> Partagez naturellement vos activités, relations et préoccupations.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Priorités claires :</strong> Faites comprendre à votre entourage que votre famille passe avant tout.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Rituels de reconnexion :</strong> Créez des habitudes qui renforcent votre lien (dîners en tête-à-tête, weekends réguliers sans enfants).
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal exemple pour un autre L -->
+    <div class="modal fade modal-homme" id="modalLeader" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🤵🏽‍♂️ Leader</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Explications :</h6>
+                    <p>Le leadership dans le mariage est un service, pas une domination. C'est la capacité à guider la famille avec vision, tout en tenant compte des besoins et opinions de chacun.</p>
+                    
+                    <h6 class="mt-4">Exemples concrets :</h6>
+                    <ul>
+                        <li>Prendre l'initiative de planifier l'avenir de la famille</li>
+                        <li>Savoir trancher après avoir écouté tous les avis</li>
+                        <li>Donner une direction spirituelle et morale</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Bonnes pratiques :</h6>
+                    <div class="alert alert-light">
+                        <strong>Vision partagée :</strong> Développez avec votre épouse une vision commune pour votre famille.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Délégation intelligente :</strong> Reconnaissez les domaines où votre épouse est plus compétente et laissez-la diriger.
+                    </div>
+                    <div class="alert alert-light">
+                        <strong>Leadership serviteur :</strong> Montrez l'exemple en servant (aider aux tâches ménagères, s'occuper des enfants).
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header py-5 mb-5">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">💍 Les Clés de l'Harmonie Conjugale</h1>
+            <p class="lead">12 Qualités pour Elle et 12 pour Lui</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="intro-card p-4 mb-5">
+            <h2 class="h4 mb-3">Introduction</h2>
+            <p>Le mariage n'est pas simplement une union formelle ; c'est une œuvre à deux, un partenariat sacré où chaque époux joue un rôle essentiel dans l'équilibre, la paix et la réussite du foyer. Pour bâtir un couple épanoui et durable, certaines qualités humaines, émotionnelles et spirituelles sont indispensables.</p>
+            <p class="mb-0">Nous vous proposons ici <strong>deux listes de 12 qualités</strong>, sous forme de lettres clés : une pour la femme (les 12 <strong>S</strong>), et une pour l'homme (les 12 <strong>L</strong> ou lettres équilibrées). Ces traits de caractère, lorsqu'ils sont cultivés avec sincérité et constance, deviennent les piliers d'un amour solide et d'un foyer béni.</p>
+        </div>
+        
+        <div class="checklist-section">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="checklist-card">
+                        <div class="card-header card-header-femme py-3">
+                            <h2 class="h5 mb-0">🌸 Les 12 S de la Femme Épanouie et Bâtisseuse de Paix</h2>
+                            <span class="checklist-count float-end">0/12 complétés</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme1">
+                                <label class="form-check-label" for="femme1"><strong>Sagesse</strong> — agir avec maturité et discernement &nbsp;&nbsp;&nbsp; </label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSagesse">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">&nbsp;&nbsp; Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme2">
+                                <label class="form-check-label" for="femme2"><strong>Soumise</strong> — respectueuse et prête à coopérer (sans soumission aveugle) </label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSoumise">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme3">
+                                <label class="form-check-label" for="femme3"><strong>Stratège</strong> — anticiper et gérer les situations avec intelligence </label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalStrategie">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme4">
+                                <label class="form-check-label" for="femme4"><strong>Sincère</strong> — honnête et authentique</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSincere">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme5">
+                                <label class="form-check-label" for="femme5"><strong>Stable</strong> — équilibrée émotionnellement</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalStable">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme6">
+                                <label class="form-check-label" for="femme6"><strong>Soutien</strong> — présente et encourageante</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSoutien">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme7">
+                                <label class="form-check-label" for="femme7"><strong>Souriante</strong> — joyeuse et bienveillante</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSouriante">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme8">
+                                <label class="form-check-label" for="femme8"><strong>Sexy</strong> — entretenir la séduction et l'attirance dans le couple</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSexy">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme9">
+                                <label class="form-check-label" for="femme9"><strong>Serviable</strong> — attentive aux besoins de son mari et de son foyer</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalServiable">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme10">
+                                <label class="form-check-label" for="femme10"><strong>Sociable</strong> — entretenir de bonnes relations avec l'entourage</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSociable">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme11">
+                                <label class="form-check-label" for="femme11"><strong>Spirituelle</strong> — cultiver la foi et les valeurs morales</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSpirituelle">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input femme-checkbox" type="checkbox" id="femme12">
+                                <label class="form-check-label" for="femme12"><strong>Sage-femme</strong> — bâtisseuse de vie, patiente, douce et protectrice</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSageFemme">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="checklist-card">
+                        <div class="card-header card-header-homme py-3">
+                            <h2 class="h5 mb-0">🤵🏽‍♂️ Les 12 Valeurs du Mari Exemplaire et Leader Responsable</h2>
+                            <span class="checklist-count float-end">0/12 complétés</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme1">
+                                <label class="form-check-label" for="homme1"><strong>Loyal</strong> — fidèle et engagé envers sa femme et sa famille</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalLoyal">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme2">
+                                <label class="form-check-label" for="homme2"><strong>Leader</strong> — guider avec responsabilité et bienveillance</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalLeader">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme3">
+                                <label class="form-check-label" for="homme3"><strong>Patient</strong> — écouter, comprendre, et ne pas se précipiter</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalPatient">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme4">
+                                <label class="form-check-label" for="homme4"><strong>Protecteur</strong> — garantir la sécurité physique, morale et spirituelle du foyer</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalProtecteur">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme5">
+                                <label class="form-check-label" for="homme5"><strong>Respectueux</strong> — traiter sa femme avec honneur et considération</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalRespectueux">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme6">
+                                <label class="form-check-label" for="homme6"><strong>Stable</strong> — émotionnellement et financièrement fiable</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalStableH">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme7">
+                                <label class="form-check-label" for="homme7"><strong>Soutenant</strong> — encouragement constant dans les projets et épreuves</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSoutenant">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme8">
+                                <label class="form-check-label" for="homme8"><strong>Sincère</strong> — honnêteté et transparence</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSincereH">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme9">
+                                <label class="form-check-label" for="homme9"><strong>Spirituel</strong> — être un repère de valeurs et de foi</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSpirituel">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme10">
+                                <label class="form-check-label" for="homme10"><strong>Sensuel</strong> — entretenir l'intimité et la connexion affective</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSensuel">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme11">
+                                <label class="form-check-label" for="homme11"><strong>Serviable</strong> — participer activement à la vie du couple et du foyer</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalServiableH">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                            <div class="checklist-item">
+                                <input class="form-check-input homme-checkbox" type="checkbox" id="homme12">
+                                <label class="form-check-label" for="homme12"><strong>Sage</strong> — prendre des décisions réfléchies pour le bien de tous</label>
+                                <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSage">
+                                  <i class="fas fa-lightbulb" style="color: gold;"></i> <span style="color: #333;">Astuce</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h3 class="h6">Progrès Femme</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-femme" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h3 class="h6">Progrès Homme</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-homme" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recommandations">
+            <h2 class="h4 mb-4">✨ Recommandations pour Cultiver ces Qualités</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="h5">Pour Elle :</h3>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item border-0 px-0">Prenez du temps pour vous chaque semaine pour réfléchir à votre croissance personnelle</li>
+                        <li class="list-group-item border-0 px-0">Créez un journal des qualités où vous notez vos progrès</li>
+                        <li class="list-group-item border-0 px-0">Échangez avec d'autres femmes mariées pour partager des expériences</li>
+                        <li class="list-group-item border-0 px-0">Pratiquez la gratitude quotidienne envers votre conjoint</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h5">Pour Lui :</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 px-0">Fixez-vous un objectif mensuel sur une qualité à développer</li>
+                        <li class="list-group-item border-0 px-0">Demandez régulièrement des feedbacks à votre épouse</li>
+                        <li class="list-group-item border-0 px-0">Trouvez un mentor qui incarne ces valeurs</li>
+                        <li class="list-group-item border-0 px-0">Prenez l'initiative de moments de qualité en couple</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="h5">Pour le Couple :</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 px-0">Organisez une révision mensuelle de votre relation</li>
+                    <li class="list-group-item border-0 px-0">Célébrez chaque progression, même petite</li>
+                    <li class="list-group-item border-0 px-0">Pratiquez ensemble des activités qui renforcent votre complicité</li>
+                    <li class="list-group-item border-0 px-0">Priez ou méditez ensemble sur votre vision commune</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="conclusion text-center">
+            <h2 class="h3 mb-3">✨ Conclusion</h2>
+            <p class="mb-4">Un couple harmonieux n'est pas le fruit du hasard, mais celui de deux êtres qui choisissent chaque jour <strong>d'aimer, de bâtir, de respecter et d'évoluer ensemble</strong>. Ces qualités ne sont pas innées, mais elles se développent avec le temps, la volonté, et surtout, avec l'amour sincère.</p>
+            
+            <div class="share-buttons">
+                <button class="btn share-btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Partager sur WhatsApp
+                </button>
+                <button class="btn share-btn btn-instagram">
+                    <i class="fab fa-instagram"></i> Partager sur Instagram
+                </button>
+                <button class="btn share-btn btn-pdf">
+                    <i class="fas fa-file-pdf"></i> Télécharger PDF
+                </button>
+            </div>
+        </div>
+    </div>
+	
+	  <div class="checklist-item">
+        <input class="form-check-input femme-checkbox" type="checkbox" id="femme1">
+        <label class="form-check-label flex-grow-1" for="femme1"><strong>Sagesse</strong> — agir avec maturité et discernement</label>
+        <button class="btn-details" data-bs-toggle="modal" data-bs-target="#modalSagesse">
+            <i class="fas fa-info-circle"></i>
+            <span>Détails</span>
+        </button>
+    </div>
+    
+    <footer class="py-5 mt-5 text-center text-muted">
+        <div class="container">
+            <p>© 2023 Les Clés de l'Harmonie Conjugale - Outil pour couples</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des checkboxes
+            const femmeCheckboxes = document.querySelectorAll('.femme-checkbox');
+            const hommeCheckboxes = document.querySelectorAll('.homme-checkbox');
+            const femmeProgress = document.querySelector('.progress-bar-femme');
+            const hommeProgress = document.querySelector('.progress-bar-homme');
+            const femmeCount = document.querySelector('.card-header-femme .checklist-count');
+            const hommeCount = document.querySelector('.card-header-homme .checklist-count');
+            
+            function updateProgress() {
+                // Calcul pour la femme
+                const checkedFemme = document.querySelectorAll('.femme-checkbox:checked').length;
+                const totalFemme = femmeCheckboxes.length;
+                const percentageFemme = (checkedFemme / totalFemme) * 100;
+                femmeProgress.style.width = percentageFemme + '%';
+                femmeProgress.setAttribute('aria-valuenow', percentageFemme);
+                femmeCount.textContent = `${checkedFemme}/${totalFemme} complétés`;
+                
+                // Calcul pour l'homme
+                const checkedHomme = document.querySelectorAll('.homme-checkbox:checked').length;
+                const totalHomme = hommeCheckboxes.length;
+                const percentageHomme = (checkedHomme / totalHomme) * 100;
+                hommeProgress.style.width = percentageHomme + '%';
+                hommeProgress.setAttribute('aria-valuenow', percentageHomme);
+                hommeCount.textContent = `${checkedHomme}/${totalHomme} complétés`;
+                
+                // Mise à jour du style des éléments cochés
+                femmeCheckboxes.forEach(checkbox => {
+                    const label = checkbox.nextElementSibling;
+                    if (checkbox.checked) {
+                        label.classList.add('completed');
+                    } else {
+                        label.classList.remove('completed');
+                    }
+                });
+                
+                hommeCheckboxes.forEach(checkbox => {
+                    const label = checkbox.nextElementSibling;
+                    if (checkbox.checked) {
+                        label.classList.add('completed');
+                    } else {
+                        label.classList.remove('completed');
+                    }
+                });
+            }
+            
+            // Écouteurs d'événements
+            femmeCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            hommeCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Initialisation
+            updateProgress();
+            
+            // Gestion des boutons de partage (simulée)
+            document.querySelector('.btn-whatsapp').addEventListener('click', function() {
+                alert('Fonctionnalité de partage WhatsApp - À implémenter');
+            });
+            
+            document.querySelector('.btn-instagram').addEventListener('click', function() {
+                alert('Fonctionnalité de partage Instagram - À implémenter');
+            });
+            
+            document.querySelector('.btn-pdf').addEventListener('click', function() {
+                alert('Génération de PDF - À implémenter');
+            });
+        });
+    </script>
+</body>
+</html>
