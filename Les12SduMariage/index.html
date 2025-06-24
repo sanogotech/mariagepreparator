@@ -270,9 +270,85 @@
                 justify-content: center;
             }
         }
+		
+		
+		
+		/* Ajoutez ou remplacez ces règles CSS */
+.femme-checkbox {
+    border: 2px solid var(--couleur-femme) !important; /* Rose pour les femmes */
+	border-color: Bleu;
+}
+
+.homme-checkbox {
+    border: 2px solid var(--couleur-homme) !important; /* Bleu pour les hommes */
+}
+
+/* Style lorsque cochés */
+.femme-checkbox:checked, 
+.homme-checkbox:checked {
+    background-color: var(--couleur-accent) !important; /* Violet quand coché */
+    border-color: var(--couleur-accent) !important;
+}
+
+/* Effet de focus */
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+}
+
+/* Taille et transition */
+.form-check-input {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+		/* Ajoutez ces règles CSS */
+.form-check-input {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    margin-right: 1rem;
+    cursor: pointer;
+    border: 2px solid #6c5ce7 !important;
+    transition: all 0.3s ease;
+}
+
+.form-check-input:checked {
+    background-color: var(--couleur-accent) !important;
+    border-color: var(--couleur-accent) !important;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+    border-color: var(--couleur-accent);
+}
+
+/* Pour le compteur */
+.card-header-femme .checklist-count {
+    font-size: 0.9rem;
+    color: white !important; /* Pour mieux contraster */
+    margin-left: 0.5rem;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+}
+
+.card-header-homme .checklist-count {
+    font-size: 0.9rem;
+    color: white !important; /* Pour mieux contraster */
+    margin-left: 0.5rem;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+}
     </style>
 </head>
 <body>
+
+
+
     <!-- Modals Femme -->
     <div class="modal fade modal-femme" id="modalSagesse" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -1087,6 +1163,56 @@
             <p>Le mariage n'est pas simplement une union formelle ; c'est une œuvre à deux, un partenariat sacré où chaque époux joue un rôle essentiel dans l'équilibre, la paix et la réussite du foyer. Pour bâtir un couple épanoui et durable, certaines qualités humaines, émotionnelles et spirituelles sont indispensables.</p>
             <p class="mb-0">Nous vous proposons ici <strong>deux listes de 12 qualités</strong>, sous forme de lettres clés : une pour la femme (les 12 <strong>S</strong>), et une pour l'homme (les 12 <strong>L</strong> ou lettres équilibrées). Ces traits de caractère, lorsqu'ils sont cultivés avec sincérité et constance, deviennent les piliers d'un amour solide et d'un foyer béni.</p>
         </div>
+		
+		
+		<div class="quiz-section mt-5 p-4 rounded-3" style="background-color: #f8f9fa; border-left: 5px solid #6c5ce7;">
+    <h2 class="text-center mb-4">🔍 Quiz de Compatibilité Conjugale</h2>
+    <p class="text-center mb-4">Répondez à ces 25 questions pour évaluer votre alignement avec les 12 qualités idéales</p>
+    
+    <div class="quiz-container">
+        <div id="quiz-progress" class="mb-4">
+            <div class="progress">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+            </div>
+            <p class="text-muted text-center mt-2">Question <span id="current-question">1</span>/25</p>
+        </div>
+        
+        <div id="quiz-intro" class="text-center">
+            <p>Ce quiz vous aidera à évaluer votre compatibilité avec les 12 qualités idéales pour un couple harmonieux.</p>
+            <button id="start-quiz" class="btn btn-primary">Commencer le Quiz</button>
+        </div>
+        
+        <form id="quiz-form" style="display: none;">
+            <div id="questions-container">
+                <!-- Les questions seront générées dynamiquement -->
+            </div>
+            
+            <div class="text-center mt-4">
+                <button type="button" id="prev-question" class="btn btn-secondary me-2" disabled>Précédent</button>
+                <button type="button" id="next-question" class="btn btn-primary">Suivant</button>
+                <button type="submit" id="submit-quiz" class="btn btn-success ms-2" style="display: none;">Voir les Résultats</button>
+            </div>
+        </form>
+        
+        <div id="quiz-results" class="mt-4" style="display: none;">
+            <h3 class="text-center mb-4">📊 Vos Résultats</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="text-center">Vos Forces</h4>
+                    <ul id="strengths-list" class="list-group mb-4"></ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-center">Axes d'Amélioration</h4>
+                    <ul id="improvements-list" class="list-group mb-4"></ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="retake-quiz" class="btn btn-outline-primary">Refaire le Quiz</button>
+            </div>
+        </div>
+    </div>
+</div>
+
         
         <div class="checklist-section">
             <div class="row">
@@ -1331,6 +1457,9 @@
                 </ul>
             </div>
         </div>
+		
+		
+		
         
         <div class="conclusion text-center">
             <h2 class="h3 mb-3">✨ Conclusion</h2>
@@ -1367,77 +1496,514 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Gestion des checkboxes
-            const femmeCheckboxes = document.querySelectorAll('.femme-checkbox');
-            const hommeCheckboxes = document.querySelectorAll('.homme-checkbox');
-            const femmeProgress = document.querySelector('.progress-bar-femme');
-            const hommeProgress = document.querySelector('.progress-bar-homme');
-            const femmeCount = document.querySelector('.card-header-femme .checklist-count');
-            const hommeCount = document.querySelector('.card-header-homme .checklist-count');
+    document.addEventListener('DOMContentLoaded', function() {
+        // =============================================
+        // Gestion des checkboxes et de la progression
+        // =============================================
+        const femmeCheckboxes = document.querySelectorAll('.femme-checkbox');
+        const hommeCheckboxes = document.querySelectorAll('.homme-checkbox');
+        const femmeProgress = document.querySelector('.progress-bar-femme');
+        const hommeProgress = document.querySelector('.progress-bar-homme');
+        const femmeCount = document.querySelector('.card-header-femme .checklist-count');
+        const hommeCount = document.querySelector('.card-header-homme .checklist-count');
+        
+        function updateProgress() {
+            // Calcul pour la femme (forcé à 12)
+            const checkedFemme = document.querySelectorAll('.femme-checkbox:checked').length;
+            const totalFemme = 12;
+            const percentageFemme = (checkedFemme / totalFemme) * 100;
+            femmeProgress.style.width = percentageFemme + '%';
+            femmeProgress.setAttribute('aria-valuenow', percentageFemme);
+            femmeCount.textContent = `${checkedFemme}/${totalFemme} complétés`;
             
-            function updateProgress() {
-                // Calcul pour la femme
-                const checkedFemme = document.querySelectorAll('.femme-checkbox:checked').length;
-                const totalFemme = femmeCheckboxes.length;
-                const percentageFemme = (checkedFemme / totalFemme) * 100;
-                femmeProgress.style.width = percentageFemme + '%';
-                femmeProgress.setAttribute('aria-valuenow', percentageFemme);
-                femmeCount.textContent = `${checkedFemme}/${totalFemme} complétés`;
-                
-                // Calcul pour l'homme
-                const checkedHomme = document.querySelectorAll('.homme-checkbox:checked').length;
-                const totalHomme = hommeCheckboxes.length;
-                const percentageHomme = (checkedHomme / totalHomme) * 100;
-                hommeProgress.style.width = percentageHomme + '%';
-                hommeProgress.setAttribute('aria-valuenow', percentageHomme);
-                hommeCount.textContent = `${checkedHomme}/${totalHomme} complétés`;
-                
-                // Mise à jour du style des éléments cochés
-                femmeCheckboxes.forEach(checkbox => {
-                    const label = checkbox.nextElementSibling;
-                    if (checkbox.checked) {
-                        label.classList.add('completed');
-                    } else {
-                        label.classList.remove('completed');
-                    }
-                });
-                
-                hommeCheckboxes.forEach(checkbox => {
-                    const label = checkbox.nextElementSibling;
-                    if (checkbox.checked) {
-                        label.classList.add('completed');
-                    } else {
-                        label.classList.remove('completed');
-                    }
-                });
-            }
+            // Calcul pour l'homme (forcé à 12)
+            const checkedHomme = document.querySelectorAll('.homme-checkbox:checked').length;
+            const totalHomme = 12;
+            const percentageHomme = (checkedHomme / totalHomme) * 100;
+            hommeProgress.style.width = percentageHomme + '%';
+            hommeProgress.setAttribute('aria-valuenow', percentageHomme);
+            hommeCount.textContent = `${checkedHomme}/${totalHomme} complétés`;
             
-            // Écouteurs d'événements
+            // Mise à jour du style des éléments cochés
             femmeCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateProgress);
+                const label = checkbox.nextElementSibling;
+                if (checkbox.checked) {
+                    label.classList.add('completed');
+                } else {
+                    label.classList.remove('completed');
+                }
             });
             
             hommeCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateProgress);
+                const label = checkbox.nextElementSibling;
+                if (checkbox.checked) {
+                    label.classList.add('completed');
+                } else {
+                    label.classList.remove('completed');
+                }
             });
-            
-            // Initialisation
-            updateProgress();
-            
-            // Gestion des boutons de partage (simulée)
-            document.querySelector('.btn-whatsapp').addEventListener('click', function() {
-                alert('Fonctionnalité de partage WhatsApp - À implémenter');
-            });
-            
-            document.querySelector('.btn-instagram').addEventListener('click', function() {
-                alert('Fonctionnalité de partage Instagram - À implémenter');
-            });
-            
-            document.querySelector('.btn-pdf').addEventListener('click', function() {
-                alert('Génération de PDF - À implémenter');
-            });
+        }
+        
+        // Écouteurs d'événements pour les checkboxes
+        femmeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
         });
-    </script>
+        
+        hommeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+        
+        // Initialisation
+        updateProgress();
+        
+        // =============================================
+        // Gestion des boutons de partage
+        // =============================================
+        document.querySelector('.btn-whatsapp').addEventListener('click', function() {
+            alert('Fonctionnalité de partage WhatsApp - À implémenter');
+        });
+        
+        document.querySelector('.btn-instagram').addEventListener('click', function() {
+            alert('Fonctionnalité de partage Instagram - À implémenter');
+        });
+        
+        document.querySelector('.btn-pdf').addEventListener('click', function() {
+            alert('Génération de PDF - À implémenter');
+        });
+        
+        // =============================================
+        // Quiz de Compatibilité Conjugale
+        // =============================================
+        const quizQuestions = [
+            {
+                question: "Lors d'un désaccord, vous tendez à :",
+                answers: [
+                    "Élever la voix pour vous faire entendre",
+                    "Faire la tête jusqu'à ce que l'autre cède",
+                    "Prendre du recul avant d'en discuter calmement",
+                    "Éviter complètement le conflit"
+                ],
+                correct: 2,
+                quality: "Sagesse"
+            },
+            {
+                question: "Votre conjoint(e) rentre stressé(e) du travail. Vous :",
+                answers: [
+                    "Lui demandez immédiatement ce qui ne va pas",
+                    "Lui proposez de se reposer seul(e) un moment",
+                    "L'écoutez activement sans interrompre",
+                    "Lui préparez son plat préféré sans poser de questions"
+                ],
+                correct: 2,
+                quality: "Patient"
+            },
+            {
+                question: "Pour les décisions importantes concernant la famille, vous :",
+                answers: [
+                    "Prenez la décision seul(e) car vous savez ce qui est mieux",
+                    "Consultez votre conjoint(e) mais décidez finalement seul(e)",
+                    "Discutez ensemble jusqu'à trouver un consensus",
+                    "Laissez toujours votre conjoint(e) décider"
+                ],
+                correct: 2,
+                quality: "Leader"
+            },
+            // Ajouter ici les 22 autres questions...
+			
+			{
+    question: "Votre conjoint(e) vous fait une critique constructive. Vous :",
+    answers: [
+        "Vous mettez immédiatement sur la défensive",
+        "Écoutez mais n'en tenez pas vraiment compte",
+        "Prenez le temps de réfléchir à ce qui est dit",
+        "Reconnaissez vos erreurs et proposez des solutions"
+    ],
+    correct: 3,
+    quality: "Sincère"
+},
+{
+    question: "Face à une situation financière difficile, vous :",
+    answers: [
+        "Paniquez et faites des dépenses impulsives",
+        "Ignorez le problème en espérant qu'il se règle seul",
+        "Établissez un plan budgétaire strict",
+        "En parlez à votre conjoint(e) pour trouver des solutions ensemble"
+    ],
+    correct: 3,
+    quality: "Stable"
+},
+{
+    question: "Votre conjoint(e) a un projet important qui le/la passionne. Vous :",
+    answers: [
+        "L'encouragez activement et proposez votre aide",
+        "Lui dites que c'est une perte de temps",
+        "L'écoutez poliment mais ne vous impliquez pas",
+        "Lui demandez comment cela va affecter votre routine"
+    ],
+    correct: 0,
+    quality: "Soutenant"
+},
+{
+    question: "Quand vous avez fait une erreur dans votre relation, vous :",
+    answers: [
+        "Ne l'admettez jamais pour ne pas perdre la face",
+        "Reconnaissez vos torts uniquement si on vous y force",
+        "Présentez des excuses sincères rapidement",
+        "Analysez la situation pour ne pas répéter l'erreur"
+    ],
+    correct: 2,
+    quality: "Sincère"
+},
+{
+    question: "Votre conjoint(e) semble préoccupé(e) mais ne dit rien. Vous :",
+    answers: [
+        "Laissez faire, il/elle parlera quand il/elle voudra",
+        "Lui demandez directement ce qui ne va pas",
+        "Créez un moment calme pour favoriser la discussion",
+        "Lui faites une surprise pour le/la dérider"
+    ],
+    correct: 2,
+    quality: "Patient"
+},
+{
+    question: "Pour votre anniversaire de mariage, vous :",
+    answers: [
+        "Organisez une fête surprise avec tous vos amis",
+        "Préférez un dîner romantique en tête-à-tête",
+        "Attendez que votre conjoint(e) prenne les devants",
+        "Ne faites rien de spécial, c'est juste une date"
+    ],
+    correct: 1,
+    quality: "Sensuel"
+},
+{
+    question: "Votre belle-famille vient dîner. Vous :",
+    answers: [
+        "Préparez un repas spécial et décorez la maison",
+        "Demandez à votre conjoint(e) de tout organiser",
+        "Commandez des plats à emporter pour éviter la corvée",
+        "Annulez au dernier moment sous un prétexte"
+    ],
+    correct: 0,
+    quality: "Sociable"
+},
+{
+    question: "Votre conjoint(e) a une approche différente de la vôtre pour éduquer les enfants. Vous :",
+    answers: [
+        "Imposez votre méthode comme la seule valable",
+        "Discutez ensemble pour harmoniser vos approches",
+        "Laissez faire mais critiquez en privé",
+        "Laissez totalement votre conjoint(e) décider"
+    ],
+    correct: 1,
+    quality: "Leader"
+},
+{
+    question: "Quand votre conjoint(e) est malade, vous :",
+    answers: [
+        "Prenez soin de lui/elle sans qu'il/elle ait à demander",
+        "Lui demandez ce dont il/elle a besoin",
+        "Lui conseillez d'aller chez le médecin",
+        "Évitez tout contact pour ne pas attraper ça"
+    ],
+    correct: 0,
+    quality: "Serviable"
+},
+{
+    question: "Vous avez eu une journée éprouvante. En rentrant, vous :",
+    answers: [
+        "Prenez sur vous pour ne pas impacter l'ambiance à la maison",
+        "Faites part de votre mauvaise humeur à votre conjoint(e)",
+        "Demandez un moment seul pour vous détendre",
+        "Parlez ouvertement de votre journée et de vos émotions"
+    ],
+    correct: 3,
+    quality: "Stable"
+},
+{
+    question: "Votre conjoint(e) reçoit une promotion au travail. Vous :",
+    answers: [
+        "Fêtez cela avec un cadeau et un dîner spécial",
+        "Lui dites que c'est bien mais sans plus",
+        "Lui faites remarquer que cela va changer vos habitudes",
+        "Ne montrez pas beaucoup d'enthousiasme"
+    ],
+    correct: 0,
+    quality: "Souriante"
+},
+{
+    question: "Pour prendre des décisions importantes, vous :",
+    answers: [
+        "Consultez toujours votre conjoint(e) avant de décider",
+        "Décidez seul(e) puis informez votre conjoint(e)",
+        "Analysez longuement les pour et les contre",
+        "Suivez votre intuition sans trop réfléchir"
+    ],
+    correct: 0,
+    quality: "Sage"
+},
+{
+    question: "Votre conjoint(e) vous surprend avec un petit cadeau. Vous :",
+    answers: [
+        "Le remerciez rapidement puis rangez le cadeau",
+        "Lui faites remarquer qu'il/elle aurait pu acheter autre chose",
+        "Manifestez votre joie et votre gratitude",
+        "Lui offrez quelque chose en retour immédiatement"
+    ],
+    correct: 2,
+    quality: "Souriante"
+},
+{
+    question: "Face à un problème conjugal, vous :",
+    answers: [
+        "En parlez immédiatement pour le régler",
+        "Attendez que votre conjoint(e) aborde le sujet",
+        "Cherchez des solutions pratiques avant d'en parler",
+        "Ignorez le problème en espérant qu'il disparaisse"
+    ],
+    correct: 2,
+    quality: "Stratège"
+},
+{
+    question: "Quand votre conjoint(e) a besoin de soutien moral, vous :",
+    answers: [
+        "Lui donnez des conseils pour résoudre son problème",
+        "L'écoutez attentivement sans jugement",
+        "Lui dites de ne pas s'en faire pour si peu",
+        "Changez de sujet pour le/la distraire"
+    ],
+    correct: 1,
+    quality: "Soutien"
+},
+{
+    question: "Votre vie intime vous semble devenue routinière. Vous :",
+    answers: [
+        "Proposez des idées nouvelles pour raviver la flamme",
+        "Attendez que votre conjoint(e) prenne des initiatives",
+        "Vous en accommodez sans rien dire",
+        "Évitez simplement les moments d'intimité"
+    ],
+    correct: 0,
+    quality: "Sexy"
+},
+{
+    question: "Votre conjoint(e) a des croyances spirituelles différentes. Vous :",
+    answers: [
+        "Respectez ses croyances sans chercher à le/la convertir",
+        "Essayez de le/la convaincre que vous avez raison",
+        "Évitez le sujet pour ne pas créer de conflit",
+        "Ridiculisez ses croyances en privé"
+    ],
+    correct: 0,
+    quality: "Spirituel"
+},
+{
+    question: "Pour les tâches ménagères, vous :",
+    answers: [
+        "Attendez qu'on vous dise quoi faire",
+        "Prenez des initiatives sans qu'on ait à demander",
+        "Faites uniquement ce qui vous plaît",
+        "Trouvez des excuses pour ne pas participer"
+    ],
+    correct: 1,
+    quality: "Serviable"
+},
+{
+    question: "Votre conjoint(e) a besoin de temps pour lui/elle. Vous :",
+    answers: [
+        "Le/la laissez faire sans poser de questions",
+        "Profitez de ce temps pour vos propres activités",
+        "Lui organisez un espace spécial pour se détendre",
+        "Vous sentez rejeté(e) et le faites savoir"
+    ],
+    correct: 2,
+    quality: "Sage-femme"
+},
+{
+    question: "Face à une décision difficile concernant les enfants, vous :",
+    answers: [
+        "Consultez votre conjoint(e) avant de décider",
+        "Prenez la décision qui vous semble la meilleure",
+        "Suivez les conseils de vos propres parents",
+        "Reportez la décision indéfiniment"
+    ],
+    correct: 0,
+    quality: "Protecteur"
+},
+{
+    question: "Votre conjoint(e) vous fait une remarque en public. Vous :",
+    answers: [
+        "Le/la reprenez immédiatement devant tout le monde",
+        "Gardez votre calme et en parlez en privé plus tard",
+        "Faites semblant de ne pas avoir entendu",
+        "Quittez les lieux immédiatement"
+    ],
+    correct: 1,
+    quality: "Respectueux"
+},
+{
+    question: "Pour maintenir la connexion dans votre couple, vous :",
+    answers: [
+        "Planifiez régulièrement des moments en tête-à-tête",
+        "Attendez que votre conjoint(e) prenne des initiatives",
+        "Pensez que le quotidien suffit à maintenir le lien",
+        "Ne faites rien de particulier"
+    ],
+    correct: 0,
+    quality: "Sensuel"
+},
+            {
+                question: "Quand votre conjoint(e) partage ses rêves, vous :",
+                answers: [
+                    "L'encouragez immédiatement à les réaliser",
+                    "Lui demandez comment il/elle compte y arriver",
+                    "L'écoutez avec intérêt mais gardez vos réserves",
+                    "Changez de sujet pour parler de choses concrètes"
+                ],
+                correct: 0,
+                quality: "Soutenant"
+            }
+        ];
+
+        // Variables d'état du quiz
+        let currentQuestion = 0;
+        let answers = [];
+        let gender = '';
+
+        // Éléments du DOM
+        const startBtn = document.getElementById('start-quiz');
+        const quizForm = document.getElementById('quiz-form');
+        const questionsContainer = document.getElementById('questions-container');
+        const prevBtn = document.getElementById('prev-question');
+        const nextBtn = document.getElementById('next-question');
+        const submitBtn = document.getElementById('submit-quiz');
+        const quizIntro = document.getElementById('quiz-intro');
+        const quizResults = document.getElementById('quiz-results');
+        const retakeBtn = document.getElementById('retake-quiz');
+        const strengthsList = document.getElementById('strengths-list');
+        const improvementsList = document.getElementById('improvements-list');
+
+        // Démarrer le quiz
+        startBtn.addEventListener('click', function() {
+            gender = prompt("Êtes-vous un homme ou une femme ? (homme/femme)").toLowerCase();
+            if (gender !== 'homme' && gender !== 'femme') {
+                alert("Veuillez entrer 'homme' ou 'femme'");
+                return;
+            }
+            
+            quizIntro.style.display = 'none';
+            quizForm.style.display = 'block';
+            showQuestion(currentQuestion);
+        });
+
+        // Afficher une question
+        function showQuestion(index) {
+            questionsContainer.innerHTML = '';
+            const question = quizQuestions[index];
+            
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'mb-4';
+            questionDiv.innerHTML = `
+                <h5 class="mb-3">${question.question}</h5>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="q${index}" id="q${index}a" value="0">
+                    <label class="form-check-label" for="q${index}a">${question.answers[0]}</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="q${index}" id="q${index}b" value="1">
+                    <label class="form-check-label" for="q${index}b">${question.answers[1]}</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="q${index}" id="q${index}c" value="2">
+                    <label class="form-check-label" for="q${index}c">${question.answers[2]}</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="q${index}" id="q${index}d" value="3">
+                    <label class="form-check-label" for="q${index}d">${question.answers[3]}</label>
+                </div>
+            `;
+            
+            questionsContainer.appendChild(questionDiv);
+            document.getElementById('current-question').textContent = index + 1;
+            document.querySelector('.progress-bar').style.width = `${(index / quizQuestions.length) * 100}%`;
+            
+            // Pré-sélectionner la réponse si déjà donnée
+            if (answers[index] !== undefined && answers[index] !== null) {
+                document.querySelector(`input[name="q${index}"][value="${answers[index]}"]`).checked = true;
+            }
+            
+            // Gérer les boutons de navigation
+            prevBtn.disabled = index === 0;
+            nextBtn.style.display = index < quizQuestions.length - 1 ? 'inline-block' : 'none';
+            submitBtn.style.display = index === quizQuestions.length - 1 ? 'inline-block' : 'none';
+        }
+
+        // Navigation
+        nextBtn.addEventListener('click', function() {
+            saveAnswer();
+            currentQuestion++;
+            showQuestion(currentQuestion);
+        });
+
+        prevBtn.addEventListener('click', function() {
+            saveAnswer();
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        });
+
+        // Sauvegarder la réponse
+        function saveAnswer() {
+            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+            answers[currentQuestion] = selectedOption ? parseInt(selectedOption.value) : null;
+        }
+
+        // Soumettre le quiz
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveAnswer();
+            showResults();
+        });
+
+        // Afficher les résultats
+        function showResults() {
+            quizForm.style.display = 'none';
+            quizResults.style.display = 'block';
+            
+            // Calcul des résultats par qualité
+            const qualityScores = {};
+            quizQuestions.forEach((q, i) => {
+                if (!qualityScores[q.quality]) qualityScores[q.quality] = { total: 0, correct: 0 };
+                qualityScores[q.quality].total++;
+                if (answers[i] === q.correct) qualityScores[q.quality].correct++;
+            });
+            
+            // Vider les listes précédentes
+            strengthsList.innerHTML = '';
+            improvementsList.innerHTML = '';
+            
+            // Afficher les résultats
+            Object.entries(qualityScores).forEach(([quality, score]) => {
+                const percentage = Math.round((score.correct / score.total) * 100);
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `<strong>${quality}</strong>: ${percentage}%`;
+                
+                if (percentage >= 70) {
+                    strengthsList.appendChild(li);
+                } else {
+                    improvementsList.appendChild(li);
+                }
+            });
+        }
+
+        // Refaire le quiz
+        retakeBtn.addEventListener('click', function() {
+            currentQuestion = 0;
+            answers = [];
+            quizResults.style.display = 'none';
+            quizIntro.style.display = 'block';
+        });
+    });
+</script>
 </body>
 </html>
