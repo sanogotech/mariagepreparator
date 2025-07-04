@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Complète : Préparer son Mariage</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9c27b0;
+            --secondary-color: #673ab7;
+            --accent-color: #ff9800;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #faf5ff;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(156, 39, 176, 0.8), rgba(103, 58, 183, 0.8)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" stroke-width="0.5" stroke-dasharray="5,5" /></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .module-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: white;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .module-card .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 20px;
+        }
+        
+        .module-card .card-body {
+            padding: 30px;
+        }
+        
+        .badge-module {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav-pills .nav-link:hover {
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+        
+        .tab-content {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: rgba(156, 39, 176, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-card::after {
+            content: """;
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: rgba(156, 39, 176, 0.1);
+            position: absolute;
+            bottom: -40px;
+            right: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .floating {
+            animation-name: floating;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+            color: white;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--dark-color), #000);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(156, 39, 176, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(156, 39, 176, 0.25);
+        }
+        
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-check li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .list-check li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Animation for elements */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .tab-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heart me-2"></i>MariageSolide
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#modules">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#method">Méthode</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Témoignages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#pricing" class="btn btn-gradient ms-lg-3 mt-3 mt-lg-0">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4 animate-on-scroll">Préparer son Mariage</h1>
+                    <h2 class="mb-4 animate-on-scroll" style="animation-delay: 0.2s;">Aimer, Choisir et Construire une Union Solide, Spirituelle et Durable</h2>
+                    <p class="lead mb-5 animate-on-scroll" style="animation-delay: 0.4s;">Le mariage n'est pas un hasard du cœur, ni une loterie sentimentale. C'est un acte sacré, stratégique et spirituel.</p>
+                    <div class="animate-on-scroll" style="animation-delay: 0.6s;">
+                        <a href="#modules" class="btn btn-gradient btn-lg me-2">Découvrir les Modules</a>
+                        <a href="#pricing" class="btn btn-outline-light btn-lg">S'inscrire Maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1529635769390-0411e5e6cb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Couple heureux" class="img-fluid rounded shadow-lg floating">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Introduction Générale</h2>
+                    <p class="lead">Bien se préparer au mariage, c'est éviter 80% des conflits futurs.</p>
+                    <p>Cela signifie :</p>
+                    <ul class="list-check">
+                        <li>Apprendre à <strong>s'aimer soi-même</strong> avant d'aimer l'autre</li>
+                        <li>Comprendre les vrais critères de l'amour et de la compatibilité</li>
+                        <li>Se construire intérieurement avant de bâtir un foyer</li>
+                        <li>S'entraîner à <strong>choisir, bâtir, maintenir et faire grandir</strong> une relation</li>
+                    </ul>
+                    <blockquote class="blockquote mt-4">
+                        <p class="mb-0">« N'épouse pas quelqu'un que tu peux supporter. Épouse celui ou celle avec qui tu peux grandir, rayonner et adorer. »</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section id="modules" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nos Modules de Formation</h2>
+                <p class="lead">Un programme complet en 5 modules pour construire une union solide et durable</p>
+            </div>
+            
+            <div class="row">
+                <!-- Module 1 -->
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="module-card h-100">
+                        <div class="card-header">
+                            <h4 class="mb-0">MODULE 1</h4>
+                            <p class="mb-0">Le Bon Mindset Avant le Mariage</p>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-module mb-2">Mentalité & Maturité</span>
+                            <p>Aider les participants à <strong>désapprendre les mythes</strong> et construire une mentalité claire et lucide.</p>
+                            <ul class="list-check">
+                                <li>Le mariage n'est pas une échappatoire à la solitude</li>
+                                <li>Il est une mission à deux</li>
+                                <li>Le couple est une équipe complémentaire</li>
+                            </ul>
+                            <a href="#module1" class="btn btn-sm btn-outline-primary mt-3">Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 2 -->
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="module-card h-100">
+                        <div class="card-header">
+                            <h4 class="mb-0">MODULE 2</h4>
+                            <p class="mb-0">Reconnaître l'Amour Véritable</p>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-module mb-2">8 A & 3 C</span>
+                            <p>Permettre de <strong>distinguer l'amour sain</strong> de l'attachement émotionnel ou de la dépendance affective.</p>
+                            <ul class="list-check">
+                                <li>Les 8 A de l'amour sincère</li>
+                                <li>Les 3 C : Amour avec tout son être</li>
+                                <li>Exercices pratiques d'évaluation</li>
+                            </ul>
+                            <a href="#module2" class="btn btn-sm btn-outline-primary mt-3">Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 3 -->
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="module-card h-100">
+                        <div class="card-header">
+                            <h4 class="mb-0">MODULE 3</h4>
+                            <p class="mb-0">L'Âme Sœur Compatible</p>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-module mb-2">Les 8 R</span>
+                            <p>Fournir une <strong>grille fiable et vérifiable</strong> pour évaluer la compatibilité.</p>
+                            <ul class="list-check">
+                                <li>Les 8 R détaillés avec exemples</li>
+                                <li>Jeux de rôle pour gérer les conflits</li>
+                                <li>Création d'une carte de compatibilité</li>
+                            </ul>
+                            <a href="#module3" class="btn btn-sm btn-outline-primary mt-3">Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 4 -->
+                <div class="col-lg-6 col-md-6 mb-4 animate-on-scroll">
+                    <div class="module-card h-100">
+                        <div class="card-header">
+                            <h4 class="mb-0">MODULE 4</h4>
+                            <p class="mb-0">Se Construire Avant de Chercher</p>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-module mb-2">8 S & 8 M</span>
+                            <p>Faire le travail intérieur <strong>avant de chercher ou exiger chez l'autre</strong>.</p>
+                            <ul class="list-check">
+                                <li>Les 8 S de la femme de valeur</li>
+                                <li>Les 8 M du bon mari</li>
+                                <li>Grilles d'auto-évaluation</li>
+                            </ul>
+                            <a href="#module4" class="btn btn-sm btn-outline-primary mt-3">Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 5 -->
+                <div class="col-lg-6 col-md-6 mb-4 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="module-card h-100">
+                        <div class="card-header">
+                            <h4 class="mb-0">MODULE 5</h4>
+                            <p class="mb-0">Construire la Stabilité, la Joie et la Durabilité</p>
+                        </div>
+                        <div class="card-body">
+                            <span class="badge badge-module mb-2">Outils pratiques</span>
+                            <p>Mettre en place <strong>les fondations pratiques</strong> pour entretenir un mariage durable.</p>
+                            <ul class="list-check">
+                                <li>Rituels de connexion</li>
+                                <li>Communication non-violente</li>
+                                <li>Tableau de bord de couple</li>
+                                <li>Routines anti-divorce</li>
+                            </ul>
+                            <a href="#module5" class="btn btn-sm btn-outline-primary mt-3">Voir détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Details Section -->
+    <section id="method" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Détails des Modules</h2>
+                <p class="lead">Explorez en détail notre méthode unique pour préparer un mariage solide</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                        <a class="nav-link active" id="module1-tab" data-bs-toggle="pill" href="#module1" role="tab">
+                            <i class="fas fa-brain me-2"></i>Module 1: Mindset
+                        </a>
+                        <a class="nav-link" id="module2-tab" data-bs-toggle="pill" href="#module2" role="tab">
+                            <i class="fas fa-heart me-2"></i>Module 2: 8 A & 3 C
+                        </a>
+                        <a class="nav-link" id="module3-tab" data-bs-toggle="pill" href="#module3" role="tab">
+                            <i class="fas fa-handshake me-2"></i>Module 3: 8 R
+                        </a>
+                        <a class="nav-link" id="module4-tab" data-bs-toggle="pill" href="#module4" role="tab">
+                            <i class="fas fa-user-edit me-2"></i>Module 4: 8 S & 8 M
+                        </a>
+                        <a class="nav-link" id="module5-tab" data-bs-toggle="pill" href="#module5" role="tab">
+                            <i class="fas fa-home me-2"></i>Module 5: Stabilité
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <!-- Module 1 Content -->
+                        <div class="tab-pane fade show active" id="module1" role="tabpanel">
+                            <h3><i class="fas fa-brain text-primary me-2"></i> Le Bon Mindset Avant le Mariage</h3>
+                            <p class="lead">Mentalité & Maturité pour une union réussie</p>
+                            <hr>
+                            
+                            <h4>Objectif :</h4>
+                            <p>Aider les participants à <strong>désapprendre les mythes</strong> et construire une mentalité claire et lucide sur le mariage.</p>
+                            
+                            <h4 class="mt-4">Contenus détaillés :</h4>
+                            <div class="accordion" id="accordionModule1">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            1. Le mariage n'est pas une échappatoire à la solitude
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                                        <div class="accordion-body">
+                                            <p>Le mariage n'est pas un rêve Disney ni une solution magique aux problèmes personnels. C'est un engagement sérieux qui demande maturité et préparation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            2. Une mission à deux
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                                        <div class="accordion-body">
+                                            <p>Le mariage est une alliance sacrée avec des objectifs communs : aimer, protéger, construire, et se rapprocher de Dieu ensemble.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            3. Équipe complémentaire, pas compétition
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                                        <div class="accordion-body">
+                                            <p>Le couple fonctionne comme une équipe où chacun apporte ses forces pour compenser les faiblesses de l'autre, sans rivalité ni compétition.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                            4. Soigner les blessures du passé
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                                        <div class="accordion-body">
+                                            <p>Il est essentiel de guérir les blessures de l'enfance et des relations passées pour ne pas les projeter sur son conjoint.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                            5. Phases naturelles du couple
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+                                        <div class="accordion-body">
+                                            <p>Comprendre et accepter les différentes phases : passion, épreuves, ajustement, maturité, pour naviguer harmonieusement dans la relation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Exercices pratiques :</h4>
+                            <ul class="list-check">
+                                <li>Rédiger une lettre à son futur soi marié</li>
+                                <li>Identifier 3 fausses croyances sur le mariage à déconstruire</li>
+                                <li>Évaluer son niveau de maturité affective et spirituelle (grille de 15 points)</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Module 2 Content -->
+                        <div class="tab-pane fade" id="module2" role="tabpanel">
+                            <h3><i class="fas fa-heart text-primary me-2"></i> Reconnaître l'Amour Véritable</h3>
+                            <p class="lead">Les 8 A & 3 C d'un amour sain et durable</p>
+                            <hr>
+                            
+                            <h4>Objectif :</h4>
+                            <p>Permettre aux participants de <strong>distinguer l'amour sain</strong> de l'attachement émotionnel ou de la dépendance affective.</p>
+                            
+                            <h4 class="mt-4">Les 8 A de l'amour sincère :</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">1</span> Attirance</h5>
+                                            <p>Désir sain, respectueux, non-obsessionnel. On veut être proche, mais pas posséder.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">2</span> Affection</h5>
+                                            <p>Présence de tendresse et de bienveillance, gestes doux, envie de faire du bien à l'autre.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">3</span> Admiration</h5>
+                                            <p>Respect profond, envie de ressembler à l'autre ou de l'élever.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">4</span> Authenticité</h5>
+                                            <p>Être soi-même sans peur de jugement. L'autre nous accepte tel que nous sommes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">5</span> Attention</h5>
+                                            <p>L'autre remarque nos émotions, nos besoins, nos efforts.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">6</span> Alignement</h5>
+                                            <p>Cohérence dans les projets, les valeurs, la foi, la vision de la famille.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">7</span> Accord</h5>
+                                            <p>Capacité à trouver des compromis sans se détruire.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5><span class="badge bg-primary me-2">8</span> Apaisement</h5>
+                                            <p>Sentiment de calme, de stabilité. Pas de stress constant ou de doutes destructeurs.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Les 3 C : Amour avec tout son être</h4>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-running feature-icon"></i>
+                                                    <h5>Corps</h5>
+                                                    <p>L'attirance physique est saine et maîtrisée</p>
+                                                </div>
+                                            </div>
+                                            <div class="flip-card-back card">
+                                                <div class="card-body">
+                                                    <p>L'attirance est présente mais ne domine pas la relation. Elle est respectueuse et équilibrée.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-heart feature-icon"></i>
+                                                    <h5>Cœur</h5>
+                                                    <p>Le lien affectif est tendre et sincère</p>
+                                                </div>
+                                            </div>
+                                            <div class="flip-card-back card">
+                                                <div class="card-body">
+                                                    <p>L'amour est désintéressé, avec une réelle volonté de bonheur pour l'autre.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-brain feature-icon"></i>
+                                                    <h5>Crâne</h5>
+                                                    <p>Le choix est réfléchi et rationnel</p>
+                                                </div>
+                                            </div>
+                                            <div class="flip-card-back card">
+                                                <div class="card-body">
+                                                    <p>La personne est fiable, stable, compatible avec vos valeurs et projets de vie.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Exercices :</h4>
+                            <ul class="list-check">
+                                <li>Test d'alignement 8 A + 3 C (30 questions)</li>
+                                <li>Témoignage vidéo à analyser : amour ou illusion ?</li>
+                                <li>Écrire 3 signes que tu ressens quand tu aimes avec les 3 C</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Module 3 Content -->
+                        <div class="tab-pane fade" id="module3" role="tabpanel">
+                            <h3><i class="fas fa-handshake text-primary me-2"></i> L'Âme Sœur Compatible</h3>
+                            <p class="lead">Les 8 R pour évaluer la compatibilité conjugale</p>
+                            <hr>
+                            
+                            <h4>Objectif :</h4>
+                            <p>Fournir aux participants une <strong>grille fiable et vérifiable</strong> pour évaluer la compatibilité avec un partenaire.</p>
+                            
+                            <h4 class="mt-4">Les 8 R de la compatibilité :</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Critère</th>
+                                            <th>Description</th>
+                                            <th>Exemple</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Rassure</strong></td>
+                                            <td>Sa présence apaise, pas d'insécurité, pas de contrôle ou de menace.</td>
+                                            <td>Tu te sens en sécurité émotionnelle avec cette personne</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rire</strong></td>
+                                            <td>Vous riez ensemble même dans les moments durs, l'ambiance n'est pas lourde.</td>
+                                            <td>Vous partagez le même humour et savez dédramatiser</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Respect</strong></td>
+                                            <td>L'autre respecte ton corps, ton temps, tes limites, ta famille, ta foi.</td>
+                                            <td>Il/elle ne te pousse jamais à franchir tes limites</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rayonne</strong></td>
+                                            <td>Tu deviens meilleur(e), tu te sens vivant(e) grâce à lui/elle.</td>
+                                            <td>Cette relation t'épanouit et te fait grandir</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rêver</strong></td>
+                                            <td>Vous imaginez un avenir, vous planifiez ensemble, même simplement.</td>
+                                            <td>Vous parlez naturellement de projets communs</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Responsable</strong></td>
+                                            <td>Il/elle reconnaît ses erreurs, fait des efforts sans se justifier sans cesse.</td>
+                                            <td>Capable de s'excuser et de changer</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Résilient</strong></td>
+                                            <td>Il/elle ne fuit pas au moindre conflit. Il y a une envie de réparer.</td>
+                                            <td>Vous surmontez les disputes ensemble</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Réconcilie</strong></td>
+                                            <td>Vous revenez au lien, au pardon, au respect après les disputes.</td>
+                                            <td>Les conflits renforcent votre relation</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <h4 class="mt-4">Activités pratiques :</h4>
+                            <ul class="list-check">
+                                <li>Jeu de rôle : 5 conflits à gérer avec les 8 R</li>
+                                <li>Évaluer son couple (ou son ex) sur les 8 R</li>
+                                <li>Création d'une carte de compatibilité personnalisée</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Module 4 Content -->
+                        <div class="tab-pane fade" id="module4" role="tabpanel">
+                            <h3><i class="fas fa-user-edit text-primary me-2"></i> Se Construire Avant de Chercher</h3>
+                            <p class="lead">Les 8 S de la femme de valeur et les 8 M du bon mari</p>
+                            <hr>
+                            
+                            <h4>Objectif :</h4>
+                            <p>Faire le travail intérieur <strong>avant de chercher ou exiger chez l'autre</strong> ce qu'on n'a pas développé en soi.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white">
+                                            <h4 class="mb-0">Les 8 S de la femme de valeur</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ol class="list-group list-group-numbered">
+                                                <li class="list-group-item">
+                                                    <strong>Sage</strong> : Calme, réfléchie, posée dans les émotions.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Stratégique</strong> : Anticipe, gère avec intelligence, bâtit pour le long terme.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Soumise (équilibrée)</strong> : Respecte l'autorité spirituelle et protège l'harmonie sans se diminuer.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Sociale</strong> : Sait vivre en paix avec les autres, gérer les relations familiales.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Souriante</strong> : Apporte de la paix, de la bonne humeur au foyer.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Sexy</strong> : Prend soin de son apparence, dans la pudeur et l'élégance.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Soutien</strong> : Est là dans les bons et mauvais jours, solide.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Sincère</strong> : Ne manipule pas. Communique avec clarté et loyauté.
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white">
+                                            <h4 class="mb-0">Les 8 M du bon mari</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ol class="list-group list-group-numbered">
+                                                <li class="list-group-item">
+                                                    <strong>Mature</strong> : Émotionnellement stable, pas impulsif ni fragile.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Maître de lui</strong> : Se contrôle. Ne crie pas, ne frappe pas, ne fuit pas.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Moteur</strong> : Agit, entreprend, avance. A une vision de vie claire.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Moral</strong> : A des principes, une foi vivante, une ligne de conduite.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Méritant</strong> : Travaille, protège, assume ses responsabilités.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Motivant</strong> : Élève sa femme, l'encourage à progresser.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Miséricordieux</strong> : Pardonne, écoute, apaise les tensions.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>Monogame</strong> : Fidèle de cœur, de regard, d'engagement.
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-2">Exercices :</h4>
+                            <ul class="list-check">
+                                <li>Grille d'auto-évaluation pour hommes et femmes</li>
+                                <li>Objectifs de transformation personnelle avant de se marier</li>
+                                <li>Définir sa feuille de route de préparation</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Module 5 Content -->
+                        <div class="tab-pane fade" id="module5" role="tabpanel">
+                            <h3><i class="fas fa-home text-primary me-2"></i> Construire la Stabilité, la Joie et la Durabilité</h3>
+                            <p class="lead">Outils pratiques pour un mariage heureux et durable</p>
+                            <hr>
+                            
+                            <h4>Objectif :</h4>
+                            <p>Mettre en place <strong>les fondations pratiques</strong> pour entretenir un mariage durable, joyeux et épanouissant.</p>
+                            
+                            <h4 class="mt-4">Contenus clés :</h4>
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-pray feature-icon"></i>
+                                            <h5>Rituels de connexion</h5>
+                                            <p>Créer des moments réguliers de prière, rendez-vous, discussions hebdomadaires pour maintenir le lien.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-comments feature-icon"></i>
+                                            <h5>Communication non-violente</h5>
+                                            <p>Apprendre à s'exprimer sans blesser, avec écoute active et non-jugement.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chart-line feature-icon"></i>
+                                            <h5>Tableau de bord de couple</h5>
+                                            <p>Suivre ensemble les objectifs, finances, projets et croissance spirituelle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-seedling feature-icon"></i>
+                                            <h5>Saisons du couple</h5>
+                                            <p>Gérer les différentes phases : passion, fatigue, crise, renouvellement.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-heartbeat feature-icon"></i>
+                                            <h5>Intimité multidimensionnelle</h5>
+                                            <p>Préserver l'intimité émotionnelle, physique et spirituelle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4>Supports pratiques :</h4>
+                            <ul class="list-check">
+                                <li>Tableau d'entretien conjugal hebdomadaire</li>
+                                <li>Journal de gratitude du couple</li>
+                                <li>Contrat moral de couple</li>
+                                <li>Routines anti-divorce en 7 jours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Témoignages</h2>
+                <p class="lead">Ce que disent ceux qui ont appliqué cette méthode</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4 animate-on-scroll">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Marie" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Marie & Pierre</h5>
+                                <small>Mariés depuis 3 ans</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"La grille des 8 R nous a sauvés ! Nous étions sur le point de rompre à cause d'incompréhensions. En appliquant ces critères, nous avons réalisé que nous étions parfaitement compatibles, mais que nous avions juste besoin d'outils pour mieux communiquer."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jean" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Jean</h5>
+                                <small>Fiancé</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Le module sur les 8 M m'a ouvert les yeux. J'ai compris que je n'étais pas prêt pour le mariage alors que je pensais l'être. J'ai travaillé sur moi pendant 6 mois avant de rencontrer ma fiancée. Aujourd'hui, notre relation est solide et épanouissante."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophie" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">Sophie</h5>
+                                <small>En préparation au mariage</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Les 8 A m'ont permis de comprendre pourquoi mes relations précédentes échouaient. J'étais dans l'illusion amoureuse. Maintenant je sais reconnaître un amour vrai et j'ai trouvé quelqu'un qui correspond parfaitement à ces critères."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Formats Disponibles</h2>
+                <p class="lead">Choisissez le format qui correspond à vos besoins</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 animate-on-scroll">
+                    <div class="card h-100">
+                        <div class="card-header text-center py-4">
+                            <h4 class="my-0 fw-normal">Livret PDF</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">29€</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> Guide complet téléchargeable</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Exercices pratiques</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Grilles d'évaluation</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Accès immédiat</li>
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-outline-primary w-100">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="card h-100 border-primary">
+                        <div class="card-header bg-primary text-white text-center py-4">
+                            <h4 class="my-0 fw-normal">Formation en Ligne</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">97€</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> 5 modules vidéo</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Cahier d'exercices</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Accès à vie</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Support par email</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Bonus : Atelier en direct</li>
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-primary w-100">S'inscrire</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="card h-100">
+                        <div class="card-header text-center py-4">
+                            <h4 class="my-0 fw-normal">Coaching Personnalisé</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h1 class="card-title pricing-card-title">297€</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><i class="fas fa-check text-success me-2"></i> 5 séances individuelles</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Analyse personnalisée</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Plan d'action sur mesure</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Accès à tous les supports</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Suivi pendant 3 mois</li>
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-outline-primary w-100">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title mb-4">Contactez-nous</h2>
+                    <p class="mb-4">Vous avez des questions sur la formation ? Souhaitez-vous organiser un atelier dans votre communauté ? Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.</p>
+                    
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Votre nom</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Votre email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Sujet</label>
+                            <select class="form-select" id="subject">
+                                <option>Question sur la formation</option>
+                                <option>Demande d'atelier</option>
+                                <option>Problème technique</option>
+                                <option>Autre</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Votre message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient">Envoyer le message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Informations</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="fas fa-envelope me-3 text-primary"></i>
+                                    contact@mariagesolide.com
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-phone me-3 text-primary"></i>
+                                    +33 6 12 34 56 78
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-map-marker-alt me-3 text-primary"></i>
+                                    123 Rue du Mariage Heureux, Paris
+                                </li>
+                            </ul>
+                            <hr class="my-4">
+                            <h4 class="mb-3">Suivez-nous</h4>
+                            <div class="d-flex">
+                                <a href="#" class="social-icon me-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon me-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon me-2"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="text-white mb-4">MariageSolide</h3>
+                    <p>Une formation complète pour préparer son mariage avec sagesse, discernement et spiritualité.</p>
+                    <p>Construire une union solide, joyeuse et durable.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Liens</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Accueil</a></li>
+                        <li class="mb-2"><a href="#modules">Modules</a></li>
+                        <li class="mb-2"><a href="#method">Méthode</a></li>
+                        <li class="mb-2"><a href="#testimonials">Témoignages</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Ressources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Blog</a></li>
+                        <li class="mb-2"><a href="#">FAQ</a></li>
+                        <li class="mb-2"><a href="#">Témoignages</a></li>
+                        <li class="mb-2"><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Abonnez-vous pour recevoir des conseils exclusifs sur la préparation au mariage.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre email">
+                            <button class="btn btn-primary" type="submit">S'abonner</button>
+                        </div>
+                    </form>
+                    <small>Nous ne partagerons jamais votre email.</small>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 MariageSolide. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="me-3">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Change navbar style on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 18px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
