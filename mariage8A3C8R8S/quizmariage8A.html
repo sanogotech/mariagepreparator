@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Préparation au Mariage</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9c27b0;
+            --secondary-color: #673ab7;
+            --accent-color: #ff9800;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #faf5ff;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .module-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: white;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .module-card .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 20px;
+        }
+        
+        .badge-module {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .question-card {
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .question-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .option-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #dee2e6;
+        }
+        
+        .option-item:hover {
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+        
+        .option-item.selected {
+            background-color: rgba(156, 39, 176, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .option-item.correct {
+            background-color: rgba(40, 167, 69, 0.2);
+            border-color: #28a745;
+        }
+        
+        .option-item.incorrect {
+            background-color: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.6s ease;
+        }
+        
+        .result-card {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: none;
+        }
+        
+        .result-score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .floating {
+            animation-name: floating;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+            color: white;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-check li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .list-check li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .quiz-header {
+                padding: 60px 0;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="quiz-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4 animate-on-scroll">Quiz Préparation au Mariage</h1>
+                    <p class="lead mb-5 animate-on-scroll" style="animation-delay: 0.2s;">Évaluez votre préparation et recevez des recommandations personnalisées</p>
+                    <div class="animate-on-scroll" style="animation-delay: 0.4s;">
+                        <a href="#quiz-container" class="btn btn-gradient btn-lg me-2">Commencer le quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quiz Container -->
+    <section id="quiz-container" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="card module-card sticky-top" style="top: 20px;">
+                        <div class="card-header">
+                            <h4 class="mb-0">Modules du Quiz</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav flex-column" id="module-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-module="1">
+                                        <i class="fas fa-brain me-2"></i>Module 1: Fondations
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-module="2">
+                                        <i class="fas fa-heart me-2"></i>Module 2: Les 8A & 3C
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-module="3">
+                                        <i class="fas fa-handshake me-2"></i>Module 3: Les 8R
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-module="4">
+                                        <i class="fas fa-user-edit me-2"></i>Module 4: 8S & 8M
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-module="5">
+                                        <i class="fas fa-home me-2"></i>Module 5: Outils
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <small>Progression:</small>
+                                <small><span id="answered-count">0</span>/100</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" id="quiz-progress" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9">
+                    <!-- Module Selection Screen -->
+                    <div id="module-selection" class="animate-on-scroll">
+                        <div class="text-center mb-5">
+                            <h2 class="section-title">Sélectionnez un Module</h2>
+                            <p class="lead">Chaque module contient 20 questions pour évaluer votre préparation</p>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Module 1 -->
+                            <div class="col-md-6 col-lg-4 mb-4 animate-on-scroll">
+                                <div class="module-card h-100">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">MODULE 1</h4>
+                                        <p class="mb-0">Le Bon Mindset</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="badge badge-module mb-2">Mentalité & Maturité</span>
+                                        <p>Évaluez vos croyances et votre maturité avant le mariage.</p>
+                                        <button class="btn btn-outline-primary w-100 start-module" data-module="1">Commencer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Module 2 -->
+                            <div class="col-md-6 col-lg-4 mb-4 animate-on-scroll" style="animation-delay: 0.1s;">
+                                <div class="module-card h-100">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">MODULE 2</h4>
+                                        <p class="mb-0">Amour Véritable</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="badge badge-module mb-2">8 A & 3 C</span>
+                                        <p>Testez votre capacité à reconnaître un amour sain et durable.</p>
+                                        <button class="btn btn-outline-primary w-100 start-module" data-module="2">Commencer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Module 3 -->
+                            <div class="col-md-6 col-lg-4 mb-4 animate-on-scroll" style="animation-delay: 0.2s;">
+                                <div class="module-card h-100">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">MODULE 3</h4>
+                                        <p class="mb-0">Compatibilité</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="badge badge-module mb-2">Les 8 R</span>
+                                        <p>Évaluez votre compatibilité avec votre partenaire.</p>
+                                        <button class="btn btn-outline-primary w-100 start-module" data-module="3">Commencer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Module 4 -->
+                            <div class="col-md-6 col-lg-6 mb-4 animate-on-scroll">
+                                <div class="module-card h-100">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">MODULE 4</h4>
+                                        <p class="mb-0">Construction Personnelle</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="badge badge-module mb-2">8 S & 8 M</span>
+                                        <p>Évaluez votre développement personnel avant le mariage.</p>
+                                        <button class="btn btn-outline-primary w-100 start-module" data-module="4">Commencer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Module 5 -->
+                            <div class="col-md-6 col-lg-6 mb-4 animate-on-scroll" style="animation-delay: 0.1s;">
+                                <div class="module-card h-100">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">MODULE 5</h4>
+                                        <p class="mb-0">Outils Pratiques</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="badge badge-module mb-2">Durabilité</span>
+                                        <p>Testez vos connaissances sur les outils pour un mariage durable.</p>
+                                        <button class="btn btn-outline-primary w-100 start-module" data-module="5">Commencer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Questions Container -->
+                    <div id="quiz-questions" style="display: none;">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 id="current-module-title" class="mb-0"></h3>
+                            <div>
+                                <span id="question-count" class="badge bg-primary">Question 1/20</span>
+                            </div>
+                        </div>
+                        
+                        <div id="question-container">
+                            <!-- Questions will be loaded here dynamically -->
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button id="prev-question" class="btn btn-outline-secondary" disabled>
+                                <i class="fas fa-arrow-left me-2"></i>Précédent
+                            </button>
+                            <button id="next-question" class="btn btn-gradient">
+                                Suivant<i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Container -->
+                    <div id="quiz-results" class="animate-on-scroll" style="display: none;">
+                        <div class="card result-card border-0">
+                            <div class="card-body text-center p-5">
+                                <div class="mb-4">
+                                    <i class="fas fa-trophy fa-4x text-warning mb-3 floating"></i>
+                                    <h2 class="mb-3">Résultats du Quiz</h2>
+                                    <p class="lead" id="module-result-title"></p>
+                                </div>
+                                
+                                <div class="row justify-content-center mb-5">
+                                    <div class="col-md-6">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body py-4">
+                                                <h5 class="mb-3">Votre Score</h5>
+                                                <div class="result-score mb-3" id="final-score">0%</div>
+                                                <div class="progress mb-3" style="height: 20px;">
+                                                    <div class="progress-bar bg-success" id="score-progress" role="progressbar" style="width: 0%"></div>
+                                                </div>
+                                                <p class="mb-0" id="score-message"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="mb-4"><i class="fas fa-lightbulb text-primary me-2"></i> Recommandations Personnalisées</h4>
+                                <div class="row text-start mb-4" id="recommendations">
+                                    <!-- Recommendations will be loaded here -->
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <button id="retake-module" class="btn btn-outline-primary me-2">
+                                        <i class="fas fa-redo me-2"></i>Refaire ce module
+                                    </button>
+                                    <button id="choose-another" class="btn btn-gradient">
+                                        <i class="fas fa-list me-2"></i>Choisir un autre module
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2023 MariageSolide. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Quiz data for each module
+        const quizData = {
+            1: {
+                title: "Module 1: Le Bon Mindset Avant le Mariage",
+                description: "Évaluez vos croyances et votre maturité avant le mariage",
+                questions: [
+                    {
+                        question: "Lequel de ces énoncés représente un mythe courant sur le mariage?",
+                        options: [
+                            "Le mariage révèle qui tu es, pas qui tu voudrais être",
+                            "L'amour seul suffit pour faire fonctionner un mariage",
+                            "Le mariage est une mission sacrée à deux",
+                            "La préparation réduit considérablement les conflits futurs"
+                        ],
+                        correct: 1,
+                        explanation: "Croire que l'amour seul suffit est un mythe dangereux. Un mariage réussi nécessite travail, compatibilité et engagement mutuel."
+                    },
+                    {
+                        question: "Quelle est la mission principale du mariage selon le module?",
+                        options: [
+                            "Échapper à la solitude",
+                            "Avoir des enfants",
+                            "Croître ensemble vers Dieu et se sanctifier mutuellement",
+                            "Atteindre la stabilité financière"
+                        ],
+                        correct: 2,
+                        explanation: "La mission spirituelle est fondamentale : croître ensemble vers Dieu et se sanctifier mutuellement."
+                    },
+                    {
+                        question: "Quelle étape est ESSENTIELLE avant de chercher un conjoint?",
+                        options: [
+                            "Avoir un emploi stable",
+                            "Faire le travail intérieur sur soi-même",
+                            "Trouver un partenaire attirant",
+                            "Acheter une maison"
+                        ],
+                        correct: 1,
+                        explanation: "Le travail intérieur est crucial avant de chercher un conjoint. On ne peut construire une relation saine sans d'abord se construire soi-même."
+                    },
+                    {
+                        question: "Quelle affirmation sur les conflits conjugaux est VRAIE?",
+                        options: [
+                            "Les couples heureux ne se disputent jamais",
+                            "Tous les conflits sont mauvais et à éviter",
+                            "Les conflits bien gérés renforcent le couple",
+                            "Plus on s'aime, moins on a de désaccords"
+                        ],
+                        correct: 2,
+                        explanation: "Les conflits sont inévitables et peuvent être constructifs s'ils sont bien gérés avec communication respectueuse."
+                    },
+                    {
+                        question: "Quel est le premier signe d'une mentalité immature face au mariage?",
+                        options: [
+                            "Voir le mariage comme une échappatoire à la solitude",
+                            "Comprendre que le mariage demande des compromis",
+                            "Avoir des attentes réalistes sur son partenaire",
+                            "Accepter que l'amour évolue avec le temps"
+                        ],
+                        correct: 0,
+                        explanation: "Voir le mariage comme solution à ses problèmes personnels (solitude, insécurité) est un signe de mentalité immature."
+                    },
+                    {
+                        question: "Quelle pratique quotidienne renforce le plus un mariage?",
+                        options: [
+                            "Faire des cadeaux coûteux",
+                            "Des rituels de connexion réguliers",
+                            "Avoir beaucoup d'amis en commun",
+                            "Voyager fréquemment ensemble"
+                        ],
+                        correct: 1,
+                        explanation: "Les petits rituels quotidiens de connexion (conversation, prière, activité partagée) sont plus importants que les grands gestes occasionnels."
+                    },
+                    {
+                        question: "Quelle blessure doit-on guérir avant le mariage?",
+                        options: [
+                            "Blessures d'abandon parental",
+                            "Échecs sentimentaux passés",
+                            "Traumatismes de l'enfance",
+                            "Toutes ces réponses"
+                        ],
+                        correct: 3,
+                        explanation: "Toutes ces blessures non guéries peuvent affecter négativement le mariage si elles ne sont pas traitées."
+                    },
+                    {
+                        question: "Quelle est la pire raison de se marier?",
+                        options: [
+                            "Pression sociale ou familiale",
+                            "Peur de vieillir seul",
+                            "Désir d'avoir des enfants",
+                            "Les deux premières réponses"
+                        ],
+                        correct: 3,
+                        explanation: "Se marier par pression ou par peur conduit souvent à des choix inappropriés et à des mariages malheureux."
+                    },
+                    {
+                        question: "Quelle qualité est la PLUS importante pour un mariage durable?",
+                        options: [
+                            "Beauté physique",
+                            "Compatibilité sexuelle",
+                            "Capacité à pardonner",
+                            "Similitudes culturelles"
+                        ],
+                        correct: 2,
+                        explanation: "La capacité à pardonner est cruciale car les offenses et désaccords sont inévitables dans tout mariage."
+                    },
+                    {
+                        question: "Quelle affirmation sur le divorce est VRAIE?",
+                        options: [
+                            "Le divorce n'est jamais une option",
+                            "Avoir un 'plan B' de divorce affaiblit le mariage",
+                            "Le divorce est la meilleure solution en cas de conflits",
+                            "Tous les mariages peuvent être sauvés"
+                        ],
+                        correct: 1,
+                        explanation: "Entretenir mentalement la possibilité du divorce comme option affaiblit l'engagement nécessaire pour surmonter les difficultés."
+                    },
+                    {
+                        question: "Quel est l'impact des modèles parentaux sur notre mariage?",
+                        options: [
+                            "Aucun, chacun crée sa propre relation",
+                            "Ils influencent inconsciemment nos attentes et comportements",
+                            "Seuls les modèles négatifs ont un impact",
+                            "On reproduit toujours ce qu'on a vécu enfant"
+                        ],
+                        correct: 1,
+                        explanation: "Nos modèles parentaux influencent profondément (souvent inconsciemment) nos attentes et comportements conjugaux."
+                    },
+                    {
+                        question: "Quelle pratique spirituelle renforce le plus le couple?",
+                        options: [
+                            "Prier ensemble quotidiennement",
+                            "Aller à l'église chaque dimanche",
+                            "Lire des livres spirituels séparément",
+                            "Faire des pèlerinages occasionnels"
+                        ],
+                        correct: 0,
+                        explanation: "La prière commune quotidienne crée une intimité spirituelle et une unité profonde dans le couple."
+                    },
+                    {
+                        question: "Quelle est la période la plus critique pour un mariage?",
+                        options: [
+                            "La lune de miel (première année)",
+                            "L'arrivée du premier enfant",
+                            "La crise de la quarantaine",
+                            "Chaque période a ses défis spécifiques"
+                        ],
+                        correct: 3,
+                        explanation: "Chaque saison du mariage présente ses défis particuliers, nécessitant des adaptations constantes."
+                    },
+                    {
+                        question: "Quelle est la clé pour maintenir la passion à long terme?",
+                        options: [
+                            "Avoir des relations sexuelles fréquentes",
+                            "Cultiver l'amitié et l'intimité émotionnelle",
+                            "Faire régulièrement des surprises romantiques",
+                            "Éviter les conflits à tout prix"
+                        ],
+                        correct: 1,
+                        explanation: "L'amitié profonde et l'intimité émotionnelle sont le meilleur terreau pour une passion durable."
+                    },
+                    {
+                        question: "Quel élément est le PLUS prédictif du succès matrimonial?",
+                        options: [
+                            "Niveau de revenu du couple",
+                            "Niveau d'éducation des partenaires",
+                            "Capacité à gérer les conflits de manière constructive",
+                            "Compatibilité des signes astrologiques"
+                        ],
+                        correct: 2,
+                        explanation: "La manière dont un couple gère les conflits est le meilleur prédicteur de sa durabilité et qualité."
+                    },
+                    {
+                        question: "Quelle attitude favorise le plus la croissance du couple?",
+                        options: [
+                            "Chercher à changer son partenaire",
+                            "Se concentrer sur sa propre croissance",
+                            "Comparer son couple à d'autres",
+                            "Ignorer les défauts de l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "Se concentrer sur sa propre croissance plutôt que de vouloir changer l'autre crée un environnement sain pour le couple."
+                    },
+                    {
+                        question: "Quelle est la meilleure préparation au mariage?",
+                        options: [
+                            "Économiser pour un beau mariage",
+                            "Apprendre à cuisiner et gérer un foyer",
+                            "Développer sa maturité émotionnelle et spirituelle",
+                            "Trouver le partenaire parfait"
+                        ],
+                        correct: 2,
+                        explanation: "La maturité émotionnelle et spirituelle est la meilleure préparation, plus importante que les compétences pratiques."
+                    },
+                    {
+                        question: "Quelle affirmation sur les attentes est VRAIE?",
+                        options: [
+                            "Il faut n'avoir aucune attente pour éviter les déceptions",
+                            "Des attentes réalistes et communiquées sont saines",
+                            "Plus on a d'attentes, mieux c'est",
+                            "Les attentes tuent l'amour"
+                        ],
+                        correct: 1,
+                        explanation: "Des attentes réalistes, conscientes et bien communiquées sont saines et nécessaires dans un mariage."
+                    },
+                    {
+                        question: "Quel est le rôle du pardon dans le mariage?",
+                        options: [
+                            "Il n'est nécessaire que pour les grandes offenses",
+                            "C'est une pratique quotidienne indispensable",
+                            "Il affaiblit la relation si trop fréquent",
+                            "Il doit être conditionnel au changement de l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "Le pardon est une pratique quotidienne indispensable car les petites offenses sont inévitables dans l'intimité conjugale."
+                    },
+                    {
+                        question: "Quelle vision du mariage est la plus saine?",
+                        options: [
+                            "Un contrat révocable si les conditions changent",
+                            "Une loterie sentimentale qui dépend de la chance",
+                            "Un engagement sacré et une mission commune",
+                            "Un moyen d'atteindre le bonheur personnel"
+                        ],
+                        correct: 2,
+                        explanation: "Voir le mariage comme un engagement sacré et une mission commune donne la perspective la plus saine et durable."
+                    }
+                ]
+            },
+            2: {
+                title: "Module 2: Reconnaître l'Amour Véritable (8A & 3C)",
+                description: "Testez votre capacité à reconnaître un amour sain et durable",
+                questions: [
+                    {
+                        question: "Quel est le premier 'A' des 8 A de l'amour sincère?",
+                        options: [
+                            "Amour",
+                            "Attirance",
+                            "Amitié",
+                            "Attention"
+                        ],
+                        correct: 1,
+                        explanation: "Le premier A est Attirance - une attirance saine et équilibrée qui inclut les dimensions physique, émotionnelle et spirituelle."
+                    },
+                    {
+                        question: "Quelle caractéristique distingue une attirance saine (A1) d'une obsession?",
+                        options: [
+                            "Elle est exclusive",
+                            "Elle est réciproque et respectueuse",
+                            "Elle est intense dès le début",
+                            "Elle ignore les défauts de l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "Une attirance saine est réciproque et respectueuse, contrairement à une obsession qui peut être unilatérale et intrusive."
+                    },
+                    {
+                        question: "Lequel de ces éléments fait partie des 3 C?",
+                        options: [
+                            "Cœur",
+                            "Carrière",
+                            "Culture",
+                            "Confort"
+                        ],
+                        correct: 0,
+                        explanation: "Les 3 C sont Corps (attirance physique), Cœur (amour émotionnel) et Crâne (compatibilité intellectuelle/spirituelle)."
+                    },
+                    {
+                        question: "Quel 'A' correspond à la capacité d'être authentique et vulnérable?",
+                        options: [
+                            "A3 - Admiration",
+                            "A4 - Authenticité",
+                            "A5 - Attention",
+                            "A6 - Alignement"
+                        ],
+                        correct: 1,
+                        explanation: "A4 - Authenticité est la capacité d'être vrai sans masque ni peur du jugement dans la relation."
+                    },
+                    {
+                        question: "Quelle situation montre un manque d'A8 (Apaisement)?",
+                        options: [
+                            "Se sentir en insécurité permanente dans la relation",
+                            "Avoir des centres d'intérêt différents",
+                            "Discuter calmement des désaccords",
+                            "Passer du temps séparément parfois"
+                        ],
+                        correct: 0,
+                        explanation: "Un manque d'apaisement (A8) se manifeste par de l'insécurité, de l'angoisse ou des tensions fréquentes dans la relation."
+                    },
+                    {
+                        question: "Quel 'A' évalue si vous partagez les mêmes valeurs et vision de vie?",
+                        options: [
+                            "A2 - Affection",
+                            "A6 - Alignement",
+                            "A7 - Accord",
+                            "A8 - Apaisement"
+                        ],
+                        correct: 1,
+                        explanation: "A6 - Alignement évalue l'harmonie sur les valeurs fondamentales, les croyances et la vision de vie commune."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus l'A5 (Attention)?",
+                        options: [
+                            "Se faire des cadeaux coûteux",
+                            "Noter et répondre aux besoins subtils de l'autre",
+                            "Passer tout son temps ensemble",
+                            "Ignorer les petits défauts"
+                        ],
+                        correct: 1,
+                        explanation: "L'attention (A5) se cultive en étant sensible aux besoins subtils de l'autre et en y répondant avec soin."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le Cœur (2ème C)?",
+                        options: [
+                            "Dépendance affective",
+                            "Amour agapè (inconditionnel)",
+                            "Passion intense permanente",
+                            "Attirance physique exclusive"
+                        ],
+                        correct: 1,
+                        explanation: "Le Cœur dans les 3 C fait référence à l'amour agapè - un amour volontaire, inconditionnel et sacrificiel."
+                    },
+                    {
+                        question: "Quel déséquilibre dans les 3 C est le plus problématique?",
+                        options: [
+                            "Fort Cœur et Corps mais faible Crâne",
+                            "Fort Crâne et Corps mais faible Cœur",
+                            "Fort Cœur et Crâne mais faible Corps",
+                            "Tous ces déséquilibres sont problématiques"
+                        ],
+                        correct: 3,
+                        explanation: "Tous ces déséquilibres créent des faiblesses dans la relation. L'idéal est un équilibre harmonieux des 3 C."
+                    },
+                    {
+                        question: "Quel 'A' correspond à la capacité de gérer les désaccords avec respect?",
+                        options: [
+                            "A3 - Admiration",
+                            "A5 - Attention",
+                            "A7 - Accord",
+                            "A8 - Apaisement"
+                        ],
+                        correct: 2,
+                        explanation: "A7 - Accord concerne la capacité à trouver des terrains d'entente et gérer les désaccords de manière constructive."
+                    },
+                    {
+                        question: "Quelle pratique nuit à l'A4 (Authenticité)?",
+                        options: [
+                            "Porter des masques pour plaire",
+                            "Exprimer ses besoins clairement",
+                            "Reconnaître ses vulnérabilités",
+                            "Accepter les différences de l'autre"
+                        ],
+                        correct: 0,
+                        explanation: "Porter des masques pour plaire ou éviter les conflits nuit gravement à l'authenticité (A4) dans la relation."
+                    },
+                    {
+                        question: "Quel signe montre une forte A3 (Admiration)?",
+                        options: [
+                            "Idolâtrer son partenaire",
+                            "Apprécier sincèrement ses qualités morales",
+                            "Ignorer ses défauts",
+                            "Le comparer favorablement aux autres"
+                        ],
+                        correct: 1,
+                        explanation: "Une admiration (A3) saine se manifeste par l'appréciation sincère des qualités morales et spirituelles de l'autre."
+                    },
+                    {
+                        question: "Quelle situation montre un bon équilibre des 3 C?",
+                        options: [
+                            "Passion physique intense mais peu de sujets de conversation",
+                            "Grande complicité intellectuelle mais peu d'attirance physique",
+                            "Attirance physique, amour profond et compatibilité intellectuelle",
+                            "Amour profond mais valeurs et visions de vie opposées"
+                        ],
+                        correct: 2,
+                        explanation: "Un bon équilibre des 3 C combine harmonieusement attirance physique (Corps), amour profond (Cœur) et compatibilité intellectuelle/spirituelle (Crâne)."
+                    },
+                    {
+                        question: "Quel 'A' est le plus lié à la tendresse et l'affection physique appropriée?",
+                        options: [
+                            "A1 - Attirance",
+                            "A2 - Affection",
+                            "A5 - Attention",
+                            "A6 - Alignement"
+                        ],
+                        correct: 1,
+                        explanation: "A2 - Affection concerne l'expression saine de la tendresse et de l'affection physique à travers des gestes appropriés."
+                    },
+                    {
+                        question: "Quelle pratique renforce l'A8 (Apaisement)?",
+                        options: [
+                            "Éviter tous les sujets sensibles",
+                            "Cultiver la paix intérieure et la confiance mutuelle",
+                            "Ne jamais exprimer de désaccords",
+                            "Passer le moins de temps possible ensemble"
+                        ],
+                        correct: 1,
+                        explanation: "L'apaisement (A8) se cultive en développant la paix intérieure personnelle et une confiance mutuelle dans la relation."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le Crâne (3ème C)?",
+                        options: [
+                            "Avoir exactement les mêmes opinions",
+                            "Partager les mêmes valeurs fondamentales",
+                            "Avoir le même niveau d'études",
+                            "Aimer les mêmes loisirs"
+                        ],
+                        correct: 1,
+                        explanation: "Le Crâne dans les 3 C concerne surtout le partage des valeurs fondamentales et une vision compatible de la vie, pas nécessairement des opinions identiques."
+                    },
+                    {
+                        question: "Quel 'A' serait affecté si votre partenaire oublie systématiquement vos anniversaires?",
+                        options: [
+                            "A1 - Attirance",
+                            "A4 - Authenticité",
+                            "A5 - Attention",
+                            "A7 - Accord"
+                        ],
+                        correct: 2,
+                        explanation: "Oublier les dates importantes montre un manque d'attention (A5) aux détails qui comptent pour l'autre."
+                    },
+                    {
+                        question: "Quelle situation montre un manque d'A6 (Alignement)?",
+                        options: [
+                            "Avoir des hobbies différents",
+                            "Avoir des visions opposées sur l'éducation des enfants",
+                            "Avoir des rythmes de vie différents",
+                            "Avoir des goûts musicaux différents"
+                        ],
+                        correct: 1,
+                        explanation: "Un désalignement (A6) sur des questions fondamentales comme l'éducation des enfants est bien plus grave que des différences de goûts ou hobbies."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus les 3 C simultanément?",
+                        options: [
+                            "Des conversations profondes sur vos valeurs et rêves",
+                            "Des activités physiques ensemble",
+                            "Des moments de tendresse et d'intimité émotionnelle",
+                            "Toutes ces réponses"
+                        ],
+                        correct: 3,
+                        explanation: "Toutes ces pratiques renforcent les 3 C : conversations (Crâne), activités physiques (Corps), moments de tendresse (Cœur)."
+                    },
+                    {
+                        question: "Quel est l'objectif principal des 8 A et 3 C?",
+                        options: [
+                            "Trouver un partenaire parfait sans défauts",
+                            "Évaluer objectivement la santé et le potentiel d'une relation",
+                            "Savoir si on doit se marier rapidement",
+                            "Convaincre l'autre de changer pour nous correspondre"
+                        ],
+                        correct: 1,
+                        explanation: "Les 8 A et 3 C offrent une grille d'évaluation objective pour discerner la santé et le potentiel de durabilité d'une relation."
+                    }
+                ]
+            },
+            3: {
+                title: "Module 3: L'Âme Sœur Compatible (Les 8 R)",
+                description: "Évaluez votre compatibilité avec votre partenaire",
+                questions: [
+                    {
+                        question: "Quel est le premier R des 8 R de la compatibilité?",
+                        options: [
+                            "Rire",
+                            "Rassure",
+                            "Respect",
+                            "Rayonne"
+                        ],
+                        correct: 1,
+                        explanation: "Le premier R est Rassure - le sentiment de sécurité émotionnelle que procure la relation."
+                    },
+                    {
+                        question: "Quelle situation montre un manque de R3 (Respect)?",
+                        options: [
+                            "Avoir des opinions différentes",
+                            "Se moquer de l'autre en public",
+                            "Avoir des centres d'intérêt différents",
+                            "Passer du temps séparément parfois"
+                        ],
+                        correct: 1,
+                        explanation: "Se moquer de l'autre en public, surtout sur des sujets sensibles, montre un manque flagrant de respect (R3)."
+                    },
+                    {
+                        question: "Quel R évalue la capacité à surmonter ensemble les épreuves?",
+                        options: [
+                            "R5 - Rêver",
+                            "R6 - Responsable",
+                            "R7 - Résilient",
+                            "R8 - Réconcilie"
+                        ],
+                        correct: 2,
+                        explanation: "R7 - Résilient concerne la capacité du couple à surmonter les épreuves et crises ensemble."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus le R2 (Rire ensemble)?",
+                        options: [
+                            "Regarder des comédies séparément",
+                            "Avoir des inside jokes et souvenirs drôles communs",
+                            "Éviter tous les sujets sérieux",
+                            "Se forcer à rire même quand on est triste"
+                        ],
+                        correct: 1,
+                        explanation: "Avoir des blagues et souvenirs drôles communs crée un langage et une complicité unique qui renforce le R2."
+                    },
+                    {
+                        question: "Quel R serait affecté si un partenaire ne tient jamais ses engagements?",
+                        options: [
+                            "R1 - Rassure",
+                            "R3 - Respect",
+                            "R6 - Responsable",
+                            "Toutes ces réponses"
+                        ],
+                        correct: 3,
+                        explanation: "Ne pas tenir ses engagements affecte la sécurité (R1), le respect (R3) et le sens des responsabilités (R6)."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le R4 (Rayonne)?",
+                        options: [
+                            "Se mettre en valeur sur les réseaux sociaux",
+                            "S'épanouir et grandir personnellement grâce à la relation",
+                            "Avoir beaucoup d'amis en commun",
+                            "Faire des activités extraordinaires ensemble"
+                        ],
+                        correct: 1,
+                        explanation: "R4 - Rayonne signifie que la relation nous fait grandir et s'épanouir, pas qu'on se met en valeur extérieurement."
+                    },
+                    {
+                        question: "Quelle situation montre une forte R5 (Rêver ensemble)?",
+                        options: [
+                            "Avoir exactement les mêmes rêves personnels",
+                            "Partager une vision commune pour l'avenir",
+                            "Ignorer les réalités pratiques",
+                            "Faire des projets sans jamais les concrétiser"
+                        ],
+                        correct: 1,
+                        explanation: "R5 - Rêver ensemble implique de partager une vision commune et des projets concrets pour l'avenir, pas nécessairement les mêmes rêves personnels."
+                    },
+                    {
+                        question: "Quel R est le plus lié à la capacité d'admettre ses torts et de demander pardon?",
+                        options: [
+                            "R6 - Responsable",
+                            "R7 - Résilient",
+                            "R8 - Réconcilie",
+                            "R1 - Rassure"
+                        ],
+                        correct: 2,
+                        explanation: "R8 - Réconcilie concerne particulièrement la capacité de reconnaître ses torts, de pardonner et de restaurer la relation après un conflit."
+                    },
+                    {
+                        question: "Quelle pratique nuit au R1 (Rassure)?",
+                        options: [
+                            "Établir une communication claire et régulière",
+                            "Avoir des comportements imprévisibles et inconstants",
+                            "Respecter l'espace personnel de l'autre",
+                            "Exprimer régulièrement son engagement"
+                        ],
+                        correct: 1,
+                        explanation: "Comportements imprévisibles et inconstants détruisent le sentiment de sécurité (R1) dans la relation."
+                    },
+                    {
+                        question: "Quel R serait renforcé par la création d'un tableau de vision commun?",
+                        options: [
+                            "R2 - Rire",
+                            "R4 - Rayonne",
+                            "R5 - Rêver",
+                            "R7 - Résilient"
+                        ],
+                        correct: 2,
+                        explanation: "Créer un tableau de vision commun renforce R5 - Rêver ensemble en matérialisant vos projets et aspirations communes."
+                    },
+                    {
+                        question: "Quelle situation montre un manque de R6 (Responsable)?",
+                        options: [
+                            "Oublier occasionnellement une tâche ménagère",
+                            "Refuser systématiquement de prendre ses responsabilités",
+                            "Avoir des méthodes d'organisation différentes",
+                            "Déléguer certaines tâches à l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "Refuser systématiquement de prendre ses responsabilités montre un grave manque de R6, contrairement à des oublis occasionnels."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus le R8 (Réconcilie)?",
+                        options: [
+                            "Éviter tous les conflits",
+                            "Avoir un protocole clair pour gérer les désaccords",
+                            "Laisser le temps arranger les choses sans en parler",
+                            "Demander à des tiers de régler vos conflits"
+                        ],
+                        correct: 1,
+                        explanation: "Un protocole clair pour gérer les désaccords (temps de pause, cadre de dialogue, rituel de réconciliation) renforce le R8."
+                    },
+                    {
+                        question: "Quel R est le plus affecté par des critiques constantes?",
+                        options: [
+                            "R1 - Rassure",
+                            "R3 - Respect",
+                            "R4 - Rayonne",
+                            "Tous ces R"
+                        ],
+                        correct: 3,
+                        explanation: "Des critiques constantes affectent la sécurité (R1), le respect (R3) et la capacité à s'épanouir (R4) dans la relation."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le R7 (Résilient)?",
+                        options: [
+                            "Ne jamais connaître de conflits",
+                            "Avoir des personnalités identiques",
+                            "Savoir rebondir après les épreuves",
+                            "Éviter toutes les situations stressantes"
+                        ],
+                        correct: 2,
+                        explanation: "R7 - Résilient implique précisément la capacité à traverser et grandir à travers les épreuves, pas les éviter."
+                    },
+                    {
+                        question: "Quel R serait renforcé par des activités qui vous font grandir personnellement?",
+                        options: [
+                            "R2 - Rire",
+                            "R4 - Rayonne",
+                            "R6 - Responsable",
+                            "R8 - Réconcilie"
+                        ],
+                        correct: 1,
+                        explanation: "R4 - Rayonne concerne précisément l'épanouissement et la croissance personnelle à travers la relation."
+                    },
+                    {
+                        question: "Quelle pratique nuit au R3 (Respect)?",
+                        options: [
+                            "Exprimer ses désaccords avec calme et respect",
+                            "Ignorer ou minimiser les opinions de l'autre",
+                            "Prendre en compte les besoins de l'autre",
+                            "Encourager les passions de l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "Ignorer ou minimiser les opinions de l'autre est un manque flagrant de respect (R3)."
+                    },
+                    {
+                        question: "Quel R est le plus lié à la capacité de garder le sens de l'humour dans les difficultés?",
+                        options: [
+                            "R1 - Rassure",
+                            "R2 - Rire",
+                            "R7 - Résilient",
+                            "R8 - Réconcilie"
+                        ],
+                        correct: 1,
+                        explanation: "R2 - Rire inclut la capacité de garder le sens de l'humour et de dédramatiser, même dans les moments difficiles."
+                    },
+                    {
+                        question: "Quelle situation montre une bonne compatibilité selon les 8 R?",
+                        options: [
+                            "Aucun conflit après plusieurs années",
+                            "Des désaccords bien gérés qui renforcent la relation",
+                            "Une relation parfaite sans effort",
+                            "Une passion intense qui ne faiblit jamais"
+                        ],
+                        correct: 1,
+                        explanation: "Une bonne compatibilité se voit dans la capacité à gérer les désaccords de manière constructive, pas dans leur absence."
+                    },
+                    {
+                        question: "Quel R serait renforcé par l'établissement d'un contrat moral commun?",
+                        options: [
+                            "R3 - Respect",
+                            "R6 - Responsable",
+                            "R8 - Réconcilie",
+                            "Tous ces R"
+                        ],
+                        correct: 3,
+                        explanation: "Un contrat moral commun renforce le respect (R3), le sens des responsabilités (R6) et les mécanismes de réconciliation (R8)."
+                    },
+                    {
+                        question: "Quel est l'objectif principal des 8 R?",
+                        options: [
+                            "Trouver un partenaire parfait sans défauts",
+                            "Avoir une relation sans aucun conflit",
+                            "Évaluer et renforcer la compatibilité pratique du couple",
+                            "Savoir si on doit se marier rapidement"
+                        ],
+                        correct: 2,
+                        explanation: "Les 8 R offrent une grille pour évaluer et renforcer la compatibilité pratique et la dynamique relationnelle du couple."
+                    }
+                ]
+            },
+            4: {
+                title: "Module 4: Se Construire Avant de Chercher (8S & 8M)",
+                description: "Évaluez votre développement personnel avant le mariage",
+                questions: [
+                    {
+                        question: "Quel est le premier 'S' des 8 S de la femme accomplie?",
+                        options: [
+                            "Sage",
+                            "Sociale",
+                            "Soutien",
+                            "Souriante"
+                        ],
+                        correct: 0,
+                        explanation: "Le premier S est Sage - la capacité à gérer ses émotions avec discernement et prendre des décisions réfléchies."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le M1 (Mature) chez l'homme?",
+                        options: [
+                            "Avoir un emploi stable",
+                            "Être émotionnellement équilibré",
+                            "Avoir beaucoup d'expérience sentimentale",
+                            "Être plus âgé que sa partenaire"
+                        ],
+                        correct: 1,
+                        explanation: "M1 - Mature concerne avant tout l'équilibre émotionnel et la maturité affective, pas l'âge ou la situation professionnelle."
+                    },
+                    {
+                        question: "Quel 'S' correspond à la capacité d'être un soutien pour son entourage?",
+                        options: [
+                            "S3 - Soumise",
+                            "S5 - Souriante",
+                            "S7 - Soutien",
+                            "S8 - Sincère"
+                        ],
+                        correct: 2,
+                        explanation: "S7 - Soutien est la force tranquille qui encourage et fortifie son entourage, particulièrement son conjoint."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus le M2 (Modèle)?",
+                        options: [
+                            "Avoir beaucoup de followers sur les réseaux",
+                            "Montrer l'exemple par son intégrité personnelle",
+                            "Critiquer les défauts des autres",
+                            "Parler beaucoup de ses réussites"
+                        ],
+                        correct: 1,
+                        explanation: "M2 - Modèle se cultive par l'exemplarité du comportement et l'intégrité personnelle, pas par l'image extérieure."
+                    },
+                    {
+                        question: "Quel 'M' serait affecté si un homme refuse de prendre des initiatives?",
+                        options: [
+                            "M1 - Mature",
+                            "M3 - Moteur",
+                            "M5 - Méritant",
+                            "M7 - Miséricordieux"
+                        ],
+                        correct: 1,
+                        explanation: "M3 - Moteur concerne précisément le leadership et la capacité à prendre des initiatives dans la relation et la famille."
+                    },
+                    {
+                        question: "Quelle situation montre un manque de S4 (Sociale)?",
+                        options: [
+                            "Avoir peu d'amis proches",
+                            "Créer des conflits dans les relations familiales",
+                            "Préférer les soirées calmes aux grandes fêtes",
+                            "Avoir des centres d'intérêt différents de son conjoint"
+                        ],
+                        correct: 1,
+                        explanation: "S4 - Sociale implique la capacité à cultiver des relations harmonieuses, surtout avec la famille élargie."
+                    },
+                    {
+                        question: "Quel 'M' évalue la capacité à maîtriser ses pulsions et émotions?",
+                        options: [
+                            "M2 - Modèle",
+                            "M4 - Maître",
+                            "M6 - Magnanime",
+                            "M8 - Missionnaire"
+                        ],
+                        correct: 1,
+                        explanation: "M4 - Maître concerne précisément la maîtrise de soi et le contrôle de ses pulsions et émotions."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus le S8 (Sincère)?",
+                        options: [
+                            "Dire tout ce qu'on pense sans filtre",
+                            "Être authentique tout en étant bienveillant",
+                            "Cacher ses véritables opinions pour préserver la paix",
+                            "Changer d'avis fréquemment"
+                        ],
+                        correct: 1,
+                        explanation: "S8 - Sincère combine authenticité et bienveillance, pas brutalité ni dissimulation."
+                    },
+                    {
+                        question: "Quel 'S' serait renforcé par la pratique quotidienne de la gratitude?",
+                        options: [
+                            "S2 - Stratégique",
+                            "S5 - Souriante",
+                            "S6 - Sexy",
+                            "S8 - Sincère"
+                        ],
+                        correct: 1,
+                        explanation: "S5 - Souriante (capacité à répandre joie et bonne humeur) se cultive notamment par la pratique de la gratitude."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le M5 (Méritant)?",
+                        options: [
+                            "Avoir un haut salaire",
+                            "Démontrer sa valeur par ses actions et caractère",
+                            "Venir d'une famille prestigieuse",
+                            "Avoir un physique avantageux"
+                        ],
+                        correct: 1,
+                        explanation: "M5 - Méritant concerne la valeur démontrée par le caractère et les actions, pas les avantages extérieurs."
+                    },
+                    {
+                        question: "Quel 'S' est le plus lié à l'art de cultiver son attrait avec pudeur?",
+                        options: [
+                            "S3 - Soumise",
+                            "S6 - Sexy",
+                            "S7 - Soutien",
+                            "S8 - Sincère"
+                        ],
+                        correct: 1,
+                        explanation: "S6 - Sexy concerne l'art de cultiver son attrait physique dans la pudeur et l'élégance, pas la séduction vulgaire."
+                    },
+                    {
+                        question: "Quelle pratique nuit au M6 (Magnanime)?",
+                        options: [
+                            "Tenir rigueur des petites offenses",
+                            "Exprimer ses besoins clairement",
+                            "Avoir des standards élevés",
+                            "Défendre ses convictions"
+                        ],
+                        correct: 0,
+                        explanation: "M6 - Magnanime (noblesse d'esprit) est incompatible avec le fait de tenir rigueur des petites offenses ou imperfections."
+                    },
+                    {
+                        question: "Quel 'M' est le plus lié à la capacité de pardonner?",
+                        options: [
+                            "M4 - Maître",
+                            "M6 - Magnanime",
+                            "M7 - Miséricordieux",
+                            "M8 - Missionnaire"
+                        ],
+                        correct: 2,
+                        explanation: "M7 - Miséricordieux concerne précisément la grâce et le pardon dans les relations."
+                    },
+                    {
+                        question: "Quelle situation montre un manque de S1 (Sage)?",
+                        options: [
+                            "Prendre des décisions impulsives qu'on regrette ensuite",
+                            "Avoir des centres d'intérêt intellectuels",
+                            "Demander conseil occasionnellement",
+                            "Préférer la réflexion à l'action"
+                        ],
+                        correct: 0,
+                        explanation: "S1 - Sage implique précisément de ne pas prendre de décisions impulsives qu'on pourrait regretter."
+                    },
+                    {
+                        question: "Quel 'M' serait renforcé par la définition d'une mission de vie claire?",
+                        options: [
+                            "M3 - Moteur",
+                            "M5 - Méritant",
+                            "M8 - Missionnaire",
+                            "Tous ces M"
+                        ],
+                        correct: 3,
+                        explanation: "Une mission de vie claire renforce le leadership (M3), la valeur démontrée (M5) et l'engagement transcendant (M8)."
+                    },
+                    {
+                        question: "Quelle pratique renforce le plus le S2 (Stratégique)?",
+                        options: [
+                            "Improviser au jour le jour",
+                            "Élaborer un plan de vie et des objectifs clairs",
+                            "Suivre systématiquement l'avis des autres",
+                            "Changer fréquemment d'orientation"
+                        ],
+                        correct: 1,
+                        explanation: "S2 - Stratégique implique précisément la capacité à organiser et planifier avec vision pour le long terme."
+                    },
+                    {
+                        question: "Quel 'S' est le plus affecté par une communication passive-agressive?",
+                        options: [
+                            "S1 - Sage",
+                            "S4 - Sociale",
+                            "S8 - Sincère",
+                            "Tous ces S"
+                        ],
+                        correct: 3,
+                        explanation: "La communication passive-agressive nuit à la sagesse (S1), aux relations sociales (S4) et à la sincérité (S8)."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le S3 (Soumise équilibrée)?",
+                        options: [
+                            "Obéir aveuglément à toutes les demandes",
+                            "Une soumission mutuelle dans le respect des rôles",
+                            "Renoncer à toute opinion personnelle",
+                            "Laisser toutes les décisions à l'autre"
+                        ],
+                        correct: 1,
+                        explanation: "S3 - Soumise (équilibrée) implique une soumission mutuelle dans le respect des rôles, pas une obéissance aveugle."
+                    },
+                    {
+                        question: "Quel 'M' serait renforcé par le service désintéressé aux autres?",
+                        options: [
+                            "M6 - Magnanime",
+                            "M7 - Miséricordieux",
+                            "M8 - Missionnaire",
+                            "Tous ces M"
+                        ],
+                        correct: 3,
+                        explanation: "Le service désintéressé renforce la noblesse d'esprit (M6), la miséricorde (M7) et l'engagement missionnaire (M8)."
+                    },
+                    {
+                        question: "Quel est l'objectif principal des 8 S et 8 M?",
+                        options: [
+                            "Créer des stéréotypes rigides",
+                            "Se concentrer sur les défauts de l'autre",
+                            "Faire le travail intérieur avant de chercher un conjoint",
+                            "Trouver un partenaire parfait"
+                        ],
+                        correct: 2,
+                        explanation: "Les 8 S et 8 M visent à faire le travail intérieur de croissance personnelle avant de chercher ou critiquer un conjoint."
+                    }
+                ]
+            },
+            5: {
+                title: "Module 5: Construire la Durabilité (Outils Pratiques)",
+                description: "Testez vos connaissances sur les outils pour un mariage durable",
+                questions: [
+                    {
+                        question: "Quel est le premier pilier fondamental d'un mariage durable?",
+                        options: [
+                            "Spiritualité",
+                            "Communication",
+                            "Intimité",
+                            "Protection"
+                        ],
+                        correct: 0,
+                        explanation: "La spiritualité (croissance spirituelle synchronisée) est le premier pilier car elle donne un sens transcendant au mariage."
+                    },
+                    {
+                        question: "Quel outil aide à planifier les moments de connexion du couple?",
+                        options: [
+                            "Tableau de bord conjugal",
+                            "Agenda conjugal",
+                            "Journal de gratitude",
+                            "Contrat moral"
+                        ],
+                        correct: 1,
+                        explanation: "L'agenda conjugal permet de planifier et respecter les moments de connexion (quotidiens, hebdomadaires, mensuels, annuels)."
+                    },
+                    {
+                        question: "Quelle méthode de communication est recommandée pour exprimer ses besoins?",
+                        options: [
+                            "OSBD (Observation, Sentiment, Besoin, Demande)",
+                            "Silence pour éviter les conflits",
+                            "Expression brute sans filtre",
+                            "Communication par tiers"
+                        ],
+                        correct: 0,
+                        explanation: "La méthode OSBD (adaptation de la CNV) structure une communication respectueuse : Observation, Sentiment, Besoin, Demande."
+                    },
+                    {
+                        question: "Quel rituel quotidien renforce le plus la connexion conjugale?",
+                        options: [
+                            "Regarder la télévision ensemble",
+                            "Un temps d'échange et de prière de 15 minutes",
+                            "Faire les tâches ménagères ensemble",
+                            "Dîner en silence"
+                        ],
+                        correct: 1,
+                        explanation: "Un temps d'échange et de prière quotidien (même court) crée une intimité profonde et une connexion régulière."
+                    },
+                    {
+                        question: "Quel outil permet de suivre l'équilibre des différents domaines du couple?",
+                        options: [
+                            "Protocole anti-crise",
+                            "Tableau de bord conjugal",
+                            "Journal de gratitude",
+                            "Simulateur de conflits"
+                        ],
+                        correct: 1,
+                        explanation: "Le tableau de bord conjugal permet de suivre 6 domaines clés : spiritualité, affectif, finances, social, projets, santé."
+                    },
+                    {
+                        question: "Quelle est la première étape du protocole anti-crise?",
+                        options: [
+                            "Signaler l'alerte avec un mot codé",
+                            "Discuter immédiatement du problème",
+                            "Faire intervenir un médiateur",
+                            "Ignorer le conflit pour laisser passer la colère"
+                        ],
+                        correct: 0,
+                        explanation: "La première étape est de signaler l'alerte avec un mot codé convenu d'avance pour éviter l'escalade."
+                    },
+                    {
+                        question: "Quelle pratique renforce la gratitude dans le couple?",
+                        options: [
+                            "Journal de gratitude partagé",
+                            "Liste des défauts à corriger",
+                            "Comparaison avec d'autres couples",
+                            "Analyse des échecs passés"
+                        ],
+                        correct: 0,
+                        explanation: "Un journal de gratitude où chacun note 3 choses quotidiennes qu'il apprécie chez l'autre cultive une perspective positive."
+                    },
+                    {
+                        question: "Quel outil aide à gérer les désaccords sur les valeurs?",
+                        options: [
+                            "Grille des compromis acceptables",
+                            "Liste des non-négociables",
+                            "Simulateur de conflits",
+                            "Tous ces outils"
+                        ],
+                        correct: 3,
+                        explanation: "Tous ces outils sont utiles : la grille des compromis, la liste des non-négociables et la simulation aident à gérer les désaccords."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le pilier 'Protection'?",
+                        options: [
+                            "Éviter toutes les personnes extérieures",
+                            "Avoir des systèmes de protection contre les menaces internes et externes",
+                            "Contrôler tous les contacts sociaux de l'autre",
+                            "Ne jamais parler de ses problèmes à qui que ce soit"
+                        ],
+                        correct: 1,
+                        explanation: "Le pilier Protection implique des systèmes contre les menaces (infidélité, ingérences, addictions), pas l'isolement ou le contrôle."
+                    },
+                    {
+                        question: "Quel rituel hebdomadaire est le plus bénéfique?",
+                        options: [
+                            "Une soirée romantique coûteuse",
+                            "Un temps de dialogue de 2 heures sans distractions",
+                            "Une sortie avec d'autres couples",
+                            "Une activité sportive intense"
+                        ],
+                        correct: 1,
+                        explanation: "Un temps de dialogue hebdomadaire de 2 heures sans distractions permet de maintenir une connexion profonde."
+                    },
+                    {
+                        question: "Quel outil aide à projeter le couple dans l'avenir?",
+                        options: [
+                            "Tableau de vision partagée",
+                            "Journal des conflits passés",
+                            "Liste des regrets",
+                            "Analyse des échecs précédents"
+                        ],
+                        correct: 0,
+                        explanation: "Un tableau de vision partagée matérialise vos rêves et projets communs pour 5, 10, 15 ans."
+                    },
+                    {
+                        question: "Quelle pratique fait partie des 'routines anti-divorce'?",
+                        options: [
+                            "Éviter tous les sujets sensibles",
+                            "Un bilan relationnel mensuel",
+                            "Ne jamais exprimer de désaccords",
+                            "Déléguer la gestion des conflits à un tiers"
+                        ],
+                        correct: 1,
+                        explanation: "Un bilan relationnel mensuel (½ journée) pour faire le point fait partie des routines anti-divorce essentielles."
+                    },
+                    {
+                        question: "Quel est l'objectif principal du contrat moral?",
+                        options: [
+                            "Avoir un document légal en cas de divorce",
+                            "Préciser les engagements et valeurs communes du couple",
+                            "Lister les défauts à corriger chez l'autre",
+                            "Comparer son couple aux standards sociaux"
+                        ],
+                        correct: 1,
+                        explanation: "Le contrat moral précise les engagements mutuels et valeurs communes, créant un cadre de référence pour le couple."
+                    },
+                    {
+                        question: "Quelle pratique renforce le pilier 'Intimité'?",
+                        options: [
+                            "Passer tout son temps ensemble",
+                            "Cultiver une connexion multidimensionnelle (corps, cœur, esprit)",
+                            "Avoir beaucoup de relations sexuelles",
+                            "Ignorer les différences personnelles"
+                        ],
+                        correct: 1,
+                        explanation: "L'intimité vraie est multidimensionnelle - physique, émotionnelle, spirituelle - pas seulement sexuelle ou temporelle."
+                    },
+                    {
+                        question: "Quel outil permet d'analyser les schémas de conflits?",
+                        options: [
+                            "Grille des cycles de conflits",
+                            "Journal de gratitude",
+                            "Tableau de vision",
+                            "Liste des qualités"
+                        ],
+                        correct: 0,
+                        explanation: "Une grille d'analyse des cycles de conflits aide à identifier les schémas répétitifs et leurs déclencheurs."
+                    },
+                    {
+                        question: "Quelle caractéristique est essentielle pour le pilier 'Projets'?",
+                        options: [
+                            "Avoir exactement les mêmes rêves personnels",
+                            "Partager une vision et des objectifs communs",
+                            "Réaliser tous ses rêves avant le mariage",
+                            "Renoncer à ses aspirations personnelles"
+                        ],
+                        correct: 1,
+                        explanation: "Le pilier Projets implique de partager une vision et des objectifs communs, pas nécessairement les mêmes rêves personnels."
+                    },
+                    {
+                        question: "Quel outil aide à gérer les périodes de stress intense?",
+                        options: [
+                            "Protocole de gestion de crise",
+                            "Journal des bons moments",
+                            "Liste des qualités de l'autre",
+                            "Grille des valeurs"
+                        ],
+                        correct: 0,
+                        explanation: "Un protocole de gestion de crise (avec étapes claires) est essentiel pour traverser les périodes de stress intense."
+                    },
+                    {
+                        question: "Quelle pratique fait partie de la retraite annuelle recommandée?",
+                        options: [
+                            "Faire le bilan de l'année et planifier la suivante",
+                            "Regarder toutes ses photos de l'année",
+                            "Comparer son couple à d'autres",
+                            "Analyser en détail tous les conflits passés"
+                        ],
+                        correct: 0,
+                        explanation: "La retraite annuelle (2 jours) sert à faire le bilan de l'année et planifier la suivante dans une perspective positive."
+                    },
+                    {
+                        question: "Quel est l'avantage principal des outils pratiques du Module 5?",
+                        options: [
+                            "Garantir un mariage sans conflits",
+                            "Fournir des méthodes concrètes pour entretenir la relation",
+                            "Rendre le couple indépendant de toute spiritualité",
+                            "Permettre de changer fondamentalement son partenaire"
+                        ],
+                        correct: 1,
+                        explanation: "Ces outils fournissent des méthodes concrètes pour entretenir la relation, pas des solutions magiques ou de contrôle."
+                    },
+                    {
+                        question: "Quelle affirmation sur les outils est VRAIE?",
+                        options: [
+                            "Ils doivent être appliqués rigidement sans adaptation",
+                            "Chaque couple doit les personnaliser selon ses besoins",
+                            "Ils ne fonctionnent que pour les couples religieux",
+                            "Ils rendent inutile la communication spontanée"
+                        ],
+                        correct: 1,
+                        explanation: "Ces outils doivent être personnalisés selon les besoins spécifiques de chaque couple pour être efficaces."
+                    }
+                ]
+            }
+        };
+
+        // Quiz state
+        let currentModule = 0;
+        let currentQuestion = 0;
+        let answers = [];
+        let score = 0;
+        
+        // DOM elements
+        const moduleSelection = document.getElementById('module-selection');
+        const quizQuestions = document.getElementById('quiz-questions');
+        const quizResults = document.getElementById('quiz-results');
+        const questionContainer = document.getElementById('question-container');
+        const questionCount = document.getElementById('question-count');
+        const prevButton = document.getElementById('prev-question');
+        const nextButton = document.getElementById('next-question');
+        const moduleTabs = document.querySelectorAll('#module-tabs .nav-link');
+        const currentModuleTitle = document.getElementById('current-module-title');
+        const finalScore = document.getElementById('final-score');
+        const scoreProgress = document.getElementById('score-progress');
+        const scoreMessage = document.getElementById('score-message');
+        const moduleResultTitle = document.getElementById('module-result-title');
+        const recommendations = document.getElementById('recommendations');
+        const retakeModule = document.getElementById('retake-module');
+        const chooseAnother = document.getElementById('choose-another');
+        const answeredCount = document.getElementById('answered-count');
+        const quizProgress = document.getElementById('quiz-progress');
+        const startModuleButtons = document.querySelectorAll('.start-module');
+        
+        // Initialize the quiz
+        function initQuiz() {
+            // Event listeners for module selection
+            startModuleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    startModule(parseInt(this.dataset.module));
+                });
+            });
+            
+            // Event listeners for navigation
+            prevButton.addEventListener('click', goToPreviousQuestion);
+            nextButton.addEventListener('click', goToNextQuestion);
+            
+            // Event listeners for results screen
+            retakeModule.addEventListener('click', function() {
+                startModule(currentModule);
+            });
+            
+            chooseAnother.addEventListener('click', function() {
+                showModuleSelection();
+            });
+            
+            // Event listeners for module tabs
+            moduleTabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const module = parseInt(this.dataset.module);
+                    if (module !== currentModule) {
+                        startModule(module);
+                    }
+                });
+            });
+            
+            // Initialize animations
+            initAnimations();
+        }
+        
+        // Initialize scroll animations
+        function initAnimations() {
+            function animateOnScroll() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animated');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+            animateOnScroll(); // Run once on init
+        }
+        
+        // Start a specific module
+        function startModule(module) {
+            currentModule = module;
+            currentQuestion = 0;
+            answers = [];
+            score = 0;
+            
+            // Update UI
+            moduleSelection.style.display = 'none';
+            quizQuestions.style.display = 'block';
+            quizResults.style.display = 'none';
+            
+            // Update module title
+            currentModuleTitle.textContent = quizData[module].title;
+            
+            // Update active tab
+            moduleTabs.forEach(tab => {
+                if (parseInt(tab.dataset.module) === module) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Load first question
+            loadQuestion();
+        }
+        
+        // Show module selection screen
+        function showModuleSelection() {
+            moduleSelection.style.display = 'block';
+            quizQuestions.style.display = 'none';
+            quizResults.style.display = 'none';
+        }
+        
+        // Load the current question
+        function loadQuestion() {
+            const questionData = quizData[currentModule].questions[currentQuestion];
+            
+            // Update question count
+            questionCount.textContent = `Question ${currentQuestion + 1}/20`;
+            
+            // Update navigation buttons
+            prevButton.disabled = currentQuestion === 0;
+            nextButton.textContent = currentQuestion === 19 ? 'Voir les résultats' : 'Suivant';
+            
+            // Create question HTML
+            let questionHTML = `
+                <div class="card question-card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">${questionData.question}</h4>
+                        <div class="options-container">
+            `;
+            
+            // Add options
+            questionData.options.forEach((option, index) => {
+                const isSelected = answers[currentQuestion] === index;
+                const isCorrect = index === questionData.correct;
+                const isAnswered = answers[currentQuestion] !== undefined;
+                let optionClass = 'option-item';
+                
+                if (isSelected) {
+                    optionClass += ' selected';
+                }
+                
+                if (isAnswered && isCorrect) {
+                    optionClass += ' correct';
+                } else if (isAnswered && isSelected && !isCorrect) {
+                    optionClass += ' incorrect';
+                }
+                
+                questionHTML += `
+                    <div class="${optionClass}" data-option="${index}">
+                        ${option}
+                    </div>
+                `;
+            });
+            
+            questionHTML += `
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add explanation if answered
+            if (answers[currentQuestion] !== undefined) {
+                questionHTML += `
+                    <div class="card border-primary mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-lightbulb me-2"></i>Explication
+                        </div>
+                        <div class="card-body">
+                            <p>${questionData.explanation}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Update question container
+            questionContainer.innerHTML = questionHTML;
+            
+            // Add event listeners to options
+            document.querySelectorAll('.option-item').forEach(option => {
+                option.addEventListener('click', function() {
+                    if (answers[currentQuestion] === undefined) {
+                        selectOption(parseInt(this.dataset.option));
+                    }
+                });
+            });
+            
+            // Update progress
+            updateProgress();
+        }
+        
+        // Select an option
+        function selectOption(optionIndex) {
+            // Save answer
+            answers[currentQuestion] = optionIndex;
+            
+            // Check if correct
+            const isCorrect = optionIndex === quizData[currentModule].questions[currentQuestion].correct;
+            if (isCorrect) {
+                score += 5; // Each question is worth 5 points (100 total)
+            }
+            
+            // Reload question to show feedback
+            loadQuestion();
+        }
+        
+        // Go to previous question
+        function goToPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+        
+        // Go to next question or show results
+        function goToNextQuestion() {
+            if (currentQuestion < 19) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+        
+        // Show quiz results
+        function showResults() {
+            quizQuestions.style.display = 'none';
+            quizResults.style.display = 'block';
+            
+            // Calculate final score
+            const percentage = score;
+            
+            // Update results UI
+            moduleResultTitle.textContent = quizData[currentModule].title;
+            finalScore.textContent = `${percentage}%`;
+            scoreProgress.style.width = `${percentage}%`;
+            
+            // Set score message
+            let message = '';
+            if (percentage >= 90) {
+                message = 'Excellent ! Vous maîtrisez parfaitement ce module.';
+            } else if (percentage >= 70) {
+                message = 'Bon travail ! Vous avez une bonne compréhension de ce module.';
+            } else if (percentage >= 50) {
+                message = 'Pas mal ! Vous avez des bases mais pouvez encore progresser.';
+            } else {
+                message = 'À travailler ! Ce module mérite plus d\'attention de votre part.';
+            }
+            scoreMessage.textContent = message;
+            
+            // Generate recommendations
+            generateRecommendations(percentage);
+            
+            // Scroll to results
+            setTimeout(() => {
+                quizResults.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        // Generate personalized recommendations
+        function generateRecommendations(score) {
+            let recommendationsHTML = '';
+            const moduleKey = currentModule;
+            const moduleTitle = quizData[moduleKey].title;
+            
+            if (moduleKey === 1) {
+                if (score >= 90) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une vision très mature et réaliste du mariage</li>
+                                        <li>Vous comprenez les missions sacrées du mariage</li>
+                                        <li>Vous avez conscience des mythes à déconstruire</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-primary me-2"></i> Pour aller plus loin</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez la mission spirituelle de votre futur mariage</li>
+                                        <li>Identifiez les modèles parentaux qui pourraient influencer votre couple</li>
+                                        <li>Partagez ces concepts avec d'autres pour consolider votre compréhension</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 70) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une bonne base de compréhension du mariage</li>
+                                        <li>Vous reconnaissez plusieurs mythes courants</li>
+                                        <li>Vous commencez à saisir les dimensions sacrées du mariage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez les 7 dimensions de la mission conjugale</li>
+                                        <li>Travaillez sur les attentes irréalistes que vous pourriez encore avoir</li>
+                                        <li>Identifiez et guérissez vos blessures relationnelles passées</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 50) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez conscience que le mariage demande du travail</li>
+                                        <li>Vous reconnaissez certains mythes courants</li>
+                                        <li>Vous êtes ouvert à apprendre et progresser</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Étudiez en profondeur les 12 mythes à déconstruire</li>
+                                        <li>Réfléchissez aux missions sacrées du mariage</li>
+                                        <li>Commencez un travail sur vos blessures relationnelles</li>
+                                        <li>Revoyez vos attentes concernant le mariage</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    recommendationsHTML = `
+                        <div class="col-md-12 mb-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i> Recommandations</h5>
+                                    <ul class="list-check">
+                                        <li>Consacrez du temps à étudier les fondements bibliques du mariage</li>
+                                        <li>Identifiez et déconstruisez les mythes que vous pourriez entretenir</li>
+                                        <li>Commencez un travail profond sur vos blessures relationnelles</li>
+                                        <li>Réfléchissez sérieusement à vos motivations pour le mariage</li>
+                                        <li>Cherchez un mentor ou un couple modèle pour vous guider</li>
+                                    </ul>
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-lightbulb me-2"></i> Nous vous recommandons fortement de suivre le Module 1 en détail avant de poursuivre.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (moduleKey === 2) {
+                if (score >= 90) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous comprenez parfaitement les 8A de l'amour sain</li>
+                                        <li>Vous savez équilibrer les 3C dans une relation</li>
+                                        <li>Vous pouvez distinguer l'amour vrai des illusions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-primary me-2"></i> Pour aller plus loin</h5>
+                                    <ul class="list-check">
+                                        <li>Appliquez ces critères pour analyser vos relations passées et en tirer des leçons</li>
+                                        <li>Aidez d'autres personnes à reconnaître l'amour véritable</li>
+                                        <li>Approfondissez votre compréhension de l'amour agapè (2ème C)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 70) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous comprenez les bases des 8A et 3C</li>
+                                        <li>Vous reconnaissez plusieurs caractéristiques de l'amour sain</li>
+                                        <li>Vous commencez à discerner les déséquilibres relationnels</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez votre compréhension des 8A, surtout ceux où vous avez eu des erreurs</li>
+                                        <li>Travaillez sur l'équilibre des 3C dans vos relations</li>
+                                        <li>Analysez vos relations passées avec cette grille pour identifier des schémas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 50) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une introduction aux 8A et 3C</li>
+                                        <li>Vous reconnaissez certains pièges relationnels</li>
+                                        <li>Vous êtes prêt à apprendre pour mieux discerner</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Étudiez en profondeur chaque A des 8A, surtout ceux où vous avez échoué</li>
+                                        <li>Analysez si vos relations équilibrent bien les 3C</li>
+                                        <li>Faites l'exercice d'évaluer une relation passée avec cette grille</li>
+                                        <li>Identifiez vos tendances à confondre amour et dépendance affective</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    recommendationsHTML = `
+                        <div class="col-md-12 mb-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i> Recommandations</h5>
+                                    <ul class="list-check">
+                                        <li>Consacrez du temps à maîtriser les 8A et 3C avant toute nouvelle relation</li>
+                                        <li>Analysez vos relations passées pour identifier les schémas répétitifs</li>
+                                        <li>Travaillez sur votre discernement entre amour sain et dépendance</li>
+                                        <li>Cherchez un mentor pour vous aider à appliquer ces concepts</li>
+                                        <li>Lisez des livres sur l'amour mature et les pièges relationnels</li>
+                                    </ul>
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-lightbulb me-2"></i> Nous vous recommandons fortement de maîtriser ce module avant d'envisager une relation sérieuse.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (moduleKey === 3) {
+                if (score >= 90) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous maîtrisez parfaitement les 8R de la compatibilité</li>
+                                        <li>Vous savez évaluer objectivement une relation</li>
+                                        <li>Vous comprenez comment renforcer chaque R dans un couple</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-primary me-2"></i> Pour aller plus loin</h5>
+                                    <ul class="list-check">
+                                        <li>Appliquez les 8R pour analyser des couples modèles autour de vous</li>
+                                        <li>Créez des exercices pratiques pour renforcer chaque R dans vos relations</li>
+                                        <li>Partagez ces concepts avec des couples qui pourraient en bénéficier</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 70) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous comprenez bien les bases des 8R</li>
+                                        <li>Vous savez identifier plusieurs aspects de la compatibilité</li>
+                                        <li>Vous reconnaissez l'importance de chaque R dans un couple</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez votre compréhension des R où vous avez eu des difficultés</li>
+                                        <li>Analysez vos relations passées avec la grille des 8R</li>
+                                        <li>Pratiquez les exercices pour renforcer les R les plus faibles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 50) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une introduction aux 8R de la compatibilité</li>
+                                        <li>Vous reconnaissez certains aspects importants d'une relation saine</li>
+                                        <li>Vous êtes prêt à apprendre pour mieux évaluer vos relations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Étudiez en profondeur chaque R, surtout ceux où vous avez échoué</li>
+                                        <li>Faites l'exercice d'évaluer une relation passée avec les 8R</li>
+                                        <li>Identifiez vos R les plus faibles et travaillez à les renforcer</li>
+                                        <li>Cherchez des couples modèles qui excellent dans les R où vous êtes faible</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    recommendationsHTML = `
+                        <div class="col-md-12 mb-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i> Recommandations</h5>
+                                    <ul class="list-check">
+                                        <li>Consacrez du temps à maîtriser les 8R avant toute évaluation sérieuse d'une relation</li>
+                                        <li>Analysez vos relations passées pour comprendre vos schémas de compatibilité</li>
+                                        <li>Travaillez spécifiquement sur les R où vous avez le plus échoué</li>
+                                        <li>Cherchez un mentor pour vous aider à appliquer ces concepts</li>
+                                        <li>Pratiquez les exercices du module pour renforcer votre compréhension</li>
+                                    </ul>
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-lightbulb me-2"></i> Nous vous recommandons de bien maîtriser ce module avant d'évaluer une relation sérieuse.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (moduleKey === 4) {
+                if (score >= 90) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous maîtrisez parfaitement les 8S/8M</li>
+                                        <li>Vous avez fait un travail intérieur significatif</li>
+                                        <li>Vous comprenez l'importance de se construire avant de chercher</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-primary me-2"></i> Pour aller plus loin</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez les S/M où vous pouvez encore progresser</li>
+                                        <li>Créez un plan de croissance personnelle sur 6 mois</li>
+                                        <li>Aidez d'autres personnes dans leur cheminement personnel</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 70) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous comprenez bien les 8S/8M</li>
+                                        <li>Vous avez commencé un travail intérieur important</li>
+                                        <li>Vous reconnaissez l'importance de la croissance personnelle</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez les S/M où vous avez eu des difficultés</li>
+                                        <li>Créez un plan pour renforcer vos points faibles</li>
+                                        <li>Trouvez des modèles qui excellent dans vos S/M faibles</li>
+                                        <li>Pratiquez les exercices spécifiques à vos besoins</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 50) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une introduction aux 8S/8M</li>
+                                        <li>Vous reconnaissez certains aspects de votre croissance personnelle</li>
+                                        <li>Vous êtes prêt à travailler sur vous-même</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Étudiez en profondeur chaque S/M, surtout ceux où vous avez échoué</li>
+                                        <li>Créez un plan de croissance personnelle priorisant vos faiblesses</li>
+                                        <li>Trouvez des mentors pour vous guider dans votre développement</li>
+                                        <li>Pratiquez les exercices du module régulièrement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    recommendationsHTML = `
+                        <div class="col-md-12 mb-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i> Recommandations</h5>
+                                    <ul class="list-check">
+                                        <li>Consacrez du temps à un sérieux travail intérieur avant de chercher un conjoint</li>
+                                        <li>Identifiez vos S/M les plus faibles et créez un plan pour les renforcer</li>
+                                        <li>Trouvez des mentors modèles dans vos domaines de faiblesse</li>
+                                        <li>Lisez des livres sur la croissance personnelle et spirituelle</li>
+                                        <li>Participez à des groupes de développement personnel</li>
+                                    </ul>
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-lightbulb me-2"></i> Nous vous recommandons fortement de travailler sur vous-même avant d'envisager une relation sérieuse.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else if (moduleKey === 5) {
+                if (score >= 90) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous maîtrisez parfaitement les outils pratiques</li>
+                                        <li>Vous comprenez comment construire un mariage durable</li>
+                                        <li>Vous savez mettre en place des systèmes anti-crise</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-chart-line text-primary me-2"></i> Pour aller plus loin</h5>
+                                    <ul class="list-check">
+                                        <li>Personnalisez ces outils pour votre relation spécifique</li>
+                                        <li>Créez votre propre tableau de bord conjugal</li>
+                                        <li>Partagez ces outils avec d'autres couples</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 70) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous comprenez bien les outils principaux</li>
+                                        <li>Vous reconnaissez l'importance des rituels de connexion</li>
+                                        <li>Vous avez commencé à intégrer certains outils</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Approfondissez les outils où vous avez eu des difficultés</li>
+                                        <li>Commencez à implémenter un outil à la fois dans votre relation</li>
+                                        <li>Créez votre protocole anti-crise personnalisé</li>
+                                        <li>Établissez des rituels de connexion réguliers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (score >= 50) {
+                    recommendationsHTML = `
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-check-circle text-success me-2"></i> Points forts</h5>
+                                    <ul class="list-check">
+                                        <li>Vous avez une introduction aux outils pratiques</li>
+                                        <li>Vous reconnaissez certains systèmes importants</li>
+                                        <li>Vous êtes prêt à apprendre et implémenter ces outils</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-circle text-primary me-2"></i> Axes d'amélioration</h5>
+                                    <ul class="list-check">
+                                        <li>Étudiez en profondeur les outils, surtout ceux où vous avez échoué</li>
+                                        <li>Commencez par implémenter l'outil le plus simple pour vous</li>
+                                        <li>Créez un agenda conjugal avec des moments de connexion</li>
+                                        <li>Pratiquez la méthode OSBD pour la communication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    recommendationsHTML = `
+                        <div class="col-md-12 mb-4">
+                            <div class="card h-100 border-warning">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i> Recommandations</h5>
+                                    <ul class="list-check">
+                                        <li>Consacrez du temps à maîtriser ces outils avant le mariage</li>
+                                        <li>Commencez par l'agenda conjugal et la communication OSBD</li>
+                                        <li>Créez votre protocole anti-crise personnalisé</li>
+                                        <li>Trouvez un couple mentor pour vous guider dans l'application</li>
+                                        <li>Pratiquez ces outils dans vos relations actuelles (amicales, familiales)</li>
+                                    </ul>
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-lightbulb me-2"></i> Ces outils sont essentiels pour un mariage durable - prenez le temps de les maîtriser.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            recommendations.innerHTML = recommendationsHTML;
+        }
+        
+        // Update progress counters
+        function updateProgress() {
+            const answered = answers.filter(a => a !== undefined).length;
+            const total = 20;
+            
+            answeredCount.textContent = `${answered}/${total}`;
+            quizProgress.style.width = `${(answered / total) * 100}%`;
+        }
+        
+        // Initialize the quiz when the page loads
+        window.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
